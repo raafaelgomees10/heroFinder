@@ -7,6 +7,11 @@ export const Container = styled.div`
   background-color: #f7f5e6;
   margin-bottom: 20px;
   opacity: 0.9;
+  cursor: pointer;
+  &:hover {
+    transition: 0.3s ease;
+    transform: scale(1.1);
+  }
 `;
 
 export const Image = styled.img`
@@ -19,6 +24,8 @@ export const Image = styled.img`
 `;
 
 export const Details = styled.div`
+  max-width: 240px;
+  word-break: break-word;
   padding: 16px 16px 0;
 `;
 export const Name = styled.p`
