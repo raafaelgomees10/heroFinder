@@ -3,6 +3,12 @@ import * as S from "./styles";
 import Logo from "../../assets/logo.png";
 
 const Header = () => {
+  // personagens
+  // comics
+  // criadores
+  // eventos
+  // series
+  // historias
   return (
     <S.Header>
       <S.Logo>

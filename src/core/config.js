@@ -1,7 +1,7 @@
 const config = {
-  hash: process.env.HASH,
-  apiKey: process.env.API_KEY,
-  timeStamp: process.env.TIMESTAMP,
+  hash: process.env.REACT_APP_HASH,
+  apiKey: process.env.REACT_APP_API_KEY,
+  timeStamp: process.env.REACT_APP_TIMESTAMP,
 };
 
 export default config;

@@ -11,6 +11,10 @@ export const Container = styled.div`
   &:hover {
     transition: 0.3s ease;
     transform: scale(1.1);
+
+    @media (max-width: 767px) {
+      transform: scale(1.06);
+    }
   }
 `;
 
@@ -27,6 +31,7 @@ export const Details = styled.div`
   max-width: 240px;
   word-break: break-word;
   padding: 16px 16px 0;
+  font-size: 1.6rem;
 `;
 export const Name = styled.p`
   color: #000;
