@@ -1,15 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./styles";
 import Input from "../form/input";
-import ComicCard from "../comicCard";
+import SerieCard from "../serieCard";
 import useFetch from "../../hooks/useFetch";
-import { GET_COMICS } from "../../api/api";
+import { GET_SERIES } from "../../api/api";
 
-const Comics = () => {
+const Series = () => {
   const { data, error, loading, request } = useFetch();
 
   useEffect(() => {
-    const { url, options } = GET_COMICS();
+    const { url, options } = GET_SERIES();
 
     request(url, options);
   }, [request]);
@@ -21,14 +21,15 @@ const Comics = () => {
         type="search"
         placeholder="Digite o nome do personagem que deseja buscar e tecle Enter"
       />
+
       <S.Content>
         {loading ? (
           <div>carregando .... </div>
         ) : (
           <>
             {data &&
-              data.map((comic, index) => (
-                <ComicCard key={index} data={comic} />
+              data.map((serie, index) => (
+                <SerieCard key={index} data={serie} />
               ))}
           </>
         )}
@@ -37,4 +38,4 @@ const Comics = () => {
   );
 };
 
-export default Comics;
+export default Series;

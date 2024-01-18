@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./styles";
 
-const HeroCard = ({ data }) => {
+const ComicCard = ({ data }) => {
   return (
     <S.Container>
       <S.Image
@@ -9,11 +9,11 @@ const HeroCard = ({ data }) => {
         alt="Groot"
       />
       <S.Details>
-        <S.Name>Nome: {data.name}</S.Name>
+        <S.Name>Titulo: {data.title}</S.Name>
         <S.Id>ID: {data.id}</S.Id>
       </S.Details>
     </S.Container>
   );
 };
 
-export default HeroCard;
+export default ComicCard;
