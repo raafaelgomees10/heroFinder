@@ -1,8 +1,8 @@
 import React from "react";
 import * as S from "./styles";
 
-const index = () => {
-  return <div>index</div>;
+const Comics = () => {
+  return <S.Section>index</S.Section>;
 };
 
-export default index;
+export default Comics;
