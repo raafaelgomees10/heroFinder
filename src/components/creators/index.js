@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./styles";
 import Input from "../form/input";
-import CreatorCard from "../creatorCard";
+import Card from "../card";
 import useFetch from "../../hooks/useFetch";
 import { GET_CREATORS } from "../../api/api";
 
@@ -28,8 +28,8 @@ const Creators = () => {
         ) : (
           <>
             {data &&
-              data.map((serie, index) => (
-                <CreatorCard key={index} data={serie} />
+              data.map((creator, index) => (
+                <Card key={index} type="creators" data={creator} />
               ))}
           </>
         )}

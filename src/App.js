@@ -10,6 +10,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 function App() {
   return (
     <BrowserRouter>
+      {/* <AvengersAnimation /> */}
       <Header />
       <Routes>
         <Route path="/" element={<Heros />} />
@@ -18,10 +19,7 @@ function App() {
         <Route path="criadores" element={<Creators />} />
         <Route path="historias" element={<Stories />} />
 
-        {/* 
-        <Route path="*" element={<NotFound />} />
-              <Route path="login/*" element={<LoginRouter />} />
-              <Route path="perfil/:user" element={<UserProfile />} /> */}
+        {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
     </BrowserRouter>
   );

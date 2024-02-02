@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
+import Card from "../card";
 import * as S from "./styles";
 import Input from "../form/input";
-import SerieCard from "../serieCard";
 import useFetch from "../../hooks/useFetch";
 import { GET_SERIES } from "../../api/api";
 
@@ -29,7 +29,7 @@ const Series = () => {
           <>
             {data &&
               data.map((serie, index) => (
-                <SerieCard key={index} data={serie} />
+                <Card key={index} type="series" data={serie} />
               ))}
           </>
         )}

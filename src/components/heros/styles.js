@@ -4,7 +4,6 @@ export const Section = styled.section`
   max-width: 1100px;
   margin: 0 auto;
   padding: 16px 0;
-  /* border: 1px solid red; */
 
   @media (max-width: 767px) {
     max-width: 300px;

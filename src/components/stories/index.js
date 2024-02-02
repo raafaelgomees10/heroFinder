@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./styles";
 import Input from "../form/input";
-import StorieCard from "../storieCard";
+import Card from "../card";
 import useFetch from "../../hooks/useFetch";
 import { GET_STORIES } from "../../api/api";
 
@@ -13,8 +13,6 @@ const Stories = () => {
 
     request(url, options);
   }, [request]);
-
-  console.log(data);
 
   return (
     <S.Section>
@@ -31,7 +29,7 @@ const Stories = () => {
           <>
             {data &&
               data.map((story, index) => (
-                <StorieCard key={index} data={story} />
+                <Card key={index} type="historias" data={story} />
               ))}
           </>
         )}

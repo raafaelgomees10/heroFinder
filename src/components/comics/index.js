@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import * as S from "./styles";
 import Input from "../form/input";
-import ComicCard from "../comicCard";
+import Card from "../card";
 import useFetch from "../../hooks/useFetch";
 import { GET_COMICS } from "../../api/api";
 
@@ -28,7 +28,7 @@ const Comics = () => {
           <>
             {data &&
               data.map((comic, index) => (
-                <ComicCard key={index} data={comic} />
+                <Card key={index} type="comics" data={comic} />
               ))}
           </>
         )}
