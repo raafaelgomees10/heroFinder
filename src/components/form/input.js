@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Search from "../../assets/search.svg";
 
 const Input = ({
   label,
@@ -12,9 +13,22 @@ const Input = ({
   placeholder,
 }) => {
   return (
-    <Content>
-      <Label htmlFor={name}>{label}</Label>
-      <InputForm
+    // <Content>
+    //   <Label htmlFor={name}>{label}</Label>
+    //   <InputForm
+    //     id={name}
+    //     name={name}
+    //     type={type}
+    //     placeholder={placeholder}
+    //     value={value}
+    //     onChange={onChange}
+    //     onBlur={onBlur}
+    //   />
+    //   {error && <Error>{error}</Error>}
+    // </Content>
+
+    <Container>
+      <NewInput
         id={name}
         name={name}
         type={type}
@@ -24,11 +38,38 @@ const Input = ({
         onBlur={onBlur}
       />
       {error && <Error>{error}</Error>}
-    </Content>
+    </Container>
   );
 };
 
 export default Input;
+
+const Container = styled.div`
+  height: 100%;
+  position: relative;
+`;
+
+const NewInput = styled.input`
+  width: 100%;
+  border-radius: 4px;
+  font-size: 2rem;
+  background-image: url(${Search});
+  background-position: 5px 9px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 44px;
+  outline: none;
+  border: none;
+  background-color: #000;
+  border: 1px solid black;
+  border-bottom-color: #ee171f;
+  color: #fff;
+
+  &:hover,
+  &:focus {
+    outline: none;
+    border: 1px solid #ee171f;
+  }
+`;
 
 const Content = styled.div`
   margin-bottom: 1rem;

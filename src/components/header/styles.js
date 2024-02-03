@@ -83,28 +83,45 @@ export const Ul = styled.ul`
 export const Li = styled.li`
   font-size: 1.8rem;
   margin: 0px 16px;
-  transition: 0.3s;
-  border-bottom: 2px solid black;
-
-  &:hover,
-  &:focus {
-    border-radius: 2px;
-    border-bottom: 2px solid red;
-  }
 
   @media (max-width: 767px) {
     padding: 10px 20px;
     margin: 0 8px;
-    &:hover,
-    &:focus {
-      border-radius: 2px;
-      border: 1px solid #ee171f;
-    }
   }
 `;
 
 export const Links = styled(NavLink)`
   color: #fff;
+
+  transition: color 0.5s;
+  position: relative;
+
+  &.active {
+    &::after {
+      width: 100%;
+      height: 0.2rem;
+      background-color: #ee171f;
+      position: absolute;
+      left: 0;
+      bottom: -0.5rem;
+      transition: width 0.5s;
+    }
+  }
+
+  &:after {
+    content: "";
+    width: 0%;
+    height: 0.2rem;
+    background-color: #ee171f;
+    position: absolute;
+    left: 0;
+    bottom: -0.5rem;
+    transition: width 0.5s;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
 `;
 
 export const MobileButton = styled.button`

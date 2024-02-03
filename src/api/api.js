@@ -6,7 +6,7 @@ const randomHerois = Math.floor(Math.random() * totalHeros + 1);
 
 export function GET_HEROS() {
   return {
-    url: `${API_URL}/characters?ts=${config.timeStamp}&apikey=${config.apiKey}&hash=${config.hash}&limit=12&offset=${randomHerois}`,
+    url: `${API_URL}/characters?ts=${config.timeStamp}&apikey=${config.apiKey}&hash=${config.hash}&limit=20&offset=${randomHerois}`,
     options: {
       method: "GET",
       cache: "no-store",

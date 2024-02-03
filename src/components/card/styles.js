@@ -1,41 +1,91 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled(NavLink)`
+  position: relative;
+  width: 190px;
+  position: relative;
   margin-top: 1rem;
-  padding: 10px;
-  border-radius: 6px;
-  background-color: #f7f5e6;
-  margin-bottom: 20px;
-  opacity: 0.9;
-  cursor: pointer;
-  &:hover {
-    transition: 0.3s ease;
-    transform: scale(1.1);
 
-    @media (max-width: 767px) {
-      transform: scale(1.06);
-    }
+  &::after {
+    border-color: transparent #000 transparent transparent;
+    border-style: solid;
+    border-width: 12px 12px 0 0;
+    bottom: 0;
+    content: "";
+    position: absolute;
+    right: 0;
+    top: auto;
+    z-index: 40;
+  }
+`;
+
+export const Content = styled.div`
+  //adicionar efeito skeleton na cor antes de caregar img
+  background: #1f2121;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
+  position: relative;
+
+  &::after {
+    height: 4px;
+    content: "";
+    background-color: #e62429;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
   }
 `;
 
 export const Image = styled.img`
-  border-radius: 6px;
-  padding: 4px;
-  border: 1px solid #c4c7ca;
-  border-radius: 0.25rem;
-  height: 280px;
-  width: 275px;
+  height: 210px;
+  position: relative;
+  width: 100%;
+  transition: all 0.2s linear;
+  object-fit: cover;
+  transform: scaleX(1);
+
+  ${Container}:hover & {
+    transform: scale3d(1.05, 1.05, 1);
+  }
 `;
 
 export const Details = styled.div`
-  max-width: 240px;
   word-break: break-word;
-  padding: 16px 16px 0;
+  padding: 16px 6px;
   font-size: 1.6rem;
+  position: relative;
+  height: 145px;
+  width: 100%;
+  background: #1f2121;
+  transition: color 0.3s;
+  z-index: 1;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scaleY(0);
+    transform-origin: top center;
+    background: #e62429;
+    z-index: -1;
+    transition: transform 0.5s;
+  }
+
+  ${Container}:hover & {
+    &::after {
+      transform: scaleY(1);
+    }
+  }
 `;
+
 export const Name = styled.p`
-  color: #000;
-`;
-export const Id = styled.p`
-  color: #000;
+  color: #fff;
+  margin: 0;
 `;
