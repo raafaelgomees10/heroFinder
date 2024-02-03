@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Card from "../card";
 import * as S from "./styles";
 import Input from "../form/input";
@@ -6,7 +6,7 @@ import useFetch from "../../hooks/useFetch";
 import { GET_SERIES } from "../../api/api";
 
 const Series = () => {
-  const { data, error, loading, request } = useFetch();
+  const { data, loading, request } = useFetch();
 
   useEffect(() => {
     const { url, options } = GET_SERIES();

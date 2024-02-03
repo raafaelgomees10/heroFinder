@@ -7,7 +7,7 @@ import { GET_HEROS } from "../../api/api";
 import AvengersAnimation from "../loading";
 
 const Heros = () => {
-  const { data, error, loading, request } = useFetch();
+  const { data, loading, request } = useFetch();
 
   useEffect(() => {
     const { url, options } = GET_HEROS();

@@ -6,7 +6,7 @@ import useFetch from "../../hooks/useFetch";
 import { GET_COMICS } from "../../api/api";
 
 const Comics = () => {
-  const { data, error, loading, request } = useFetch();
+  const { data, loading, request } = useFetch();
 
   useEffect(() => {
     const { url, options } = GET_COMICS();
