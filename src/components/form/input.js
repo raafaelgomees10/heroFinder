@@ -7,9 +7,10 @@ const Input = ({
   name,
   type,
   value,
-  onChange,
-  onBlur,
   error,
+  onBlur,
+  onChange,
+  onKeyDown,
   placeholder,
 }) => {
   return (
@@ -36,6 +37,7 @@ const Input = ({
         value={value}
         onChange={onChange}
         onBlur={onBlur}
+        onKeyDown={onKeyDown}
       />
       {error && <Error>{error}</Error>}
     </Container>
@@ -64,7 +66,6 @@ const NewInput = styled.input`
   border-bottom-color: #ee171f;
   color: #fff;
 
-  &:hover,
   &:focus {
     outline: none;
     border: 1px solid #ee171f;
