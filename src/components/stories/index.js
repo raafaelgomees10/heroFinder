@@ -4,6 +4,7 @@ import Input from "../form/input";
 import Card from "../card";
 import useFetch from "../../hooks/useFetch";
 import { GET_STORIES } from "../../api/api";
+import AvengersAnimation from "../loading";
 
 const Stories = () => {
   const { data, loading, request } = useFetch();
@@ -15,26 +16,25 @@ const Stories = () => {
   }, [request]);
 
   return (
-    <S.Section>
-      <Input
-        id="search"
-        type="search"
-        placeholder="Digite o nome do personagem que deseja buscar e tecle Enter"
-      />
-
-      <S.Content>
-        {loading ? (
-          <div>carregando .... </div>
-        ) : (
-          <>
+    <>
+      {loading ? (
+        <AvengersAnimation />
+      ) : (
+        <S.Section>
+          <Input
+            id="search"
+            type="search"
+            placeholder="Digite o nome do personagem que deseja buscar e tecle Enter"
+          />
+          <S.Content>
             {data &&
               data.map((story, index) => (
                 <Card key={index} type="historias" data={story} />
               ))}
-          </>
-        )}
-      </S.Content>
-    </S.Section>
+          </S.Content>
+        </S.Section>
+      )}
+    </>
   );
 };
 

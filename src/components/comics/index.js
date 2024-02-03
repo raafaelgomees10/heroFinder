@@ -4,6 +4,7 @@ import Input from "../form/input";
 import Card from "../card";
 import useFetch from "../../hooks/useFetch";
 import { GET_COMICS } from "../../api/api";
+import AvengersAnimation from "../loading";
 
 const Comics = () => {
   const { data, loading, request } = useFetch();
@@ -15,25 +16,25 @@ const Comics = () => {
   }, [request]);
 
   return (
-    <S.Section>
-      <Input
-        id="search"
-        type="search"
-        placeholder="Digite o nome do personagem que deseja buscar e tecle Enter"
-      />
-      <S.Content>
-        {loading ? (
-          <div>carregando .... </div>
-        ) : (
-          <>
+    <>
+      {loading ? (
+        <AvengersAnimation />
+      ) : (
+        <S.Section>
+          <Input
+            id="search"
+            type="search"
+            placeholder="Digite o nome do personagem que deseja buscar e tecle Enter"
+          />
+          <S.Content>
             {data &&
               data.map((comic, index) => (
                 <Card key={index} type="comics" data={comic} />
               ))}
-          </>
-        )}
-      </S.Content>
-    </S.Section>
+          </S.Content>
+        </S.Section>
+      )}
+    </>
   );
 };
 

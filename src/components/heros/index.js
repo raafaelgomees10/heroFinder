@@ -16,7 +16,7 @@ const Heros = () => {
 
   return (
     <>
-      {!loading ? (
+      {loading ? (
         <AvengersAnimation />
       ) : (
         <S.Section>
