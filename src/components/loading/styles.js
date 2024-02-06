@@ -48,4 +48,8 @@ export const Content = styled.div`
   border-radius: 50%;
   padding: 16px;
   margin-bottom: 16px;
+  > svg {
+    width: 96px;
+    max-height: 120px;
+  }
 `;

@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import Card from "../card";
 import * as S from "./styles";
-import Input from "../form/input";
 import useFetch from "../../hooks/useFetch";
 import { GET_SERIES } from "../../api/api";
 import AvengersAnimation from "../loading";
+import SearchInput from "../form/searchInput";
 
 const Series = () => {
   const { data, loading, request } = useFetch();
@@ -21,7 +21,7 @@ const Series = () => {
         <AvengersAnimation />
       ) : (
         <S.Section>
-          <Input
+          <SearchInput
             id="search"
             type="search"
             placeholder="Digite o nome do personagem que deseja buscar e tecle Enter"

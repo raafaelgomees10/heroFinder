@@ -9,6 +9,7 @@ const AvengersAnimation = () => {
   useEffect(() => {
     // Configuração inicial
     gsap.defaults({ ease: "power4.out" });
+    gsap.config({ trialWarn: false });
 
     // Cria uma timeline
     const tl = gsap.timeline({ delay: 0.4, repeat: 2 });
@@ -52,7 +53,6 @@ const AvengersAnimation = () => {
 
     gsap.set(circleGroups, { visibility: "hidden" });
     gsap.set(hiddenHeros, { visibility: "hidden" });
-
     //função para embaralhar a ordem dos herois
     const shuffleHeros = (array) => {
       for (let i = array.length - 1; i > 0; i--) {

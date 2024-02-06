@@ -27,7 +27,7 @@ export function SEARCH_HEROS(name) {
 
 export function GET_COMICS() {
   return {
-    url: `${API_URL}/comics?ts=${config.timeStamp}&apikey=${config.apiKey}&hash=${config.hash}&offset=${randomHerois}&limit=15`,
+    url: `${API_URL}/comics?${baseParams}&offset=${randomHerois}&limit=15`,
     options: {
       method: "GET",
       cache: "no-store",

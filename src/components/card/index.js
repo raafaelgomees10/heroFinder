@@ -2,7 +2,6 @@ import React from "react";
 import * as S from "./styles";
 
 const Card = ({ data, type }) => {
-  console.log(data);
   return (
     <S.Container>
       <S.Content>

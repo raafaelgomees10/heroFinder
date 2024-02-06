@@ -18,11 +18,11 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
   align-items: stretch;
-  gap: 16px;
+  gap: 16px 37px;
   margin-top: 32px;
   @media (max-width: 767px) {
     justify-content: center;
