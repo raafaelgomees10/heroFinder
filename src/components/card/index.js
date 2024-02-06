@@ -1,9 +1,9 @@
 import React from "react";
 import * as S from "./styles";
 
-const Card = ({ data, type }) => {
+const Card = ({ data }) => {
   return (
-    <S.Container>
+    <S.Container to={`/personagens/${data.id}`}>
       <S.Content>
         <S.Image
           src={`${

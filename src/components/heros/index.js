@@ -3,13 +3,13 @@ import Card from "../card";
 import * as S from "./styles";
 import Error from "../error/error";
 import AvengersAnimation from "../loading";
-import HeaderBg from "../../assets/teste.jpg";
-import HeaderBgMobile from "../../assets/herosBgMobile.jpg";
+import useMedia from "../../hooks/useMedia";
 import useFetch from "../../hooks/useFetch";
+import HeaderBg from "../../assets/teste.jpg";
 import SearchInput from "../form/searchInput";
 import SearchNotFound from "../helper/searchNotFound";
 import { GET_HEROS, SEARCH_HEROS } from "../../api/api";
-import useMedia from "../../hooks/useMedia";
+import HeaderBgMobile from "../../assets/herosBgMobile.jpg";
 
 const Heros = () => {
   const [heroSearch, setHeroSearch] = useState("");
@@ -72,14 +72,7 @@ const Heros = () => {
               {total > 0 ? (
                 <>
                   {data &&
-                    data.map((hero, index) => (
-                      <Card
-                        key={index}
-                        index={index}
-                        type="heros"
-                        data={hero}
-                      />
-                    ))}
+                    data.map((hero, index) => <Card key={index} data={hero} />)}
                 </>
               ) : (
                 <SearchNotFound />

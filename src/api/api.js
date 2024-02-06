@@ -15,6 +15,26 @@ export function GET_HEROS() {
   };
 }
 
+export function GET_HERO(heroId) {
+  return {
+    url: `${API_URL}/characters/${heroId}?${baseParams}`,
+    options: {
+      method: "GET",
+      cache: "no-store",
+    },
+  };
+}
+
+export function GET_HERO_EVENT(heroId) {
+  return {
+    url: `${API_URL}/characters/${heroId}/events?${baseParams}`,
+    options: {
+      method: "GET",
+      // cache: "no-store",
+    },
+  };
+}
+
 export function SEARCH_HEROS(name) {
   return {
     url: `${API_URL}/characters?nameStartsWith=${name}&${baseParams}&limit=20`,
@@ -35,9 +55,18 @@ export function GET_COMICS() {
   };
 }
 
-export function GET_CREATORS() {
+export function GET_EVENTS() {
   return {
-    url: `${API_URL}/creators?${baseParams}&offset=${randomHerois}&limit=15`,
+    url: `${API_URL}/events?${baseParams}&offset=${randomHerois}&limit=15`,
+    options: {
+      method: "GET",
+      cache: "no-store",
+    },
+  };
+}
+export function GET_EVENT(eventId) {
+  return {
+    url: `${API_URL}/events/${eventId}?${baseParams}`,
     options: {
       method: "GET",
       cache: "no-store",
@@ -45,9 +74,9 @@ export function GET_CREATORS() {
   };
 }
 
-export function GET_EVENTS() {
+export function GET_CREATORS() {
   return {
-    url: `${API_URL}/events?${baseParams}&offset=${randomHerois}&limit=15`,
+    url: `${API_URL}/creators?${baseParams}&offset=${randomHerois}&limit=15`,
     options: {
       method: "GET",
       cache: "no-store",
