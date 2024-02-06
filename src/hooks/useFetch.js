@@ -2,6 +2,7 @@ import { useCallback, useState } from "react";
 
 const useFetch = () => {
   const [data, setData] = useState(null);
+  const [total, setTotal] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -23,12 +24,13 @@ const useFetch = () => {
       setError(e.message);
     } finally {
       setData(json.data.results);
+      setTotal(json.data.total);
       setLoading(false);
       return { response, json };
     }
   }, []);
 
-  return { data, loading, error, request };
+  return { data, loading, error, total, request };
 };
 
 export default useFetch;
