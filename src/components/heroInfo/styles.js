@@ -1,12 +1,22 @@
 import styled from "styled-components";
 import BgImage from "../../assets/SkyLinefinal.png";
+import BgTeste from "../../assets/bgBlack.jpg";
 
 export const Section = styled.section`
   padding: 0 0;
   background-color: #fff;
 `;
+
+export const Wrapper = styled.div`
+  /* background-image: url(${BgTeste});
+  background-size: contain, auto;
+  background-position: top;
+  background-repeat: repeat-y; */
+`;
+
 export const Container = styled.div`
   max-width: 1100px;
+  /* margin: 0 auto 0; */
   margin: 3rem auto 0;
 
   @media (max-width: 767px) {
@@ -59,7 +69,7 @@ export const Name = styled.h1`
 export const Description = styled.p`
   font-size: 1.6rem;
   font-family: "Bangers", sans-serif;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
 `;
 
 export const Image = styled.img`

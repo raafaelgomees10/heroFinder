@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import Card from "../card";
 import * as S from "./styles";
-import useFetch from "../../hooks/useFetch";
 import { GET_SERIES } from "../../api/api";
 import AvengersAnimation from "../loading";
-import SearchInput from "../form/searchInput";
+import useFetch from "../../hooks/useFetch";
+import SearchInput from "../helper/searchInput";
 
 const Series = () => {
   const { data, loading, request } = useFetch();

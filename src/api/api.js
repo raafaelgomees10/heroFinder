@@ -7,7 +7,7 @@ const baseParams = `ts=${config.timeStamp}&apikey=${config.apiKey}&hash=${config
 
 export function GET_HEROS() {
   return {
-    url: `${API_URL}/characters?${baseParams}&offset=${randomHerois}&limit=20`,
+    url: `${API_URL}/characters?${baseParams}&offset=${randomHerois}&limit=15`,
     options: {
       method: "GET",
       cache: "no-store",
@@ -25,9 +25,38 @@ export function GET_HERO(heroId) {
   };
 }
 
-export function GET_HERO_EVENT(heroId) {
+export function GET_HERO_EVENTS(heroId) {
   return {
     url: `${API_URL}/characters/${heroId}/events?${baseParams}`,
+    options: {
+      method: "GET",
+      // cache: "no-store",
+    },
+  };
+}
+
+export function GET_HERO_COMICS(heroId) {
+  return {
+    url: `${API_URL}/characters/${heroId}/comics?${baseParams}`,
+    options: {
+      method: "GET",
+      // cache: "no-store",
+    },
+  };
+}
+export function GET_HERO_SERIES(heroId) {
+  return {
+    url: `${API_URL}/characters/${heroId}/series?${baseParams}`,
+    options: {
+      method: "GET",
+      // cache: "no-store",
+    },
+  };
+}
+
+export function GET_HERO_STORIES(heroId) {
+  return {
+    url: `${API_URL}/characters/${heroId}/stories?${baseParams}`,
     options: {
       method: "GET",
       // cache: "no-store",

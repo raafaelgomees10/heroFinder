@@ -5,8 +5,8 @@ import Comics from "./components/comics";
 import Series from "./components/series";
 import Stories from "./components/stories";
 import Creators from "./components/creators";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HeroInfo from "./components/heroInfo";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (

@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import * as S from "./styles";
 import Card from "../card";
+import * as S from "./styles";
+import AvengersAnimation from "../loading";
 import useFetch from "../../hooks/useFetch";
 import { GET_STORIES } from "../../api/api";
-import AvengersAnimation from "../loading";
-import SearchInput from "../form/searchInput";
+import SearchInput from "../helper/searchInput";
 
 const Stories = () => {
   const { data, loading, request } = useFetch();

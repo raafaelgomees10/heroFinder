@@ -6,10 +6,10 @@ import AvengersAnimation from "../loading";
 import useMedia from "../../hooks/useMedia";
 import useFetch from "../../hooks/useFetch";
 import HeaderBg from "../../assets/teste.jpg";
-import SearchInput from "../form/searchInput";
 import SearchNotFound from "../helper/searchNotFound";
 import { GET_HEROS, SEARCH_HEROS } from "../../api/api";
 import HeaderBgMobile from "../../assets/herosBgMobile.jpg";
+import SearchInput from "../helper/searchInput";
 
 const Heros = () => {
   const [heroSearch, setHeroSearch] = useState("");
@@ -57,28 +57,32 @@ const Heros = () => {
         {loading ? (
           <AvengersAnimation />
         ) : (
-          <S.Container>
-            <form onSubmit={handleSubmit}>
-              <SearchInput
-                id="search"
-                type="search"
-                placeholder="Pesquisar Personagem"
-                onChange={handleChange}
-                value={heroSearch}
-              />
-            </form>
+          <S.Teste>
+            <S.Container>
+              <form onSubmit={handleSubmit}>
+                <SearchInput
+                  id="search"
+                  type="search"
+                  placeholder="Pesquisar Personagem"
+                  onChange={handleChange}
+                  value={heroSearch}
+                />
+              </form>
 
-            <S.Content>
-              {total > 0 ? (
-                <>
-                  {data &&
-                    data.map((hero, index) => <Card key={index} data={hero} />)}
-                </>
-              ) : (
-                <SearchNotFound />
-              )}
-            </S.Content>
-          </S.Container>
+              <S.Content>
+                {total > 0 ? (
+                  <>
+                    {data &&
+                      data.map((hero, index) => (
+                        <Card key={index} data={hero} />
+                      ))}
+                  </>
+                ) : (
+                  <SearchNotFound />
+                )}
+              </S.Content>
+            </S.Container>
+          </S.Teste>
         )}
       </S.Section>
     </>

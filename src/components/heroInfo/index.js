@@ -3,11 +3,11 @@ import useFetch from "../../hooks/useFetch";
 import { GET_HERO } from "../../api/api";
 import AvengersAnimation from "../loading";
 import * as S from "./styles";
-import Events from "../events";
+
+import HeroDetails from "./components/heroDetails";
 
 const HeroInfo = () => {
   const { data, loading, error, total, request } = useFetch();
-  const [hero, setHero] = useState();
 
   useEffect(() => {
     const urlPath = window.location.pathname.split("/");
@@ -15,16 +15,14 @@ const HeroInfo = () => {
     const { url, options } = GET_HERO(heroId);
     request(url, options);
   }, [request]);
-  console.log("hero", data);
-
   return (
     <S.Section>
-      <S.BackgroundImage></S.BackgroundImage>
+      <S.BackgroundImage />
 
       {loading ? (
         <AvengersAnimation />
       ) : (
-        <>
+        <S.Wrapper>
           {data && (
             <S.Container>
               <S.Content>
@@ -34,7 +32,7 @@ const HeroInfo = () => {
                       ? ` ${data[0].thumbnail.path}.${data[0].thumbnail.extension}`
                       : ""
                   }`}
-                  alt="Groot"
+                  alt={data[0].name}
                 />
 
                 <S.Box>
@@ -42,15 +40,33 @@ const HeroInfo = () => {
                   <S.Description>{data[0].description}</S.Description>
                 </S.Box>
               </S.Content>
-              {data[0].events.available > 0 && (
-                <Events
-                  heroId={data[0].id}
-                  url={data[0].events.collectionURI}
-                />
-              )}
+
+              <HeroDetails
+                heroId={data[0].id}
+                totalAvailible={data[0].comics.available}
+                title="quadrinhos"
+              />
+
+              <HeroDetails
+                heroId={data[0].id}
+                totalAvailible={data[0].events.available}
+                title="eventos"
+              />
+
+              <HeroDetails
+                heroId={data[0].id}
+                totalAvailible={data[0].events.available}
+                title="histórias"
+              />
+
+              <HeroDetails
+                heroId={data[0].id}
+                totalAvailible={data[0].events.available}
+                title="series"
+              />
             </S.Container>
           )}
-        </>
+        </S.Wrapper>
       )}
     </S.Section>
   );

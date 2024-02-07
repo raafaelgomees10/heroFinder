@@ -106,17 +106,17 @@ const AvengersAnimation = () => {
         />
         <path
           id="circle1"
-          class="st1"
+          className="st1"
           d="M50,60a10,10 0 1,0 20,0a10,10 0 1,0 -20,0"
         />
         <path
           id="circle2"
-          class="st1"
+          className="st1"
           d="M50,60a10,10 0 1,0 20,0a10,10 0 1,0 -20,0"
         />
         <path
           id="circle3"
-          class="st1"
+          className="st1"
           d="M45.2,60a14.8,14.8 0 1,0 29.6,0a14.8,14.8 0 1,0 -29.6,0"
         />
         <path

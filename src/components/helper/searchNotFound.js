@@ -5,7 +5,7 @@ import NotFound from "../../assets/groot.gif";
 const SearchNotFound = () => {
   return (
     <Container>
-      <Text class="notFoundLabel">
+      <Text className="notFoundLabel">
         Desculpe... Não foi possível encontrar sua pesquisa :(
       </Text>
       <Content>

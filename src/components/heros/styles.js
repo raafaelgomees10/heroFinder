@@ -1,10 +1,12 @@
 import styled from "styled-components";
+import BgTeste from "../../assets/bgBlack.jpg";
 
 export const Section = styled.section`
-  padding: 0 0 64px;
+  /* padding: 0 0 64px; */
 `;
 export const Container = styled.div`
   max-width: 1100px;
+  margin: 0 auto;
   margin: 3rem auto 0;
 
   @media (max-width: 767px) {
@@ -46,6 +48,13 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+`;
+
+export const Teste = styled.div`
+  /* background-image: url(${BgTeste});
+  background-size: cover, auto;
+  background-position: top;
+  background-repeat: no-repeat; */
 `;
 
 export const Text = styled.div`
