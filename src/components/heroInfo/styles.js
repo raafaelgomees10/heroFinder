@@ -3,7 +3,7 @@ import BgImage from "../../assets/SkyLinefinal.png";
 import BgTeste from "../../assets/bgBlack.jpg";
 
 export const Section = styled.section`
-  padding: 0 0;
+  padding: 0;
   background-color: #fff;
 `;
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./styles";
 import "@splidejs/react-splide/css/sea-green";
 import useFetch from "../../../../hooks/useFetch";
@@ -9,32 +9,37 @@ import {
   GET_HERO_SERIES,
   GET_HERO_STORIES,
 } from "../../../../api/api";
+import ModalDetails from "../modalDetails";
 
 const HeroDetails = ({ heroId, totalAvailible, title, method }) => {
+  const [modalDetails, setModalDetails] = useState(false);
   const { data, loading, error, total, request } = useFetch();
 
   useEffect(() => {
     if (title === "quadrinhos") {
       const { url, options } = GET_HERO_COMICS(heroId);
       request(url, options);
-      console.log("1");
     }
     if (title === "eventos") {
-      console.log("2");
       const { url, options } = GET_HERO_EVENTS(heroId);
       request(url, options);
     }
     if (title === "histórias") {
-      console.log("3");
       const { url, options } = GET_HERO_STORIES(heroId);
       request(url, options);
     }
     if (title === "series") {
-      console.log("4");
       const { url, options } = GET_HERO_SERIES(heroId);
       request(url, options);
     }
   }, [heroId, request, title]);
+
+  const handleClick = (title, id) => {
+    if (title === "quadrinhos") {
+      window.open(`/quadrinhos/${id}`, "_blank");
+    }
+    // setModalDetails(true);
+  };
 
   return (
     <S.Container>
@@ -61,7 +66,7 @@ const HeroDetails = ({ heroId, totalAvailible, title, method }) => {
                 {data &&
                   data.map((item) => (
                     <SplideSlide key={item.id}>
-                      <S.Box>
+                      <S.Box onClick={() => handleClick(title, item.id)}>
                         <S.Image
                           src={`${
                             item.thumbnail
@@ -94,6 +99,8 @@ const HeroDetails = ({ heroId, totalAvailible, title, method }) => {
                 ))}
             </div>
           )}
+
+          {modalDetails && <ModalDetails setModalDetails={setModalDetails} />}
         </S.Content>
       )}
     </S.Container>

@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
-import useFetch from "../../hooks/useFetch";
+import React, { useEffect } from "react";
+import * as S from "./styles";
 import { GET_HERO } from "../../api/api";
 import AvengersAnimation from "../loading";
-import * as S from "./styles";
-
+import useFetch from "../../hooks/useFetch";
 import HeroDetails from "./components/heroDetails";
 
 const HeroInfo = () => {
@@ -37,7 +36,13 @@ const HeroInfo = () => {
 
                 <S.Box>
                   <S.Name>{data[0].name}</S.Name>
-                  <S.Description>{data[0].description}</S.Description>
+                  <S.Description>
+                    {data[0].description !== "" ? (
+                      data[0].description
+                    ) : (
+                      <>Descrição não fornecida pelos dados da marvel</>
+                    )}
+                  </S.Description>
                 </S.Box>
               </S.Content>
 

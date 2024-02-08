@@ -11,7 +11,7 @@ const Card = ({ data }) => {
               ? ` ${data.thumbnail.path}.${data.thumbnail.extension}`
               : ""
           }`}
-          alt="Groot"
+          alt={data.name}
         />
       </S.Content>
 

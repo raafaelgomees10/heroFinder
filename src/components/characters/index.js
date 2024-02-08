@@ -6,12 +6,12 @@ import AvengersAnimation from "../loading";
 import useMedia from "../../hooks/useMedia";
 import useFetch from "../../hooks/useFetch";
 import HeaderBg from "../../assets/teste.jpg";
+import SearchInput from "../helper/searchInput";
 import SearchNotFound from "../helper/searchNotFound";
 import { GET_HEROS, SEARCH_HEROS } from "../../api/api";
 import HeaderBgMobile from "../../assets/herosBgMobile.jpg";
-import SearchInput from "../helper/searchInput";
 
-const Heros = () => {
+const Characters = () => {
   const [heroSearch, setHeroSearch] = useState("");
   const { data, loading, error, total, request } = useFetch();
 
@@ -89,4 +89,4 @@ const Heros = () => {
   );
 };
 
-export default Heros;
+export default Characters;

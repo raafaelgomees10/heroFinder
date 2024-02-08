@@ -2,7 +2,9 @@ import config from "../core/config";
 
 const API_URL = "http://gateway.marvel.com/v1/public";
 const totalHeros = 1564; //total de herois consultado na api
+const totalComics = 59073;
 const randomHerois = Math.floor(Math.random() * totalHeros + 1);
+const randomComics = Math.floor(Math.random() * totalComics + 1);
 const baseParams = `ts=${config.timeStamp}&apikey=${config.apiKey}&hash=${config.hash}`;
 
 export function GET_HEROS() {
@@ -76,7 +78,27 @@ export function SEARCH_HEROS(name) {
 
 export function GET_COMICS() {
   return {
-    url: `${API_URL}/comics?${baseParams}&offset=${randomHerois}&limit=15`,
+    url: `${API_URL}/comics?${baseParams}&offset=${randomComics}&limit=15`,
+    options: {
+      method: "GET",
+      cache: "no-store",
+    },
+  };
+}
+
+export function GET_COMIC(comicId) {
+  return {
+    url: `${API_URL}/comics/${comicId}?${baseParams}`,
+    options: {
+      method: "GET",
+      cache: "no-store",
+    },
+  };
+}
+
+export function SEARCH_COMICS(name) {
+  return {
+    url: `${API_URL}/comics?titleStartsWith=${name}&${baseParams}&limit=15`,
     options: {
       method: "GET",
       cache: "no-store",

@@ -1,21 +1,23 @@
 import "./App.css";
-import Heros from "./components/heros";
 import Header from "./components/header";
 import Comics from "./components/comics";
 import Series from "./components/series";
 import Stories from "./components/stories";
 import Creators from "./components/creators";
 import HeroInfo from "./components/heroInfo";
+import Characters from "./components/characters";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ComicInfo from "./components/comicInfo";
 
 function App() {
   return (
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Heros />} />
+        <Route path="/" element={<Characters />} />
         <Route path="/personagens/:id" element={<HeroInfo />} />
         <Route path="quadrinhos" element={<Comics />} />
+        <Route path="/quadrinhos/:id" element={<ComicInfo />} />
         <Route path="series" element={<Series />} />
         <Route path="criadores" element={<Creators />} />
         <Route path="historias" element={<Stories />} />
