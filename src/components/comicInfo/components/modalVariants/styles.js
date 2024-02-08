@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import { NavLink } from "react-router-dom";
-import BgTeste from "../../../../assets/1.jpg";
+import BgTeste from "../../../../assets/5.jpg";
 
 const fade = keyframes`
 0% {
@@ -34,7 +34,9 @@ export const Background = styled.div`
 export const Content = styled.div`
   background-image: url(${BgTeste});
   background-size: cover, auto;
-  background-position: top;
+  background-position: center;
+  /* background-position-x: 100%; */
+  background-repeat: no-repeat;
   background-color: #282a2d;
   position: absolute;
   top: 50%;
@@ -60,16 +62,17 @@ export const Box = styled.div`
   overflow-y: auto;
 
   &::-webkit-scrollbar {
-    width: 6px;
+    width: 7px;
   }
 
   &::-webkit-scrollbar-track {
-    background: #1b1d20;
+    opacity: 0.5;
+    background-color: #413f42;
     padding: 2px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #425168;
+    background: #7f8487;
   }
 
   @media (max-width: 767px) {

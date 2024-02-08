@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import BgImage from "../../assets/SkyLinefinal.png";
-import BgTeste from "../../assets/bgBlack.jpg";
+import BgTeste from "../../assets/3.jpg";
 
 export const Section = styled.section`
   padding: 0;
@@ -8,16 +8,18 @@ export const Section = styled.section`
 `;
 
 export const Wrapper = styled.div`
-  /* background-image: url(${BgTeste});
-  background-size: contain, auto;
-  background-position: top;
-  background-repeat: repeat-y; */
+  padding: 3rem 0;
+  background-color: #fff;
+  background-image: url(${BgTeste});
+  background-size: cover, auto;
+  background-position: center;
+  background-repeat: no-repeat;
 `;
 
 export const Container = styled.div`
   max-width: 1100px;
   /* margin: 0 auto 0; */
-  margin: 3rem auto 0;
+  margin: 0 auto;
 
   @media (max-width: 767px) {
     max-width: 300px;

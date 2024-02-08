@@ -7,7 +7,6 @@ import {
   GET_HERO_COMICS,
   GET_HERO_EVENTS,
   GET_HERO_SERIES,
-  GET_HERO_STORIES,
 } from "../../../../api/api";
 import ModalDetails from "../modalDetails";
 
@@ -16,18 +15,15 @@ const HeroDetails = ({ heroId, totalAvailible, title, method }) => {
   const { data, loading, error, total, request } = useFetch();
 
   useEffect(() => {
-    if (title === "quadrinhos") {
+    if (title === "comics") {
       const { url, options } = GET_HERO_COMICS(heroId);
       request(url, options);
     }
-    if (title === "eventos") {
+    if (title === "events") {
       const { url, options } = GET_HERO_EVENTS(heroId);
       request(url, options);
     }
-    if (title === "histórias") {
-      const { url, options } = GET_HERO_STORIES(heroId);
-      request(url, options);
-    }
+
     if (title === "series") {
       const { url, options } = GET_HERO_SERIES(heroId);
       request(url, options);
@@ -35,10 +31,9 @@ const HeroDetails = ({ heroId, totalAvailible, title, method }) => {
   }, [heroId, request, title]);
 
   const handleClick = (title, id) => {
-    if (title === "quadrinhos") {
+    if (title === "comics") {
       window.open(`/quadrinhos/${id}`, "_blank");
     }
-    // setModalDetails(true);
   };
 
   return (
@@ -51,15 +46,13 @@ const HeroDetails = ({ heroId, totalAvailible, title, method }) => {
         <S.Content>
           {totalAvailible > 4 ? (
             <>
-              {title === "quadrinhos" && console.log("comic", data)}
-              {/* {title === "histórias" && console.log("hist", data)} */}
               <Splide
                 options={{
                   rewind: true,
                   gap: "2rem",
                   perPage: 4,
                   autoplay: true,
-                  perMove: 1,
+                  perMove: 4,
                 }}
                 aria-label={title}
               >

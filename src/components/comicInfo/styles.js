@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export const Section = styled.section``;
 
 export const Wrapper = styled.div`
-  padding: 3rem 0 0;
+  padding: 3rem 0;
   background-color: #fff;
   background-image: url(${BgTeste});
   background-size: cover, auto;
@@ -116,7 +116,9 @@ export const Details = styled.div`
   padding: 0.8rem 1.6rem;
   border: solid #000;
   border-width: 3px 4px 3px 5px;
-  margin-bottom: 24px;
+  &:not(:first-of-type) {
+    margin-top: 24px;
+  }
 `;
 
 export const Title = styled.h1`
@@ -193,5 +195,20 @@ export const CreatorName = styled(Link)`
       text-decoration: underline;
       color: #ee171f;
     }
+  }
+`;
+
+export const Text = styled(Link)`
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.4rem;
+  margin: 0;
+
+  > p {
+    margin: 0;
+  }
+  &:hover {
+    text-decoration: underline;
+    color: #ee171f;
   }
 `;

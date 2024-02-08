@@ -45,30 +45,21 @@ const HeroInfo = () => {
                   </S.Description>
                 </S.Box>
               </S.Content>
-
               <HeroDetails
                 heroId={data[0].id}
                 totalAvailible={data[0].comics.available}
-                title="quadrinhos"
+                title="comics"
               />
-
               <HeroDetails
                 heroId={data[0].id}
                 totalAvailible={data[0].events.available}
-                title="eventos"
+                title="events"
               />
-
-              <HeroDetails
-                heroId={data[0].id}
-                totalAvailible={data[0].events.available}
-                title="histórias"
-              />
-
               <HeroDetails
                 heroId={data[0].id}
                 totalAvailible={data[0].events.available}
                 title="series"
-              />
+              />{" "}
             </S.Container>
           )}
         </S.Wrapper>

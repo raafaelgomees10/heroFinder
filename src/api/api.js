@@ -29,7 +29,7 @@ export function GET_HERO(heroId) {
 
 export function GET_HERO_EVENTS(heroId) {
   return {
-    url: `${API_URL}/characters/${heroId}/events?${baseParams}`,
+    url: `${API_URL}/characters/${heroId}/events?${baseParams}&limit=100`,
     options: {
       method: "GET",
       // cache: "no-store",
@@ -39,7 +39,7 @@ export function GET_HERO_EVENTS(heroId) {
 
 export function GET_HERO_COMICS(heroId) {
   return {
-    url: `${API_URL}/characters/${heroId}/comics?${baseParams}`,
+    url: `${API_URL}/characters/${heroId}/comics?${baseParams}&limit=100`,
     options: {
       method: "GET",
       // cache: "no-store",
@@ -48,7 +48,7 @@ export function GET_HERO_COMICS(heroId) {
 }
 export function GET_HERO_SERIES(heroId) {
   return {
-    url: `${API_URL}/characters/${heroId}/series?${baseParams}`,
+    url: `${API_URL}/characters/${heroId}/series?${baseParams}&limit=100`,
     options: {
       method: "GET",
       // cache: "no-store",
@@ -58,7 +58,7 @@ export function GET_HERO_SERIES(heroId) {
 
 export function GET_HERO_STORIES(heroId) {
   return {
-    url: `${API_URL}/characters/${heroId}/stories?${baseParams}`,
+    url: `${API_URL}/characters/${heroId}/stories?${baseParams}&limit=100`,
     options: {
       method: "GET",
       // cache: "no-store",

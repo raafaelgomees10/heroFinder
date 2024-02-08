@@ -28,7 +28,7 @@ const ComicInfo = () => {
   data &&
     data[0].creators.items.map((creator) => {
       const urlPath = creator.resourceURI.split("/");
-      const creatorId = urlPath.pop(2);
+      const creatorId = urlPath.pop();
       if (creatorsObject[creator.role]) {
         creatorsObject[creator.role].push({
           name: creator.name,
@@ -46,6 +46,7 @@ const ComicInfo = () => {
     people,
   }));
 
+  const serieId = data && data[0].series.resourceURI.split("/").pop();
   return (
     <>
       {data && (
@@ -67,9 +68,22 @@ const ComicInfo = () => {
                     <S.Title>{data[0].title}</S.Title>
                     <S.SubTitle>
                       Published:
-                      <span>{formatedDate}</span>
+                      <span> {formatedDate}</span>
                     </S.SubTitle>
-                    <S.Description>{data[0].description}</S.Description>
+                    <S.Description>
+                      {data[0].description !== ""
+                        ? data[0].description
+                        : "No description provided by marvel."}
+                    </S.Description>
+
+                    <S.SubTitle>
+                      Serie:
+                      <span>
+                        <S.Text to={`/series/${serieId}`}>
+                          <p>{data[0].series.name}</p>
+                        </S.Text>
+                      </span>
+                    </S.SubTitle>
 
                     {data[0].variants.length > 0 && (
                       <S.Covers onClick={() => setModal(true)}>
@@ -103,6 +117,8 @@ const ComicInfo = () => {
                       </S.Creators>
                     </S.Details>
                   )}
+                  {/* </S.Details> */}
+
                   {modal && (
                     <ModalVariants
                       variants={data[0].variants}

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Variants from "./variants";
 import * as S from "./styles";
+import { ReactComponent as CloseButton } from "../../../../assets/closeIcon.svg";
 const ModalVariants = ({ setModal, variants }) => {
   useEffect(() => {
     const escFunction = (event) => {
@@ -20,7 +21,9 @@ const ModalVariants = ({ setModal, variants }) => {
     <S.Container>
       <S.Background onClick={() => setModal(false)} />
       <S.Content>
-        <S.Close onClick={() => setModal(false)}>X</S.Close>
+        <S.Close onClick={() => setModal(false)}>
+          <CloseButton />
+        </S.Close>
         <S.Title>Variants covers for this comic</S.Title>
         <S.Box>
           {variants.map((item, index) => {

@@ -41,9 +41,6 @@ const Header = () => {
             <S.Li>
               <S.Links to="/series">Series</S.Links>
             </S.Li>
-            <S.Li>
-              <S.Links to="/historias">Historias</S.Links>
-            </S.Li>
           </S.Ul>
         </S.Nav>
       </S.Container>
