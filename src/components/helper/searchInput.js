@@ -45,7 +45,7 @@ const Wrapper = styled.div`
   /* box-shadow: 0 0 4px #ee171f; */
   display: flex;
   align-items: center;
-  background-color: #000;
+  background-color: #121212;
   color: #fff;
   border: 1px solid transparent;
   border-bottom-color: #ee171f;

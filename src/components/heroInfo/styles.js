@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import BgImage from "../../assets/SkyLinefinal.png";
-import BgTeste from "../../assets/3.jpg";
+import BgTeste from "../../assets/bgBlack.jpg";
 
 export const Section = styled.section`
   padding: 0;
@@ -18,7 +18,6 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
   max-width: 1100px;
-  /* margin: 0 auto 0; */
   margin: 0 auto;
 
   @media (max-width: 767px) {
@@ -41,7 +40,7 @@ export const BackgroundImage = styled.div`
     /* #163c52 0%, */
       linear-gradient(
         to bottom,
-        #000 0%,
+        #121212 0%,
         #4f4f47 30%,
         #c5752d 60%,
         #b7490f 80%,

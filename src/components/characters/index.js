@@ -57,7 +57,7 @@ const Characters = () => {
         {loading ? (
           <AvengersAnimation />
         ) : (
-          <S.Teste>
+          <S.Background>
             <S.Container>
               <form onSubmit={handleSubmit}>
                 <SearchInput
@@ -82,7 +82,7 @@ const Characters = () => {
                 )}
               </S.Content>
             </S.Container>
-          </S.Teste>
+          </S.Background>
         )}
       </S.Section>
     </>

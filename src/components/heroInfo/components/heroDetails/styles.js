@@ -9,8 +9,12 @@ export const Container = styled.div`
 export const Content = styled.div`
   display: flex;
   justify-content: space-between;
-  gap: 4rem;
-  height: 100%;
+
+  &.noSlide {
+    margin: 20px 0;
+    justify-content: flex-start !important;
+    gap: 0 7rem;
+  }
 
   .splide {
     width: 100%;
@@ -50,6 +54,7 @@ export const Box = styled.div`
   display: inline-block;
   margin-bottom: 20px;
   transition: all 0.2s ease-in-out;
+  max-width: 170px;
 
   &:hover {
     transform: translate3d(0, -10px, 0);
@@ -57,16 +62,14 @@ export const Box = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 224px;
-  height: 336px;
-  box-shadow: 0 26px 24px -16px rgba(0, 0, 0, 0.4);
+  width: 164px;
+  height: 226px;
+  box-shadow: 0 26px 24px -16px rgba(0, 0, 0, 0.6);
 `;
 export const Name = styled.h3`
-  /* text-align: center; */
   font-size: 1.8rem;
   font-family: "Bangers", sans-serif;
   background-color: transparent;
   margin: 20px 0 0;
   font-weight: 400;
-  max-width: 215px;
 `;

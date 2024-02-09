@@ -45,12 +45,12 @@ export const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-export const Teste = styled.div`
+export const Background = styled.div`
   /* background-image: url(${BgTeste});
   background-size: cover, auto;
   background-position: top;
   background-repeat: no-repeat; */
-  background-color: #fff;
+  background-color: #121212;
 `;
 
 export const Text = styled.div`

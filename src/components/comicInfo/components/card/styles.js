@@ -8,7 +8,7 @@ export const Container = styled(NavLink)`
   margin-top: 1rem;
 
   &::after {
-    border-color: transparent #000 transparent transparent;
+    border-color: transparent #2e2e2e transparent transparent;
     border-style: solid;
     border-width: 12px 12px 0 0;
     bottom: 0;
@@ -22,7 +22,7 @@ export const Container = styled(NavLink)`
 
 export const Content = styled.div`
   //adicionar efeito skeleton na cor antes de caregar img
-  background: #1f2121;
+  background: #2e2e2e;
   margin: 0;
   overflow: hidden;
   padding: 0;

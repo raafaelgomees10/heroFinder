@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const Header = styled.header`
   width: 100%;
-  background-color: black;
+  background-color: #121212;
   padding: 10px;
   @media (max-width: 767px) {
     text-align: center;

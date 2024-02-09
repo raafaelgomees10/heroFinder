@@ -16,7 +16,7 @@ const ModalVariants = ({ setModal, variants }) => {
       window.removeEventListener("keydown ", escFunction);
     };
   }, [setModal, variants]);
-
+  const total = variants && variants.length;
   return (
     <S.Container>
       <S.Background onClick={() => setModal(false)} />
@@ -25,7 +25,7 @@ const ModalVariants = ({ setModal, variants }) => {
           <CloseButton />
         </S.Close>
         <S.Title>Variants covers for this comic</S.Title>
-        <S.Box>
+        <S.Box className={total > 4 && "column"}>
           {variants.map((item, index) => {
             const comicId = item.resourceURI.split("/").pop();
             return <Variants key={index} comicId={comicId} />;

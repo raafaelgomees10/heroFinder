@@ -43,16 +43,16 @@ const HeroDetails = ({ heroId, totalAvailible, title, method }) => {
       {loading ? (
         <>Carregando</>
       ) : (
-        <S.Content>
+        <S.Content className={totalAvailible > 4 ? "" : "noSlide"}>
           {totalAvailible > 4 ? (
             <>
               <Splide
                 options={{
                   rewind: true,
                   gap: "2rem",
-                  perPage: 4,
-                  autoplay: true,
-                  perMove: 4,
+                  perPage: 5,
+                  autoplay: false,
+                  perMove: 5,
                 }}
                 aria-label={title}
               >
@@ -75,7 +75,7 @@ const HeroDetails = ({ heroId, totalAvailible, title, method }) => {
               </Splide>
             </>
           ) : (
-            <div style={{ margin: "20px 0 " }}>
+            <>
               {data &&
                 data.map((event) => (
                   <S.Box key={event.id}>
@@ -90,7 +90,7 @@ const HeroDetails = ({ heroId, totalAvailible, title, method }) => {
                     <S.Name>{event.title}</S.Name>
                   </S.Box>
                 ))}
-            </div>
+            </>
           )}
 
           {modalDetails && <ModalDetails setModalDetails={setModalDetails} />}

@@ -17,6 +17,15 @@ const useFetch = () => {
       json = await response.json();
 
       if (response.ok === false) {
+        if (response.status === 429) {
+          throw new Error(
+            JSON.stringify({
+              code: response.status,
+              message:
+                "Sorry for the inconvenience, today we exceeded the marvel data query limit, please be sure to visit our website tomorrow.",
+            })
+          );
+        }
         throw new Error(response.statusText);
       }
     } catch (e) {

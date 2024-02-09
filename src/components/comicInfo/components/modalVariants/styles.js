@@ -58,8 +58,11 @@ export const Box = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
-  height: 450px;
+  height: unset;
   overflow-y: auto;
+  &.column {
+    height: 450px;
+  }
 
   &::-webkit-scrollbar {
     width: 7px;

@@ -45,21 +45,27 @@ const HeroInfo = () => {
                   </S.Description>
                 </S.Box>
               </S.Content>
-              <HeroDetails
-                heroId={data[0].id}
-                totalAvailible={data[0].comics.available}
-                title="comics"
-              />
-              <HeroDetails
-                heroId={data[0].id}
-                totalAvailible={data[0].events.available}
-                title="events"
-              />
-              <HeroDetails
-                heroId={data[0].id}
-                totalAvailible={data[0].events.available}
-                title="series"
-              />{" "}
+              {data[0].comics.available > 0 && (
+                <HeroDetails
+                  heroId={data[0].id}
+                  totalAvailible={data[0].comics.available}
+                  title="comics"
+                />
+              )}
+              {data[0].events.available > 0 && (
+                <HeroDetails
+                  heroId={data[0].id}
+                  totalAvailible={data[0].events.available}
+                  title="events"
+                />
+              )}
+              {data[0].series.available > 0 && (
+                <HeroDetails
+                  heroId={data[0].id}
+                  totalAvailible={data[0].series.available}
+                  title="series"
+                />
+              )}
             </S.Container>
           )}
         </S.Wrapper>

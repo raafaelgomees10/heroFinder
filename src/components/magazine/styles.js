@@ -23,7 +23,7 @@ export const Box = styled.div`
 export const Image = styled.img`
   width: 224px;
   height: 336px;
-  box-shadow: 0 26px 24px -16px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 26px 24px -16px rgba(0, 0, 0, 0.8);
 `;
 export const Title = styled.h3`
   /* text-align: center; */

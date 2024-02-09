@@ -70,15 +70,15 @@ export const Wrapper = styled.div`
 
 export const BackgroundImage = styled.div`
   background-image: url(${BgImage}),
-    linear-gradient(
-      to bottom,
-      #000 0%,
-      #163c52 0%,
-      #4f4f47 30%,
-      #c5752d 60%,
-      #b7490f 80%,
-      #2f1107 100%
-    );
+    /* #163c52 0%, */
+      linear-gradient(
+        to bottom,
+        #121212 0%,
+        #4f4f47 30%,
+        #c5752d 60%,
+        #b7490f 80%,
+        #2f1107 100%
+      );
   background-size: contain, auto;
   background-position: bottom;
   background-repeat: repeat-x;
