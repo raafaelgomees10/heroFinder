@@ -44,7 +44,7 @@ const HeroDetails = ({ heroId, totalAvailible, title, method }) => {
         <>Carregando</>
       ) : (
         <S.Content className={totalAvailible > 4 ? "" : "noSlide"}>
-          {totalAvailible > 4 ? (
+          {totalAvailible > 5 ? (
             <>
               <Splide
                 options={{

@@ -4,6 +4,7 @@ import { GET_HERO } from "../../api/api";
 import AvengersAnimation from "../loading";
 import useFetch from "../../hooks/useFetch";
 import HeroDetails from "./components/heroDetails";
+import Error from "../error/error";
 
 const HeroInfo = () => {
   const { data, loading, error, total, request } = useFetch();
@@ -14,6 +15,11 @@ const HeroInfo = () => {
     const { url, options } = GET_HERO(heroId);
     request(url, options);
   }, [request]);
+
+  if (error) {
+    return <Error error={error} />;
+  }
+
   return (
     <S.Section>
       <S.BackgroundImage />
