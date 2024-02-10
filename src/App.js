@@ -5,15 +5,14 @@ import Series from "./components/series";
 import Stories from "./components/stories";
 import Creators from "./components/creators";
 import HeroInfo from "./components/heroInfo";
+import ComicInfo from "./components/comicInfo";
 import Characters from "./components/characters";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ComicInfo from "./components/comicInfo";
-import Error from "./components/error/error";
 
 function App() {
   return (
     <BrowserRouter>
-      {/* <Header />
+      <Header />
       <Routes>
         <Route path="/" element={<Characters />} />
         <Route path="/personagens/:id" element={<HeroInfo />} />
@@ -23,13 +22,8 @@ function App() {
         <Route path="criadores" element={<Creators />} />
         <Route path="historias" element={<Stories />} />
 
-       <Route path="*" element={<NotFound />} /> 
-      </Routes> */}
-      <Error
-        error={
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's "
-        }
-      />
+        {/* <Route path="*" element={<NotFound />} /> */}
+      </Routes>
     </BrowserRouter>
   );
 }

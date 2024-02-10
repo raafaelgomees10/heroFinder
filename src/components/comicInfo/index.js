@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import * as S from "./styles";
+import Card from "./components/card";
 import { GET_COMIC } from "../../api/api";
 import useFetch from "../../hooks/useFetch";
-import Card from "./components/card";
-import { ReactComponent as ArrowIcon } from "../../assets/arrowRight.svg";
 import ModalVariants from "./components/modalVariants";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import { ReactComponent as ArrowIcon } from "../../assets/arrowRight.svg";
 
 const ComicInfo = () => {
   const [modal, setModal] = useState(false);
@@ -118,26 +119,50 @@ const ComicInfo = () => {
                     </S.Details>
                   )}
                   {/* </S.Details> */}
-
-                  {modal && (
-                    <ModalVariants
-                      variants={data[0].variants}
-                      setModal={setModal}
-                    />
-                  )}
                 </S.Box>
               </S.Content>
+
               {data[0].characters.available > 0 && (
                 <S.Details>
                   <S.Title>Characters</S.Title>
-                  <S.Characters>
-                    {data[0].characters.items.map((hero, index) => {
-                      const heroId = hero.resourceURI.split("/").pop();
 
-                      return <Card key={index} heroId={heroId} />;
-                    })}
-                  </S.Characters>
+                  {data[0].characters.available > 6 ? (
+                    <Splide
+                      options={{
+                        rewind: true,
+                        gap: "2rem",
+                        perPage: 6,
+                        autoplay: true,
+                        perMove: 1,
+                      }}
+                    >
+                      {data[0].characters.items.map((hero, index) => {
+                        const heroId = hero.resourceURI.split("/").pop();
+
+                        return (
+                          <SplideSlide key={index}>
+                            <Card key={index} heroId={heroId} />
+                          </SplideSlide>
+                        );
+                      })}
+                    </Splide>
+                  ) : (
+                    <S.Characters>
+                      {data[0].characters.items.map((hero, index) => {
+                        const heroId = hero.resourceURI.split("/").pop();
+
+                        return <Card key={index} heroId={heroId} />;
+                      })}
+                    </S.Characters>
+                  )}
                 </S.Details>
+              )}
+
+              {modal && (
+                <ModalVariants
+                  variants={data[0].variants}
+                  setModal={setModal}
+                />
               )}
             </S.Container>
           </S.Wrapper>

@@ -14,7 +14,7 @@ const Card = ({ heroId }) => {
     <>
       {data &&
         data.map((hero) => (
-          <S.Container to={`/personagens/${hero.id}`}>
+          <S.Container key={hero.id} to={`/personagens/${hero.id}`}>
             <S.Content>
               <S.Image
                 src={`${

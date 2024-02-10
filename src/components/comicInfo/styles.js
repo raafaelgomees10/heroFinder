@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import BgImage from "../../assets/SkyLinefinal.png";
-import BgTeste from "../../assets/bgBlack.jpg";
 import { Link } from "react-router-dom";
+import BgTeste from "../../assets/bgBlack.jpg";
+import BgImage from "../../assets/SkyLinefinal.png";
 
 export const Section = styled.section``;
 
@@ -118,6 +118,26 @@ export const Details = styled.div`
   border-width: 3px 4px 3px 5px;
   &:not(:first-of-type) {
     margin-top: 24px;
+  }
+
+  .splide {
+    padding: 2rem 7rem;
+    &__pagination__page {
+      &:hover,
+      &.is-active {
+        background: #e62429;
+      }
+    }
+
+    &__track {
+      padding: 0 0 10px;
+    }
+
+    &__arrow {
+      > svg {
+        fill: #e62429;
+      }
+    }
   }
 `;
 

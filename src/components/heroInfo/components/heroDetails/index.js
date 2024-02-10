@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./styles";
+import ModalDetails from "../modalDetails";
 import "@splidejs/react-splide/css/sea-green";
 import useFetch from "../../../../hooks/useFetch";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
@@ -8,7 +9,6 @@ import {
   GET_HERO_EVENTS,
   GET_HERO_SERIES,
 } from "../../../../api/api";
-import ModalDetails from "../modalDetails";
 
 const HeroDetails = ({ heroId, totalAvailible, title, method }) => {
   const [modalDetails, setModalDetails] = useState(false);
@@ -51,7 +51,7 @@ const HeroDetails = ({ heroId, totalAvailible, title, method }) => {
                   rewind: true,
                   gap: "2rem",
                   perPage: 5,
-                  autoplay: false,
+                  autoplay: true,
                   perMove: 5,
                 }}
                 aria-label={title}

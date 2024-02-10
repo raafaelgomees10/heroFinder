@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
-import useFetch from "../../../../hooks/useFetch";
 import { GET_COMIC } from "../../../../api/api";
+import useFetch from "../../../../hooks/useFetch";
 import * as S from "./styles";
-import { Link } from "react-router-dom";
 
 const Variants = ({ comicId }) => {
   const { data, loading, error, total, request } = useFetch();
@@ -16,7 +15,11 @@ const Variants = ({ comicId }) => {
     <>
       {data &&
         data.map((comic) => (
-          <S.ImageContainer to={`/quadrinhos/${comic.id}`} reloadDocument>
+          <S.ImageContainer
+            reloadDocument
+            key={comic.id}
+            to={`/quadrinhos/${comic.id}`}
+          >
             <S.ImageContent>
               <S.Image
                 src={`${

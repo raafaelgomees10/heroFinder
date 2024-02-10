@@ -2,6 +2,8 @@
 
 # - SCROLL INFINITO PARA OS QUADRINHOS - alterar limit da api para 100
 
-# Skeleton images
+# Skeleton images, background das magazines
 
-## mockar dados - loki, thor, spider, iron, hulk, america, deadpool, scarlat, etc
+# loading paginas de informaçoes - comics, events, series
+
+### mockar dados - loki, thor, spider, iron, hulk, america, deadpool, scarlat, etc
