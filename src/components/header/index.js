@@ -30,16 +30,19 @@ const Header = () => {
         >
           <S.Ul>
             <S.Li>
-              <S.Links to="/">Personagens</S.Links>
+              <S.Links to="/">Characters</S.Links>
             </S.Li>
             <S.Li>
-              <S.Links to="/quadrinhos">Quadrinhos</S.Links>
+              <S.Links to="/quadrinhos">Comics</S.Links>
             </S.Li>
             <S.Li>
-              <S.Links to="/criadores">Criadores</S.Links>
+              <S.Links to="/events">Events</S.Links>
             </S.Li>
             <S.Li>
               <S.Links to="/series">Series</S.Links>
+            </S.Li>
+            <S.Li>
+              <S.Links to="/criadores">Producers</S.Links>
             </S.Li>
           </S.Ul>
         </S.Nav>

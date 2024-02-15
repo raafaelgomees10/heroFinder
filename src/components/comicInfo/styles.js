@@ -73,7 +73,7 @@ export const BackgroundImage = styled.div`
     /* #163c52 0%, */
       linear-gradient(
         to bottom,
-        #121212 0%,
+        #163c52 0%,
         #4f4f47 30%,
         #c5752d 60%,
         #b7490f 80%,

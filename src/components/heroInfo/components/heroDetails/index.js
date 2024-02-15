@@ -34,8 +34,7 @@ const HeroDetails = ({ heroId, totalAvailible, title, method }) => {
   return (
     <S.Container>
       <S.Title>{title}</S.Title>
-      {title === "comics" && console.log("comicData", data)}
-      {title === "series" && console.log("series", data)}
+      {title === "events" && console.log("events", data)}
       {loading ? (
         <>Carregando</>
       ) : (
@@ -56,6 +55,7 @@ const HeroDetails = ({ heroId, totalAvailible, title, method }) => {
                   data.map((item) => (
                     <SplideSlide key={item.id}>
                       <S.Box>
+                        {/* arrumar esse to aqui */}
                         <Link to={`/quadrinhos/${item.id}`} target="_blank">
                           <S.Image
                             src={`${
