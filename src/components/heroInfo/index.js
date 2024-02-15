@@ -7,7 +7,7 @@ import HeroDetails from "./components/heroDetails";
 import Error from "../error/error";
 
 const HeroInfo = () => {
-  const { data, loading, error, total, request } = useFetch();
+  const { data, loading, error, request } = useFetch();
 
   useEffect(() => {
     const urlPath = window.location.pathname.split("/");
