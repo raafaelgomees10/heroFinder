@@ -18,7 +18,7 @@ const Variants = ({ comicId }) => {
           <S.ImageContainer
             reloadDocument
             key={comic.id}
-            to={`/quadrinhos/${comic.id}`}
+            to={`/comics/${comic.id}`}
           >
             <S.ImageContent>
               <S.Image

@@ -33,7 +33,7 @@ const Header = () => {
               <S.Links to="/">Characters</S.Links>
             </S.Li>
             <S.Li>
-              <S.Links to="/quadrinhos">Comics</S.Links>
+              <S.Links to="/comics">Comics</S.Links>
             </S.Li>
             <S.Li>
               <S.Links to="/events">Events</S.Links>

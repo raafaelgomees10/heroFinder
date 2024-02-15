@@ -3,7 +3,7 @@ import * as S from "./styles";
 
 const Card = ({ data }) => {
   return (
-    <S.Container to={`/personagens/${data.id}`}>
+    <S.Container to={`/characters/${data.id}`}>
       <S.Content>
         <S.Image
           src={`${

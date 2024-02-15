@@ -56,7 +56,7 @@ const HeroDetails = ({ heroId, totalAvailible, title, method }) => {
                     <SplideSlide key={item.id}>
                       <S.Box>
                         {/* arrumar esse to aqui */}
-                        <Link to={`/quadrinhos/${item.id}`} target="_blank">
+                        <Link to={`/${title}/${item.id}`} target="_blank">
                           <S.Image
                             src={`${
                               item.thumbnail
@@ -75,17 +75,19 @@ const HeroDetails = ({ heroId, totalAvailible, title, method }) => {
           ) : (
             <>
               {data &&
-                data.map((event) => (
-                  <S.Box key={event.id}>
-                    <S.Image
-                      src={`${
-                        event.thumbnail
-                          ? ` ${event.thumbnail.path}.${event.thumbnail.extension}`
-                          : ""
-                      }`}
-                      alt={event.title}
-                    />
-                    <S.Name>{event.title}</S.Name>
+                data.map((item) => (
+                  <S.Box key={item.id}>
+                    <Link to={`/${title}/${item.id}`} target="_blank">
+                      <S.Image
+                        src={`${
+                          item.thumbnail
+                            ? ` ${item.thumbnail.path}.${item.thumbnail.extension}`
+                            : ""
+                        }`}
+                        alt={item.title}
+                      />
+                      <S.Name>{item.title}</S.Name>
+                    </Link>
                   </S.Box>
                 ))}
             </>

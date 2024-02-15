@@ -17,9 +17,9 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Characters />} />
-        <Route path="/personagens/:id" element={<HeroInfo />} />
-        <Route path="quadrinhos" element={<Comics />} />
-        <Route path="/quadrinhos/:id" element={<ComicInfo />} />
+        <Route path="/characters/:id" element={<HeroInfo />} />
+        <Route path="comics" element={<Comics />} />
+        <Route path="/comics/:id" element={<ComicInfo />} />
         <Route path="events" element={<Events />} />
         <Route path="/events/:id" element={<EventInfo />} />
         <Route path="series" element={<Series />} />
