@@ -26,6 +26,11 @@ const ComicInfo = () => {
 
   const formatedDate = dayjs(publishedDate).format("MMMM D, YYYY");
 
+  const serieId = data && data[0].series.resourceURI.split("/").pop();
+
+  const noDescription =
+    data && (data[0].description === null || data[0].description === "");
+
   const creatorsObject = {};
 
   data &&
@@ -49,11 +54,10 @@ const ComicInfo = () => {
     people,
   }));
 
-  const serieId = data && data[0].series.resourceURI.split("/").pop();
-
   if (error) {
     return <Error error={error} />;
   }
+
   return (
     <>
       {data && (
@@ -81,11 +85,10 @@ const ComicInfo = () => {
                         <span> {formatedDate}</span>
                       </S.SubTitle>
                       <S.Description>
-                        {data[0].description !== ""
-                          ? data[0].description
-                          : "No description provided by marvel."}
+                        {noDescription
+                          ? "Marvel has not released a description for this comic."
+                          : data[0].description}
                       </S.Description>
-
                       <S.SubTitle>
                         Serie:
                         <span>
@@ -155,7 +158,7 @@ const ComicInfo = () => {
                         })}
                       </Splide>
                     ) : (
-                      <S.Characters>
+                      <S.Characters available={data[0].characters.available}>
                         {data[0].characters.items.map((hero, index) => {
                           const heroId = hero.resourceURI.split("/").pop();
 

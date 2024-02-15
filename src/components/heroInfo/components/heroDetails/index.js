@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./styles";
+import { Link } from "react-router-dom";
 import ModalDetails from "../modalDetails";
 import "@splidejs/react-splide/css/sea-green";
 import useFetch from "../../../../hooks/useFetch";
@@ -30,16 +31,11 @@ const HeroDetails = ({ heroId, totalAvailible, title, method }) => {
     }
   }, [heroId, request, title]);
 
-  const handleClick = (title, id) => {
-    if (title === "comics") {
-      window.open(`/quadrinhos/${id}`, "_blank");
-    }
-  };
-
   return (
     <S.Container>
       <S.Title>{title}</S.Title>
-
+      {title === "comics" && console.log("comicData", data)}
+      {title === "series" && console.log("series", data)}
       {loading ? (
         <>Carregando</>
       ) : (
@@ -59,16 +55,18 @@ const HeroDetails = ({ heroId, totalAvailible, title, method }) => {
                 {data &&
                   data.map((item) => (
                     <SplideSlide key={item.id}>
-                      <S.Box onClick={() => handleClick(title, item.id)}>
-                        <S.Image
-                          src={`${
-                            item.thumbnail
-                              ? ` ${item.thumbnail.path}.${item.thumbnail.extension}`
-                              : ""
-                          }`}
-                          alt={item.title}
-                        />
-                        <S.Name>{item.title}</S.Name>
+                      <S.Box>
+                        <Link to={`/quadrinhos/${item.id}`} target="_blank">
+                          <S.Image
+                            src={`${
+                              item.thumbnail
+                                ? ` ${item.thumbnail.path}.${item.thumbnail.extension}`
+                                : ""
+                            }`}
+                            alt={item.title}
+                          />
+                          <S.Name>{item.title}</S.Name>
+                        </Link>
                       </S.Box>
                     </SplideSlide>
                   ))}

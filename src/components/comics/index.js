@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
-import Card from "../card";
 import * as S from "./styles";
 import Error from "../error/error";
-import { GET_COMICS, SEARCH_COMICS } from "../../api/api";
+import Magazine from "../magazine";
 import AvengersAnimation from "../loading";
 import useMedia from "../../hooks/useMedia";
 import useFetch from "../../hooks/useFetch";
+import HeaderBg from "../../assets/bg2.jpg";
 import SearchInput from "../helper/searchInput";
 import SearchNotFound from "../helper/searchNotFound";
-import HeaderBg from "../../assets/teste.jpg";
+import { GET_COMICS, SEARCH_COMICS } from "../../api/api";
 import HeaderBgMobile from "../../assets/herosBgMobile.jpg";
-import Magazine from "../magazine";
 
 const Comics = () => {
   const [search, setSearch] = useState("");

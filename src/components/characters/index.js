@@ -5,7 +5,7 @@ import Error from "../error/error";
 import AvengersAnimation from "../loading";
 import useMedia from "../../hooks/useMedia";
 import useFetch from "../../hooks/useFetch";
-import HeaderBg from "../../assets/teste.jpg";
+import HeaderBg from "../../assets/herosBg.jpg";
 import SearchInput from "../helper/searchInput";
 import SearchNotFound from "../helper/searchNotFound";
 import { GET_HEROS, SEARCH_HEROS } from "../../api/api";

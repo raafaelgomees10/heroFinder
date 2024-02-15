@@ -109,23 +109,30 @@ export const Image = styled.img`
   border-width: 3px 4px 3px 5px;
 `;
 export const Box = styled.div`
-  /* max-width: 680px; */
+  width: 100%;
 `;
 
 export const Details = styled.div`
   padding: 0.8rem 1.6rem;
   border: solid #000;
   border-width: 3px 4px 3px 5px;
+
   &:not(:first-of-type) {
     margin-top: 24px;
   }
 
   .splide {
     padding: 2rem 7rem;
+
     &__pagination__page {
-      &:hover,
+      &:hover {
+        background: #e62429;
+      }
       &.is-active {
         background: #e62429;
+        &:hover {
+          background: #eb474d;
+        }
       }
     }
 
@@ -136,6 +143,10 @@ export const Details = styled.div`
     &__arrow {
       > svg {
         fill: #e62429;
+
+        &:hover {
+          fill: #eb474d;
+        }
       }
     }
   }
@@ -182,7 +193,7 @@ export const Covers = styled.div`
 export const Characters = styled.div`
   display: flex;
   justify-content: flex-start;
-  gap: 2rem;
+  gap: ${(props) => (props.available > 6 ? "2rem" : "4rem")};
 `;
 
 export const Creators = styled.ul`

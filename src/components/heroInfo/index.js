@@ -16,6 +16,9 @@ const HeroInfo = () => {
     request(url, options);
   }, [request]);
 
+  const noDescription =
+    data && (data[0].description === null || data[0].description === "");
+
   if (error) {
     return <Error error={error} />;
   }
@@ -43,11 +46,9 @@ const HeroInfo = () => {
                 <S.Box>
                   <S.Name>{data[0].name}</S.Name>
                   <S.Description>
-                    {data[0].description !== "" ? (
-                      data[0].description
-                    ) : (
-                      <>Descrição não fornecida pelos dados da marvel</>
-                    )}
+                    {noDescription
+                      ? "Marvel has not released a description for this character."
+                      : data[0].description}
                   </S.Description>
                 </S.Box>
               </S.Content>

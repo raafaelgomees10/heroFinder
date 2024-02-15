@@ -6,9 +6,17 @@ export const Container = styled.div`
   color: #000;
 `;
 
-export const Content = styled.div`
+export const Title = styled.h1`
+  font-size: 5rem;
+  font-family: "Bangers", sans-serif;
+  font-weight: 400;
+  margin: 0;
+`;
+
+export const Content = styled.ul`
   display: flex;
   justify-content: space-between;
+  padding: 0;
 
   &.noSlide {
     margin: 20px 0;
@@ -20,6 +28,18 @@ export const Content = styled.div`
     width: 100%;
     padding: 0 3em;
 
+    &__pagination__page {
+      &:hover {
+        background: #e62429;
+      }
+      &.is-active {
+        background: #e62429;
+        &:hover {
+          background: #eb474d;
+        }
+      }
+    }
+
     &__slide {
       width: unset !important;
       margin-right: 5rem !important;
@@ -30,6 +50,11 @@ export const Content = styled.div`
 
     &__arrow {
       > svg {
+        fill: #e62429;
+
+        &:hover {
+          fill: #eb474d;
+        }
       }
       &--prev {
         left: -3rem !important;
@@ -39,13 +64,6 @@ export const Content = styled.div`
       }
     }
   }
-`;
-
-export const Title = styled.h1`
-  font-size: 5rem;
-  font-family: "Bangers", sans-serif;
-  font-weight: 400;
-  margin: 0;
 `;
 
 export const Box = styled.div`
@@ -72,4 +90,5 @@ export const Name = styled.h3`
   background-color: transparent;
   margin: 20px 0 0;
   font-weight: 400;
+  color: #000;
 `;

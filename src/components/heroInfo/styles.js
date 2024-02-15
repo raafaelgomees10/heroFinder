@@ -76,7 +76,7 @@ export const Description = styled.p`
 export const Image = styled.img`
   display: block;
   max-width: 100%;
-  height: auto;
+  height: 300px;
   width: 300px;
 
   border: solid #000;
