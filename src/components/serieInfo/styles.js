@@ -12,60 +12,6 @@ export const Wrapper = styled.div`
   background-size: cover, auto;
   background-position: center;
   background-repeat: no-repeat;
-
-  /* color: #000;
-  padding: 0px;
-  background-size: 8px 8px, 8px 8px, 8px 8px, 8px 8px, 8px 8px, 100% 100%;
-  margin-bottom: -4px;
-
-  background-image: radial-gradient(
-      ellipse farthest-corner,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0) 35%,
-      #ffffff 30%,
-      #ffffff 40%,
-      rgba(0, 0, 0, 0) 90%
-    ),
-    radial-gradient(
-      ellipse farthest-corner at 0px 0px,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0) 20%,
-      #ffffff 15%,
-      #ffffff 20%,
-      rgba(0, 0, 0, 0) 50%
-    ),
-    radial-gradient(
-      ellipse farthest-corner at 8px 8px,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0) 20%,
-      #ffffff 15%,
-      #ffffff 20%,
-      rgba(0, 0, 0, 0) 50%
-    ),
-    radial-gradient(
-      ellipse farthest-corner at 0px 8px,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0) 20%,
-      #ffffff 15%,
-      #ffffff 20%,
-      rgba(0, 0, 0, 0) 40%
-    ),
-    radial-gradient(
-      ellipse farthest-corner at 8px 0px,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0) 20%,
-      #ffffff 15%,
-      #ffffff 20%,
-      rgba(0, 0, 0, 0) 50%
-    ),
-    linear-gradient(
-      40deg,
-      #484848 0,
-      #959595 30%,
-      #acacac 50%,
-      #959595 70%,
-      #484848 100%
-    ); */
 `;
 
 export const BackgroundImage = styled.div`
@@ -165,58 +111,6 @@ export const Description = styled.p`
   margin: 20px 0;
 `;
 
-export const EventPeriod = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-`;
-
-export const Dates = styled.div`
-  font-size: 1.4rem;
-  font-weight: 600;
-  letter-spacing: 0.7px;
-
-  > span {
-    font-size: 1.4rem;
-    font-weight: 300;
-    display: block;
-  }
-`;
-
-export const EventsButtons = styled.div`
-  font-size: 1.4rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-export const Buttons = styled(Link)`
-  color: #fff;
-  border-radius: 16px;
-  justify-content: center;
-  margin-top: 16px;
-  font-size: 1.4rem;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  position: relative;
-
-  > svg {
-    transform: ${(props) => props.prev && "rotate(180deg)"};
-    margin: ${(props) => (props.prev ? "0 3px 0 0" : "0 0 0 3px")};
-  }
-  &:hover {
-    text-decoration: underline;
-    color: #ee171f;
-  }
-`;
-
-export const Characters = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  gap: ${(props) => (props.available > 6 ? "2rem" : "4rem")};
-`;
-
 export const Creators = styled.ul`
   margin-top: 16px;
   display: grid;
@@ -225,8 +119,8 @@ export const Creators = styled.ul`
   gap: 0 5rem;
 `;
 
-export const Series = styled(Creators)`
-  gap: 0 30rem;
+export const Characters = styled(Creators)`
+  grid-template-columns: repeat(4, 1fr);
 `;
 
 export const Li = styled.li`
@@ -241,10 +135,31 @@ export const Li = styled.li`
     margin-top: 16px;
   }
 `;
+
 export const LinkName = styled(Link)`
   font-size: 1.2rem;
   font-weight: 300;
   color: #fff;
+
+  > span {
+    &:hover {
+      text-decoration: underline;
+      color: #ee171f;
+    }
+  }
+`;
+
+export const HeroLi = styled.li`
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  text-transform: capitalize;
+  margin: 8px 0;
+  padding: 0;
+`;
+
+export const HeroName = styled(LinkName)`
+  font-size: 1.6rem;
 
   > span {
     &:hover {

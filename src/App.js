@@ -12,6 +12,7 @@ import EventInfo from "./components/eventInfo";
 import Characters from "./components/characters";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NotFound from "./components/notFound";
+import Footer from "./components/footer";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
 
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

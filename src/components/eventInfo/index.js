@@ -79,7 +79,7 @@ const EventInfo = () => {
 
                       <S.Description>
                         {noDescription
-                          ? "Marvel has not released a description for this comic."
+                          ? "Marvel has not released a description for this event."
                           : data[0].description}
                       </S.Description>
 

@@ -16,7 +16,6 @@ const useFetch = () => {
       response = await fetch(url, options);
       json = await response.json();
 
-      console.log("res", response);
       if (response.ok === false) {
         if (response.status === 429) {
           //error when exceeded data limit per day, 3000
@@ -27,11 +26,6 @@ const useFetch = () => {
         throw new Error(json.status);
       }
 
-      // ###############################################################################
-      // ###############################################################################
-      //  OLHAR SE FUNCIONA FORA DO FINALLY AMANHA
-      // ###############################################################################
-      // ###############################################################################
       setData(json.data.results);
       setTotal(json.data.total);
     } catch (e) {
