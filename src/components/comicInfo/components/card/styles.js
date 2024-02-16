@@ -89,3 +89,8 @@ export const Name = styled.p`
   color: #fff;
   margin: 0;
 `;
+
+export const TextError = styled.p`
+  color: #e62429;
+  font-size: 1.6rem;
+`;

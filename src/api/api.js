@@ -91,6 +91,15 @@ export function GET_COMIC(comicId) {
   };
 }
 
+export function GET_COMIC_HEROS(comicId) {
+  return {
+    url: `${API_URL}/comics/${comicId}/characters?${baseParams}&limit=100`,
+    options: {
+      method: "GET",
+    },
+  };
+}
+
 export function SEARCH_COMICS(name) {
   return {
     url: `${API_URL}/comics?titleStartsWith=${name}&${baseParams}&limit=15`,

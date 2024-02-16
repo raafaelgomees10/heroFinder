@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import Variants from "./variants";
 import * as S from "./styles";
 import { ReactComponent as CloseButton } from "../../../../assets/closeIcon.svg";
+import { Link } from "react-router-dom";
 const ModalVariants = ({ setModal, variants }) => {
   useEffect(() => {
     const escFunction = (event) => {
@@ -24,11 +24,19 @@ const ModalVariants = ({ setModal, variants }) => {
         <S.Close onClick={() => setModal(false)}>
           <CloseButton />
         </S.Close>
-        <S.Title>Variants covers for this comic</S.Title>
+        <S.Title>{total} Variants covers for this comic</S.Title>
         <S.Box className={total > 4 && "column"}>
-          {variants.map((item, index) => {
-            const comicId = item.resourceURI.split("/").pop();
-            return <Variants key={index} comicId={comicId} />;
+          {variants.map((variant) => {
+            const urlPath = variant.resourceURI.split("/");
+            const comicId = urlPath.pop();
+
+            return (
+              <S.Item>
+                <S.VariantsLink to={`/comics/${comicId}`} target="_blank">
+                  {variant.name}
+                </S.VariantsLink>
+              </S.Item>
+            );
           })}
         </S.Box>
       </S.Content>

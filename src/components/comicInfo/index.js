@@ -13,13 +13,17 @@ import { ReactComponent as ArrowIcon } from "../../assets/arrowRight.svg";
 const ComicInfo = () => {
   const [modal, setModal] = useState(false);
   const { data, loading, error, request } = useFetch();
+  const urlPath = window.location.pathname.split("/");
+  const comicId = urlPath.pop();
 
   useEffect(() => {
-    const urlPath = window.location.pathname.split("/");
-    const comicId = urlPath.pop();
-    const { url, options } = GET_COMIC(comicId);
-    request(url, options);
-  }, [request]);
+    const fetchComics = async () => {
+      const { url, options } = GET_COMIC(comicId);
+      await request(url, options);
+    };
+
+    fetchComics();
+  }, [comicId, request]);
 
   const publishedDate =
     data && data[0].dates.filter((opt) => opt.type === "onsaleDate")[0].date;
@@ -59,9 +63,6 @@ const ComicInfo = () => {
   if (error) {
     return <Error error={error} />;
   }
-
-  console.log("data", data);
-
   return (
     <>
       {data && (
@@ -97,7 +98,9 @@ const ComicInfo = () => {
                         Serie:
                         <span>
                           <S.Text to={`/series/${serieId}`}>
-                            <p>{data[0].series.name}</p>
+                            <p>
+                              {data[0].series.name} <ArrowIcon />
+                            </p>
                           </S.Text>
                         </span>
                       </S.SubTitle>
@@ -140,36 +143,9 @@ const ComicInfo = () => {
                 {data[0].characters.available > 0 && (
                   <S.Details>
                     <S.Title>Characters</S.Title>
-
-                    {data[0].characters.available > 6 ? (
-                      <Splide
-                        options={{
-                          rewind: true,
-                          gap: "2rem",
-                          perPage: 6,
-                          autoplay: true,
-                          perMove: 1,
-                        }}
-                      >
-                        {data[0].characters.items.map((hero, index) => {
-                          const heroId = hero.resourceURI.split("/").pop();
-
-                          return (
-                            <SplideSlide key={index}>
-                              <Card key={index} heroId={heroId} />
-                            </SplideSlide>
-                          );
-                        })}
-                      </Splide>
-                    ) : (
-                      <S.Characters available={data[0].characters.available}>
-                        {data[0].characters.items.map((hero, index) => {
-                          const heroId = hero.resourceURI.split("/").pop();
-
-                          return <Card key={index} heroId={heroId} />;
-                        })}
-                      </S.Characters>
-                    )}
+                    <S.Characters available={data[0].characters.available}>
+                      <Card urlId={comicId} />
+                    </S.Characters>
                   </S.Details>
                 )}
 

@@ -237,6 +237,8 @@ export const Text = styled(Link)`
 
   > p {
     margin: 0;
+    display: flex;
+    align-items: center;
   }
   &:hover {
     text-decoration: underline;

@@ -28,11 +28,13 @@ const useFetch = () => {
 
       setData(json.data.results);
       setTotal(json.data.total);
+      return { response, json };
     } catch (e) {
       json = null;
       setError(e.message);
     } finally {
       setLoading(false);
+
       return { response, json };
     }
   }, []);
