@@ -16,7 +16,6 @@ export function GET_HEROS() {
     url: `${API_URL}/characters?${baseParams}&offset=${randomHerois}&limit=15`,
     options: {
       method: "GET",
-      cache: "no-store",
     },
   };
 }
@@ -26,7 +25,6 @@ export function GET_HERO(heroId) {
     url: `${API_URL}/characters/${heroId}?${baseParams}`,
     options: {
       method: "GET",
-      cache: "no-store",
     },
   };
 }
@@ -36,7 +34,6 @@ export function GET_HERO_EVENTS(heroId) {
     url: `${API_URL}/characters/${heroId}/events?${baseParams}&limit=100`,
     options: {
       method: "GET",
-      // cache: "no-store",
     },
   };
 }
@@ -46,7 +43,6 @@ export function GET_HERO_COMICS(heroId) {
     url: `${API_URL}/characters/${heroId}/comics?${baseParams}&limit=100`,
     options: {
       method: "GET",
-      // cache: "no-store",
     },
   };
 }
@@ -55,7 +51,6 @@ export function GET_HERO_SERIES(heroId) {
     url: `${API_URL}/characters/${heroId}/series?${baseParams}&limit=100`,
     options: {
       method: "GET",
-      // cache: "no-store",
     },
   };
 }
@@ -65,7 +60,6 @@ export function GET_HERO_STORIES(heroId) {
     url: `${API_URL}/characters/${heroId}/stories?${baseParams}&limit=100`,
     options: {
       method: "GET",
-      // cache: "no-store",
     },
   };
 }
@@ -75,7 +69,6 @@ export function SEARCH_HEROS(name) {
     url: `${API_URL}/characters?nameStartsWith=${name}&${baseParams}&limit=20`,
     options: {
       method: "GET",
-      cache: "no-store",
     },
   };
 }
@@ -85,7 +78,6 @@ export function GET_COMICS() {
     url: `${API_URL}/comics?${baseParams}&offset=${randomComics}&limit=15`,
     options: {
       method: "GET",
-      cache: "no-store",
     },
   };
 }
@@ -95,7 +87,6 @@ export function GET_COMIC(comicId) {
     url: `${API_URL}/comics/${comicId}?${baseParams}`,
     options: {
       method: "GET",
-      cache: "no-store",
     },
   };
 }
@@ -105,7 +96,6 @@ export function SEARCH_COMICS(name) {
     url: `${API_URL}/comics?titleStartsWith=${name}&${baseParams}&limit=15`,
     options: {
       method: "GET",
-      cache: "no-store",
     },
   };
 }
@@ -115,7 +105,6 @@ export function GET_EVENTS() {
     url: `${API_URL}/events?${baseParams}&limit=16`,
     options: {
       method: "GET",
-      cache: "no-store",
     },
   };
 }
@@ -125,7 +114,6 @@ export function GET_EVENT(eventId) {
     url: `${API_URL}/events/${eventId}?${baseParams}`,
     options: {
       method: "GET",
-      cache: "no-store",
     },
   };
 }
@@ -135,7 +123,6 @@ export function SEARCH_EVENTS(name) {
     url: `${API_URL}/events?nameStartsWith=${name}&${baseParams}&limit=15`,
     options: {
       method: "GET",
-      cache: "no-store",
     },
   };
 }
@@ -145,27 +132,32 @@ export function GET_CREATORS() {
     url: `${API_URL}/creators?${baseParams}&offset=${randomHerois}&limit=15`,
     options: {
       method: "GET",
-      cache: "no-store",
     },
   };
 }
 
 export function GET_SERIES() {
   return {
-    url: `${API_URL}/series?${baseParams}&offset=${randomHerois}&limit=16`,
+    url: `${API_URL}/series?${baseParams}&offset=${randomSeries}&limit=16`,
     options: {
       method: "GET",
-      cache: "no-store",
     },
   };
 }
 
+export function GET_SERIE(serieId) {
+  return {
+    url: `${API_URL}/series/${serieId}?${baseParams}`,
+    options: {
+      method: "GET",
+    },
+  };
+}
 export function SEARCH_SERIES(name) {
   return {
     url: `${API_URL}/series?titleStartsWith=${name}&${baseParams}&limit=16`,
     options: {
       method: "GET",
-      cache: "no-store",
     },
   };
 }
@@ -175,7 +167,6 @@ export function GET_STORIES() {
     url: `${API_URL}/stories?${baseParams}&offset=${randomHerois}&limit=15`,
     options: {
       method: "GET",
-      cache: "no-store",
     },
   };
 }

@@ -16,23 +16,28 @@ const useFetch = () => {
       response = await fetch(url, options);
       json = await response.json();
 
+      console.log("res", response);
       if (response.ok === false) {
         if (response.status === 429) {
           //error when exceeded data limit per day, 3000
           throw new Error(
-            JSON.stringify(
-              "Sorry for the inconvenience, today we exceeded the marvel data query limit, please be sure to visit our website tomorrow."
-            )
+            "Sorry for the inconvenience, today we exceeded Marvel's free data query limit, be sure to visit our website tomorrow."
           );
         }
         throw new Error(json.status);
       }
+
+      // ###############################################################################
+      // ###############################################################################
+      //  OLHAR SE FUNCIONA FORA DO FINALLY AMANHA
+      // ###############################################################################
+      // ###############################################################################
+      setData(json.data.results);
+      setTotal(json.data.total);
     } catch (e) {
       json = null;
       setError(e.message);
     } finally {
-      setData(json.data.results);
-      setTotal(json.data.total);
       setLoading(false);
       return { response, json };
     }

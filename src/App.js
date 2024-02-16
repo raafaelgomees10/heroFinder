@@ -7,9 +7,11 @@ import Stories from "./components/stories";
 import Creators from "./components/creators";
 import HeroInfo from "./components/heroInfo";
 import ComicInfo from "./components/comicInfo";
+import SerieInfo from "./components/serieInfo";
 import EventInfo from "./components/eventInfo";
 import Characters from "./components/characters";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import NotFound from "./components/notFound";
 
 function App() {
   return (
@@ -23,10 +25,11 @@ function App() {
         <Route path="events" element={<Events />} />
         <Route path="/events/:id" element={<EventInfo />} />
         <Route path="series" element={<Series />} />
+        <Route path="/series/:id" element={<SerieInfo />} />
         <Route path="criadores" element={<Creators />} />
         <Route path="historias" element={<Stories />} />
 
-        {/* <Route path="*" element={<NotFound />} /> */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
