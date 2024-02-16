@@ -1,9 +1,13 @@
 import React from "react";
 import * as S from "./styles";
 
-const Card = ({ data }) => {
+const Card = ({ data, type }) => {
   return (
-    <S.Container to={`/characters/${data.id}`}>
+    <S.Container
+      to={
+        type === "creators" ? `/creators/${data.id}` : `/characters/${data.id}`
+      }
+    >
       <S.Content>
         <S.Image
           src={`${
@@ -16,7 +20,7 @@ const Card = ({ data }) => {
       </S.Content>
 
       <S.Details>
-        <S.Name>{data.name}</S.Name>
+        <S.Name>{type === "creators" ? data.fullName : data.name}</S.Name>
       </S.Details>
     </S.Container>
   );

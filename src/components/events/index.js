@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Card from "../card";
 import * as S from "./styles";
 import Error from "../error/error";
+import Magazine from "../magazine";
 import AvengersAnimation from "../loading";
 import useMedia from "../../hooks/useMedia";
 import useFetch from "../../hooks/useFetch";
@@ -10,7 +10,6 @@ import SearchInput from "../helper/searchInput";
 import SearchNotFound from "../helper/searchNotFound";
 import { GET_EVENTS, SEARCH_EVENTS } from "../../api/api";
 import HeaderBgMobile from "../../assets/herosBgMobile.jpg";
-import Magazine from "../magazine";
 
 const Events = () => {
   const [eventSearch, setEventSearch] = useState("");
@@ -42,7 +41,6 @@ const Events = () => {
     return <Error error={error} />;
   }
 
-  console.log(data);
   return (
     <>
       <S.Section>

@@ -42,7 +42,7 @@ const Header = () => {
               <S.Links to="/series">Series</S.Links>
             </S.Li>
             <S.Li>
-              <S.Links to="/criadores">Producers</S.Links>
+              <S.Links to="/creators">Producers</S.Links>
             </S.Li>
           </S.Ul>
         </S.Nav>

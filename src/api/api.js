@@ -136,6 +136,24 @@ export function GET_CREATORS() {
   };
 }
 
+export function GET_CREATOR(creatorId) {
+  return {
+    url: `${API_URL}/creators/${creatorId}?${baseParams}`,
+    options: {
+      method: "GET",
+    },
+  };
+}
+
+export function SEARCH_CREATORS(name) {
+  return {
+    url: `${API_URL}/creators?nameStartsWith=${name}&${baseParams}&limit=16`,
+    options: {
+      method: "GET",
+    },
+  };
+}
+
 export function GET_SERIES() {
   return {
     url: `${API_URL}/series?${baseParams}&offset=${randomSeries}&limit=16`,
@@ -153,6 +171,7 @@ export function GET_SERIE(serieId) {
     },
   };
 }
+
 export function SEARCH_SERIES(name) {
   return {
     url: `${API_URL}/series?titleStartsWith=${name}&${baseParams}&limit=16`,
