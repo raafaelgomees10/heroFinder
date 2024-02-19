@@ -1,62 +1,50 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./styles";
 import { Link } from "react-router-dom";
-import ModalDetails from "../modalDetails";
-import "@splidejs/react-splide/css/sea-green";
 import useFetch from "../../../../hooks/useFetch";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-import {
-  GET_HERO_COMICS,
-  GET_HERO_EVENTS,
-  GET_HERO_SERIES,
-} from "../../../../api/api";
+import { GET_EVENT_COMICS, GET_EVENT_SERIES } from "../../../../api/api";
 
-const HeroDetails = ({ heroId, totalAvailible, title }) => {
-  const [modalDetails, setModalDetails] = useState(false);
+const HeroDetails = ({ page, urlId }) => {
   const { data, loading, error, total, request } = useFetch();
 
   useEffect(() => {
-    if (title === "comics") {
-      const { url, options } = GET_HERO_COMICS(heroId);
+    if (page === "comics") {
+      const { url, options } = GET_EVENT_COMICS(urlId);
       request(url, options);
     }
-    if (title === "events") {
-      const { url, options } = GET_HERO_EVENTS(heroId);
+    if (page === "events") {
+      const { url, options } = GET_EVENT_SERIES(urlId);
       request(url, options);
     }
-
-    if (title === "series") {
-      const { url, options } = GET_HERO_SERIES(heroId);
-      request(url, options);
-    }
-  }, [heroId, request, title]);
+  }, [request, urlId, page]);
 
   return (
     <S.Container>
-      <S.Title>{title}</S.Title>
-      {title === "events" && console.log("events", data)}
-      {loading ? (
+      {error ? (
+        <>Error: {error}</>
+      ) : loading ? (
         <>Carregando</>
       ) : (
-        <S.Content className={totalAvailible > 4 ? "" : "noSlide"}>
-          {totalAvailible > 5 ? (
+        <S.Content className={total > 4 ? "" : "noSlide"}>
+          {total > 5 ? (
             <>
               <Splide
                 options={{
                   rewind: true,
                   gap: "2rem",
                   perPage: 5,
-                  autoplay: true,
-                  perMove: 5,
+                  autoplay: false,
+                  perMove: 1,
                 }}
-                aria-label={title}
+                aria-label={"title"}
               >
                 {data &&
                   data.map((item) => (
                     <SplideSlide key={item.id}>
                       <S.Box>
                         {/* arrumar esse to aqui */}
-                        <Link to={`/${title}/${item.id}`} target="_blank">
+                        <Link to={`/${page}/${item.id}`} target="_blank">
                           <S.Image
                             src={`${
                               item.thumbnail
@@ -77,7 +65,7 @@ const HeroDetails = ({ heroId, totalAvailible, title }) => {
               {data &&
                 data.map((item) => (
                   <S.Box key={item.id}>
-                    <Link to={`/${title}/${item.id}`} target="_blank">
+                    <Link to={`/${page}/${item.id}`} target="_blank">
                       <S.Image
                         src={`${
                           item.thumbnail
@@ -92,8 +80,6 @@ const HeroDetails = ({ heroId, totalAvailible, title }) => {
                 ))}
             </>
           )}
-
-          {modalDetails && <ModalDetails setModalDetails={setModalDetails} />}
         </S.Content>
       )}
     </S.Container>

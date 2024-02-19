@@ -7,7 +7,6 @@ import { GET_COMIC } from "../../api/api";
 import AvengersAnimation from "../loading";
 import useFetch from "../../hooks/useFetch";
 import ModalVariants from "./components/modalVariants";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { ReactComponent as ArrowIcon } from "../../assets/arrowRight.svg";
 
 const ComicInfo = () => {
@@ -144,7 +143,7 @@ const ComicInfo = () => {
                   <S.Details>
                     <S.Title>Characters</S.Title>
                     <S.Characters available={data[0].characters.available}>
-                      <Card urlId={comicId} />
+                      <Card page="comics" urlId={comicId} />
                     </S.Characters>
                   </S.Details>
                 )}

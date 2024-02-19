@@ -114,7 +114,7 @@ export const Box = styled.div`
 `;
 
 export const Details = styled.div`
-  padding: 0.8rem 1.6rem;
+  padding: 1.6rem;
   border: solid #000;
   border-width: 3px 4px 3px 5px;
 
@@ -123,7 +123,8 @@ export const Details = styled.div`
   }
 
   .splide {
-    padding: 2rem 7rem;
+    width: 100%;
+    padding: ${(props) => (props.isCards ? "1.2rem 7rem" : "0 7rem 1.2rem")};
 
     &__pagination__page {
       &:hover {
@@ -138,7 +139,7 @@ export const Details = styled.div`
     }
 
     &__track {
-      padding: 0 0 10px;
+      padding: ${(props) => (props.isCards ? "0 0 16px" : "12px 0")};
     }
 
     &__arrow {
@@ -227,6 +228,12 @@ export const Creators = styled.ul`
 
 export const Series = styled(Creators)`
   gap: 0 30rem;
+`;
+
+export const ListContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: ${(props) => (props.available > 6 ? "2rem" : "4rem")};
 `;
 
 export const Li = styled.li`

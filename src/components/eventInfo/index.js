@@ -6,18 +6,17 @@ import { GET_EVENT } from "../../api/api";
 import AvengersAnimation from "../loading";
 import useFetch from "../../hooks/useFetch";
 import Card from "../comicInfo/components/card";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { ReactComponent as ArrowIcon } from "../../assets/arrowRight.svg";
+import HeroDetails from "./components/heroDetails";
 
 const EventInfo = () => {
   const { data, loading, error, request } = useFetch();
-
+  const urlPath = window.location.pathname.split("/");
+  const eventId = urlPath.pop();
   useEffect(() => {
-    const urlPath = window.location.pathname.split("/");
-    const comicId = urlPath.pop();
-    const { url, options } = GET_EVENT(comicId);
+    const { url, options } = GET_EVENT(eventId);
     request(url, options);
-  }, [request]);
+  }, [eventId, request]);
 
   const noDescription =
     data && (data[0].description === null || data[0].description === "");
@@ -54,6 +53,7 @@ const EventInfo = () => {
     return <Error error={error} />;
   }
 
+  console.log("eventsInfo", data);
   return (
     <>
       {data && (
@@ -145,60 +145,28 @@ const EventInfo = () => {
                 </S.Content>
 
                 {data[0].characters.available > 0 && (
-                  <S.Details>
+                  <S.Details isCards="card">
                     <S.Title>Characters</S.Title>
-
-                    {data[0].characters.available > 6 ? (
-                      <Splide
-                        options={{
-                          rewind: true,
-                          gap: "2rem",
-                          perPage: 6,
-                          autoplay: true,
-                          perMove: 1,
-                        }}
-                      >
-                        {data[0].characters.items.map((hero, index) => {
-                          const heroId = hero.resourceURI.split("/").pop();
-
-                          return (
-                            <SplideSlide key={index}>
-                              <Card key={index} heroId={heroId} />
-                            </SplideSlide>
-                          );
-                        })}
-                      </Splide>
-                    ) : (
-                      <S.Characters available={data[0].characters.available}>
-                        {data[0].characters.items.map((hero, index) => {
-                          const heroId = hero.resourceURI.split("/").pop();
-
-                          return <Card key={index} heroId={heroId} />;
-                        })}
-                      </S.Characters>
-                    )}
+                    <S.Characters available={data[0].characters.available}>
+                      <Card page="events" urlId={eventId} />
+                    </S.Characters>
                   </S.Details>
                 )}
 
                 {data[0].series.available > 0 && (
                   <S.Details>
                     <S.Title>Series</S.Title>
-                    <S.Series>
-                      {data[0].series.items.map((serie, index) => {
-                        const serieId = serie.resourceURI.split("/").pop();
-
-                        return (
-                          <S.Li key={index}>
-                            <S.LinkName
-                              to={`/series/${serieId}`}
-                              target="_blank"
-                            >
-                              <span>{serie.name}</span>
-                            </S.LinkName>
-                          </S.Li>
-                        );
-                      })}
-                    </S.Series>
+                    <S.ListContainer>
+                      <HeroDetails page="events" urlId={eventId} />
+                    </S.ListContainer>
+                  </S.Details>
+                )}
+                {data[0].comics.available > 0 && (
+                  <S.Details>
+                    <S.Title>Comics</S.Title>
+                    <S.ListContainer>
+                      <HeroDetails page="comics" urlId={eventId} />
+                    </S.ListContainer>
                   </S.Details>
                 )}
               </S.Container>

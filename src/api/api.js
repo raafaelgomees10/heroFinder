@@ -127,6 +127,33 @@ export function GET_EVENT(eventId) {
   };
 }
 
+export function GET_EVENT_HEROS(eventId) {
+  return {
+    url: `${API_URL}/events/${eventId}/characters?${baseParams}&limit=100`,
+    options: {
+      method: "GET",
+    },
+  };
+}
+
+export function GET_EVENT_COMICS(eventId) {
+  return {
+    url: `${API_URL}/events/${eventId}/comics?${baseParams}&limit=100`,
+    options: {
+      method: "GET",
+    },
+  };
+}
+
+export function GET_EVENT_SERIES(eventId) {
+  return {
+    url: `${API_URL}/events/${eventId}/series?${baseParams}&limit=100`,
+    options: {
+      method: "GET",
+    },
+  };
+}
+
 export function SEARCH_EVENTS(name) {
   return {
     url: `${API_URL}/events?nameStartsWith=${name}&${baseParams}&limit=15`,

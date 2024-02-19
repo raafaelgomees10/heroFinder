@@ -1,16 +1,22 @@
 import React, { useEffect } from "react";
 import * as S from "./styles";
-import { GET_COMIC_HEROS } from "../../../../api/api";
+import { GET_COMIC_HEROS, GET_EVENT_HEROS } from "../../../../api/api";
 import useFetch from "../../../../hooks/useFetch";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 
-const Card = ({ urlId }) => {
+const Card = ({ urlId, page }) => {
   const { data, loading, error, total, request } = useFetch();
 
   useEffect(() => {
-    const { url, options } = GET_COMIC_HEROS(urlId);
-    request(url, options);
-  }, [request, urlId]);
+    if (page === "comics") {
+      const { url, options } = GET_COMIC_HEROS(urlId);
+      request(url, options);
+    }
+    if (page === "events") {
+      const { url, options } = GET_EVENT_HEROS(urlId);
+      request(url, options);
+    }
+  }, [request, urlId, page]);
 
   return (
     <>
@@ -26,7 +32,7 @@ const Card = ({ urlId }) => {
                 rewind: true,
                 gap: "2rem",
                 perPage: 6,
-                autoplay: true,
+                // autoplay: true,
                 perMove: 1,
               }}
             >
