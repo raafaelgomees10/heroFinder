@@ -321,7 +321,7 @@ const AvengersAnimation = () => {
           </g>
         </svg>
       </S.Content>
-      Carregando ...
+      <div className="loader"></div>
     </S.Container>
   );
 };

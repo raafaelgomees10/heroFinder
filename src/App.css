@@ -13,3 +13,31 @@ html,body{
   font-size: 62.5%;
   text-decoration: none;
 }
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: fit-content;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 30px;
+  clip-path: inset(0 3ch 0 0);
+  animation: l4 1s steps(4) infinite;
+}
+.loader:before {
+  content:"Loading..."
+}
+
+.custom-loader {
+  margin-top: 16px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: 
+    radial-gradient(farthest-side,#EE171F 94%,#0000) top/8px 8px no-repeat,
+    conic-gradient(#0000 30%,#EE171F);
+  -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0);
+  animation:s3 1s infinite linear;
+}
+
+@keyframes s3{ 
+  100%{transform: rotate(1turn)}
+}

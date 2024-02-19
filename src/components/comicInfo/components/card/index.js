@@ -7,21 +7,21 @@ import {
 } from "../../../../api/api";
 import useFetch from "../../../../hooks/useFetch";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/react-splide/css/sea-green";
 
 const Card = ({ urlId, page }) => {
   const { data, loading, error, total, request } = useFetch();
 
   useEffect(() => {
-    if (page === "comics") {
-      const { url, options } = GET_COMIC_HEROS(urlId);
-      request(url, options);
-    }
-    if (page === "events") {
-      const { url, options } = GET_EVENT_HEROS(urlId);
-      request(url, options);
-    }
-    if (page === "series") {
-      const { url, options } = GET_SERIE_HEROS(urlId);
+    const pages = {
+      comics: GET_COMIC_HEROS,
+      events: GET_EVENT_HEROS,
+      series: GET_SERIE_HEROS,
+    };
+
+    const fetchPageContent = pages[page];
+    if (fetchPageContent) {
+      const { url, options } = fetchPageContent(urlId);
       request(url, options);
     }
   }, [request, urlId, page]);
@@ -31,7 +31,7 @@ const Card = ({ urlId, page }) => {
       {error ? (
         <S.TextError>Error: {error}</S.TextError>
       ) : loading ? (
-        <S.TextError>Carregando</S.TextError>
+        <div class="custom-loader" />
       ) : (
         <>
           {total > 6 ? (

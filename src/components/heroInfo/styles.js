@@ -63,12 +63,14 @@ export const Name = styled.h1`
   font-size: 5rem;
   font-family: "Bangers", sans-serif;
   font-weight: 400;
+  color: #f2ecff;
   margin: 0;
 `;
 
 export const Description = styled.p`
   font-size: 1.6rem;
   font-family: "Bangers", sans-serif;
+  color: #f2ecff;
   letter-spacing: 2px;
 `;
 

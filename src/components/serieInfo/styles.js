@@ -62,6 +62,7 @@ export const Box = styled.div`
 export const Details = styled.div`
   padding: 0.8rem 1.6rem;
   border: solid #000;
+  color: #f2ecff;
   border-width: 3px 4px 3px 5px;
 
   &:not(:first-of-type) {

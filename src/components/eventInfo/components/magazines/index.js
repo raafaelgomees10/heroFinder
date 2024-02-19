@@ -54,7 +54,7 @@ const Magazines = ({ page, urlId, content, perPage }) => {
       {error ? (
         <>Error: {error}</>
       ) : loading ? (
-        <>Carregando</>
+        <div class="custom-loader" />
       ) : (
         <S.Content className={total > 4 ? "" : "noSlide"}>
           {total > 5 ? (

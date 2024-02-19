@@ -4,10 +4,6 @@
 
 # Skeleton images, background das magazines
 
-# loading paginas de informaçoes - comics, events, series
-
-### mockar dados - loki, thor, spider, iron, hulk, america, deadpool, scarlat, etc
-
 ### - ajustar loading geral, o background com opacidade nao pega o header, que acaba ficando estranho
 
 ### - nos creators, quando for 4 quadrinhos ta quebrando, ajustar isso

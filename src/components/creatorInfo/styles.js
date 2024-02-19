@@ -65,6 +65,7 @@ export const Details = styled.div`
   padding: 1.6rem;
   border: solid #000;
   border-width: 3px 4px 3px 5px;
+  color: #f2ecff;
 
   &:not(:first-of-type) {
     margin-top: 24px;

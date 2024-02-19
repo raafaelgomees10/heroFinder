@@ -115,6 +115,7 @@ export const Box = styled.div`
 export const Details = styled.div`
   padding: 0.8rem 1.6rem;
   border: solid #000;
+  color: #f2ecff;
   border-width: 3px 4px 3px 5px;
 
   &:not(:first-of-type) {
@@ -219,7 +220,7 @@ export const Role = styled.li`
 export const CreatorName = styled(Link)`
   font-size: 1.2rem;
   font-weight: 300;
-  color: #fff;
+  color: #f2ecff;
 
   > span {
     &:hover {
@@ -231,7 +232,7 @@ export const CreatorName = styled(Link)`
 
 export const Text = styled(Link)`
   text-decoration: none;
-  color: #fff;
+  color: #f2ecff;
   font-size: 1.4rem;
   margin: 0;
 

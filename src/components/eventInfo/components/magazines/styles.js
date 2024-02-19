@@ -50,5 +50,5 @@ export const Name = styled.h3`
   background-color: transparent;
   margin: 20px 0 0;
   font-weight: 400;
-  color: #000;
+  color: #c0c0c0;
 `;
