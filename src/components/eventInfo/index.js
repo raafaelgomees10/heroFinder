@@ -7,7 +7,7 @@ import AvengersAnimation from "../loading";
 import useFetch from "../../hooks/useFetch";
 import Card from "../comicInfo/components/card";
 import { ReactComponent as ArrowIcon } from "../../assets/arrowRight.svg";
-import HeroDetails from "./components/heroDetails";
+import Magazines from "./components/magazines";
 
 const EventInfo = () => {
   const { data, loading, error, request } = useFetch();
@@ -29,6 +29,7 @@ const EventInfo = () => {
 
   //mapping all creators and creating arrays for different role types which will contain the name and ID of everyone who is part of the same role
   data &&
+    // eslint-disable-next-line array-callback-return
     data[0].creators.items.map((creator) => {
       const urlPath = creator.resourceURI.split("/");
       const creatorId = urlPath.pop();
@@ -156,9 +157,10 @@ const EventInfo = () => {
                   <S.Details>
                     <S.Title>Series</S.Title>
                     <S.ListContainer>
-                      <HeroDetails
-                        content="series"
+                      <Magazines
+                        perPage={5}
                         page="events"
+                        content="series"
                         urlId={eventId}
                       />
                     </S.ListContainer>
@@ -168,9 +170,10 @@ const EventInfo = () => {
                   <S.Details>
                     <S.Title>Comics</S.Title>
                     <S.ListContainer>
-                      <HeroDetails
-                        content="comics"
+                      <Magazines
+                        perPage={5}
                         page="events"
+                        content="comics"
                         urlId={eventId}
                       />
                     </S.ListContainer>

@@ -3,33 +3,42 @@ import * as S from "./styles";
 import { Link } from "react-router-dom";
 import useFetch from "../../../../hooks/useFetch";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/react-splide/css/sea-green";
 import {
   GET_CREATOR_COMICS,
   GET_CREATOR_EVENTS,
   GET_CREATOR_SERIES,
   GET_EVENT_COMICS,
   GET_EVENT_SERIES,
+  GET_HERO_COMICS,
+  GET_HERO_EVENTS,
+  GET_HERO_SERIES,
   GET_SERIE_COMICS,
   GET_SERIE_EVENTS,
 } from "../../../../api/api";
 
-const HeroDetails = ({ page, urlId, content, perPage }) => {
+const Magazines = ({ page, urlId, content, perPage }) => {
   const { data, loading, error, total, request } = useFetch();
 
   useEffect(() => {
     const pageContent = {
       events: {
-        series: GET_EVENT_SERIES,
         comics: GET_EVENT_COMICS,
+        series: GET_EVENT_SERIES,
       },
       series: {
-        events: GET_SERIE_EVENTS,
         comics: GET_SERIE_COMICS,
+        events: GET_SERIE_EVENTS,
       },
       creators: {
-        events: GET_CREATOR_EVENTS,
         comics: GET_CREATOR_COMICS,
+        events: GET_CREATOR_EVENTS,
         series: GET_CREATOR_SERIES,
+      },
+      characters: {
+        comics: GET_HERO_COMICS,
+        events: GET_HERO_EVENTS,
+        series: GET_HERO_SERIES,
       },
     };
     // Chama a função específica de busca correspondente à página e ao conteúdo
@@ -106,4 +115,4 @@ const HeroDetails = ({ page, urlId, content, perPage }) => {
   );
 };
 
-export default HeroDetails;
+export default Magazines;

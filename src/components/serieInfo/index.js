@@ -7,7 +7,7 @@ import AvengersAnimation from "../loading";
 import useFetch from "../../hooks/useFetch";
 import { ReactComponent as ArrowIcon } from "../../assets/arrowRight.svg";
 import Card from "../comicInfo/components/card";
-import HeroDetails from "../eventInfo/components/heroDetails";
+import Magazines from "../eventInfo/components/magazines";
 
 const SerieInfo = () => {
   const { data, loading, error, request } = useFetch();
@@ -54,7 +54,6 @@ const SerieInfo = () => {
     return <Error error={error} />;
   }
 
-  console.log("serie", data);
   return (
     <>
       {data && (
@@ -124,9 +123,10 @@ const SerieInfo = () => {
                   <S.Details>
                     <S.Title>Events</S.Title>
                     <S.Characters>
-                      <HeroDetails
-                        content="events"
+                      <Magazines
+                        perPage={5}
                         page="series"
+                        content="events"
                         urlId={serieId}
                       />
                     </S.Characters>
@@ -136,9 +136,10 @@ const SerieInfo = () => {
                   <S.Details>
                     <S.Title>Comics</S.Title>
                     <S.Characters>
-                      <HeroDetails
-                        content="comics"
+                      <Magazines
+                        perPage={5}
                         page="series"
+                        content="comics"
                         urlId={serieId}
                       />
                     </S.Characters>

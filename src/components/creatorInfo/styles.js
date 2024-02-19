@@ -50,7 +50,7 @@ export const Content = styled.div`
 `;
 
 export const Image = styled.img`
-  height: 550px;
+  height: ${(props) => (props.noImage ? "350px" : "550px")};
   width: 350px;
   border: solid #000;
   border-width: 3px 4px 3px 5px;
@@ -106,7 +106,7 @@ export const Title = styled.h1`
   margin: 0;
   font-size: 3rem;
   font-family: "Bangers", sans-serif;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
 `;
 
 export const InfoList = styled.ul`

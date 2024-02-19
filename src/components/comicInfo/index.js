@@ -63,7 +63,6 @@ const ComicInfo = () => {
     return <Error error={error} />;
   }
 
-  console.log("data", data);
   return (
     <>
       {data && (

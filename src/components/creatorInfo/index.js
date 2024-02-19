@@ -4,13 +4,12 @@ import Error from "../error/error";
 import { GET_CREATOR } from "../../api/api";
 import AvengersAnimation from "../loading";
 import useFetch from "../../hooks/useFetch";
-import HeroDetails from "../eventInfo/components/heroDetails";
+import Magazines from "../eventInfo/components/magazines";
 
 const CreatorInfo = () => {
   const { data, loading, error, request } = useFetch();
   const urlPath = window.location.pathname.split("/");
   const creatorId = urlPath.pop();
-
   useEffect(() => {
     const { url, options } = GET_CREATOR(creatorId);
     request(url, options);
@@ -19,7 +18,7 @@ const CreatorInfo = () => {
   if (error) {
     return <Error error={error} />;
   }
-
+  const noImage = data && data[0].thumbnail.path.split("/").pop();
   return (
     <>
       {data && (
@@ -38,7 +37,9 @@ const CreatorInfo = () => {
                         : ""
                     }`}
                     alt={data[0].title}
+                    noImage={noImage === "image_not_available"}
                   />
+
                   <S.Box>
                     <S.Details style={{ textAlign: "center" }}>
                       <S.Title>{data[0].fullName}</S.Title>
@@ -48,7 +49,7 @@ const CreatorInfo = () => {
                       <S.Details>
                         <S.Title>Comics</S.Title>
                         <S.ListContainer>
-                          <HeroDetails
+                          <Magazines
                             perPage={3}
                             content="comics"
                             page="creators"
@@ -63,7 +64,7 @@ const CreatorInfo = () => {
                   <S.Details>
                     <S.Title>EVENTS</S.Title>
                     <S.ListContainer>
-                      <HeroDetails
+                      <Magazines
                         perPage={5}
                         page="creators"
                         content="events"
@@ -77,7 +78,7 @@ const CreatorInfo = () => {
                   <S.Details>
                     <S.Title>Series</S.Title>
                     <S.ListContainer>
-                      <HeroDetails
+                      <Magazines
                         perPage={5}
                         content="series"
                         page="creators"

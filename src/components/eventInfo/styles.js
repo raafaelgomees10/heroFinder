@@ -7,7 +7,6 @@ export const Section = styled.section``;
 
 export const Wrapper = styled.div`
   padding: 3rem 0;
-  background-color: #fff;
   background-image: url(${BgBlack});
   background-size: cover, auto;
   background-position: center;
@@ -158,7 +157,7 @@ export const Title = styled.h1`
   margin: 0;
   font-size: 3rem;
   font-family: "Bangers", sans-serif;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
 `;
 
 export const Description = styled.p`

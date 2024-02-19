@@ -3,8 +3,8 @@ import * as S from "./styles";
 import { GET_HERO } from "../../api/api";
 import AvengersAnimation from "../loading";
 import useFetch from "../../hooks/useFetch";
-import HeroDetails from "./components/heroDetails";
 import Error from "../error/error";
+import Magazines from "../eventInfo/components/magazines";
 
 const HeroInfo = () => {
   const { data, loading, error, request } = useFetch();
@@ -53,25 +53,37 @@ const HeroInfo = () => {
                 </S.Box>
               </S.Content>
               {data[0].comics.available > 0 && (
-                <HeroDetails
-                  heroId={data[0].id}
-                  totalAvailible={data[0].comics.available}
-                  title="comics"
-                />
+                <S.Details>
+                  <S.Title>Comics</S.Title>
+                  <Magazines
+                    perPage={5}
+                    page="characters"
+                    content="comics"
+                    urlId={data[0].id}
+                  />
+                </S.Details>
               )}
               {data[0].events.available > 0 && (
-                <HeroDetails
-                  heroId={data[0].id}
-                  totalAvailible={data[0].events.available}
-                  title="events"
-                />
+                <S.Details>
+                  <S.Title>Events</S.Title>
+                  <Magazines
+                    perPage={5}
+                    page="characters"
+                    content="events"
+                    urlId={data[0].id}
+                  />
+                </S.Details>
               )}
               {data[0].series.available > 0 && (
-                <HeroDetails
-                  heroId={data[0].id}
-                  totalAvailible={data[0].series.available}
-                  title="series"
-                />
+                <S.Details>
+                  <S.Title>Series</S.Title>
+                  <Magazines
+                    perPage={5}
+                    page="characters"
+                    content="series"
+                    urlId={data[0].id}
+                  />
+                </S.Details>
               )}
             </S.Container>
           )}

@@ -90,3 +90,53 @@ export const Events = styled.div`
   border-width: 3px 4px 3px 5px;
   height: 200px;
 `;
+
+export const Details = styled.div`
+  padding: 1.6rem;
+  border: solid #000;
+  border-width: 3px 4px 3px 5px;
+
+  &:not(:first-of-type) {
+    margin-top: 24px;
+  }
+
+  .splide {
+    width: 100%;
+    padding: ${(props) => (props.isCards ? "1.2rem 7rem" : "0 7rem 1.2rem")};
+
+    &__pagination__page {
+      &:hover {
+        background: #e62429;
+      }
+      &.is-active {
+        background: #e62429;
+        &:hover {
+          background: #eb474d;
+        }
+      }
+    }
+
+    &__track {
+      padding: ${(props) => (props.isCards ? "0 0 16px" : "12px 0")};
+    }
+
+    &__arrow {
+      > svg {
+        fill: #e62429;
+
+        &:hover {
+          fill: #eb474d !important;
+        }
+      }
+    }
+  }
+`;
+export const ListContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: ${(props) => (props.available > 6 ? "2rem" : "4rem")};
+`;
+
+export const Title = styled(Name)`
+  font-size: 4rem;
+`;
