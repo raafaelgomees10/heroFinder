@@ -181,6 +181,33 @@ export function GET_CREATOR(creatorId) {
   };
 }
 
+export function GET_CREATOR_COMICS(creatorId) {
+  return {
+    url: `${API_URL}/creators/${creatorId}/comics?${baseParams}&limit=100`,
+    options: {
+      method: "GET",
+    },
+  };
+}
+
+export function GET_CREATOR_EVENTS(creatorId) {
+  return {
+    url: `${API_URL}/creators/${creatorId}/events?${baseParams}&limit=100`,
+    options: {
+      method: "GET",
+    },
+  };
+}
+
+export function GET_CREATOR_SERIES(creatorId) {
+  return {
+    url: `${API_URL}/creators/${creatorId}/series?${baseParams}&limit=100`,
+    options: {
+      method: "GET",
+    },
+  };
+}
+
 export function SEARCH_CREATORS(name) {
   return {
     url: `${API_URL}/creators?nameStartsWith=${name}&${baseParams}&limit=16`,

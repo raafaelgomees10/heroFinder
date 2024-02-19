@@ -4,41 +4,39 @@ import { Link } from "react-router-dom";
 import useFetch from "../../../../hooks/useFetch";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import {
+  GET_CREATOR_COMICS,
+  GET_CREATOR_EVENTS,
+  GET_CREATOR_SERIES,
   GET_EVENT_COMICS,
   GET_EVENT_SERIES,
   GET_SERIE_COMICS,
   GET_SERIE_EVENTS,
 } from "../../../../api/api";
 
-const HeroDetails = ({ page, urlId, content }) => {
+const HeroDetails = ({ page, urlId, content, perPage }) => {
   const { data, loading, error, total, request } = useFetch();
 
   useEffect(() => {
-    const EventsPageData = () => {
-      if (content === "series") {
-        const { url, options } = GET_EVENT_SERIES(urlId);
-        request(url, options);
-      }
-      if (content === "comics") {
-        const { url, options } = GET_EVENT_COMICS(urlId);
-        request(url, options);
-      }
+    const pageContent = {
+      events: {
+        series: GET_EVENT_SERIES,
+        comics: GET_EVENT_COMICS,
+      },
+      series: {
+        events: GET_SERIE_EVENTS,
+        comics: GET_SERIE_COMICS,
+      },
+      creators: {
+        events: GET_CREATOR_EVENTS,
+        comics: GET_CREATOR_COMICS,
+        series: GET_CREATOR_SERIES,
+      },
     };
-    const SeriesPageData = () => {
-      if (content === "events") {
-        const { url, options } = GET_SERIE_EVENTS(urlId);
-        request(url, options);
-      }
-      if (content === "comics") {
-        const { url, options } = GET_SERIE_COMICS(urlId);
-        request(url, options);
-      }
-    };
-
-    if (page === "events") {
-      EventsPageData();
-    } else if (page === "series") {
-      SeriesPageData();
+    // Chama a função específica de busca correspondente à página e ao conteúdo
+    const fetchPageContent = pageContent[page]?.[content];
+    if (fetchPageContent) {
+      const { url, options } = fetchPageContent(urlId);
+      request(url, options);
     }
   }, [request, urlId, page, content]);
 
@@ -56,7 +54,7 @@ const HeroDetails = ({ page, urlId, content }) => {
                 options={{
                   rewind: true,
                   gap: "2rem",
-                  perPage: 5,
+                  perPage: perPage,
                   autoplay: false,
                   perMove: 1,
                 }}
@@ -66,7 +64,6 @@ const HeroDetails = ({ page, urlId, content }) => {
                   data.map((item) => (
                     <SplideSlide key={item.id}>
                       <S.Box>
-                        {/* arrumar esse to aqui */}
                         <Link to={`/${content}/${item.id}`} target="_blank">
                           <S.Image
                             src={`${
