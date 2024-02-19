@@ -69,7 +69,8 @@ export const Details = styled.div`
   }
 
   .splide {
-    padding: 2rem 7rem;
+    width: 100%;
+    padding: ${(props) => (props.isCards ? "1.2rem 7rem" : "0 7rem 1.2rem")};
 
     &__pagination__page {
       &:hover {
@@ -84,7 +85,7 @@ export const Details = styled.div`
     }
 
     &__track {
-      padding: 0 0 10px;
+      padding: ${(props) => (props.isCards ? "0 0 16px" : "12px 0")};
     }
 
     &__arrow {
@@ -119,8 +120,10 @@ export const Creators = styled.ul`
   gap: 0 5rem;
 `;
 
-export const Characters = styled(Creators)`
-  grid-template-columns: repeat(4, 1fr);
+export const Characters = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  gap: ${(props) => (props.available > 6 ? "2rem" : "4rem")};
 `;
 
 export const Li = styled.li`

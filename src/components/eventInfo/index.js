@@ -53,7 +53,8 @@ const EventInfo = () => {
     return <Error error={error} />;
   }
 
-  console.log("eventsInfo", data);
+  console.log("data", data);
+
   return (
     <>
       {data && (
@@ -145,7 +146,7 @@ const EventInfo = () => {
                 </S.Content>
 
                 {data[0].characters.available > 0 && (
-                  <S.Details isCards="card">
+                  <S.Details isCards={true}>
                     <S.Title>Characters</S.Title>
                     <S.Characters available={data[0].characters.available}>
                       <Card page="events" urlId={eventId} />
@@ -157,7 +158,11 @@ const EventInfo = () => {
                   <S.Details>
                     <S.Title>Series</S.Title>
                     <S.ListContainer>
-                      <HeroDetails page="events" urlId={eventId} />
+                      <HeroDetails
+                        content="series"
+                        page="events"
+                        urlId={eventId}
+                      />
                     </S.ListContainer>
                   </S.Details>
                 )}
@@ -165,7 +170,11 @@ const EventInfo = () => {
                   <S.Details>
                     <S.Title>Comics</S.Title>
                     <S.ListContainer>
-                      <HeroDetails page="comics" urlId={eventId} />
+                      <HeroDetails
+                        content="comics"
+                        page="events"
+                        urlId={eventId}
+                      />
                     </S.ListContainer>
                   </S.Details>
                 )}

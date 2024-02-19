@@ -6,16 +6,18 @@ import { GET_SERIE } from "../../api/api";
 import AvengersAnimation from "../loading";
 import useFetch from "../../hooks/useFetch";
 import { ReactComponent as ArrowIcon } from "../../assets/arrowRight.svg";
+import Card from "../comicInfo/components/card";
+import HeroDetails from "../eventInfo/components/heroDetails";
 
 const SerieInfo = () => {
   const { data, loading, error, request } = useFetch();
+  const urlPath = window.location.pathname.split("/");
+  const serieId = urlPath.pop();
 
   useEffect(() => {
-    const urlPath = window.location.pathname.split("/");
-    const serieId = urlPath.pop();
     const { url, options } = GET_SERIE(serieId);
     request(url, options);
-  }, [request]);
+  }, [request, serieId]);
 
   const noDescription =
     data &&
@@ -52,6 +54,7 @@ const SerieInfo = () => {
     return <Error error={error} />;
   }
 
+  console.log("serie", data);
   return (
     <>
       {data && (
@@ -107,26 +110,40 @@ const SerieInfo = () => {
                         </S.Creators>
                       </S.Details>
                     )}
-                    {data[0].characters.available > 0 && (
-                      <S.Details>
-                        <S.Title>Characters</S.Title>
-                        <S.Characters>
-                          {data[0].characters.items.map((hero, index) => {
-                            const heroId = hero.resourceURI.split("/").pop();
-
-                            return (
-                              <S.HeroLi key={index}>
-                                <S.HeroName to={`/characters/${heroId}`}>
-                                  <span>{hero.name}</span>
-                                </S.HeroName>
-                              </S.HeroLi>
-                            );
-                          })}
-                        </S.Characters>
-                      </S.Details>
-                    )}
                   </S.Box>
                 </S.Content>
+                {data[0].characters.available > 0 && (
+                  <S.Details isCards={true}>
+                    <S.Title>Characters</S.Title>
+                    <S.Characters>
+                      <Card page="series" urlId={serieId} />
+                    </S.Characters>
+                  </S.Details>
+                )}
+                {data[0].events.available > 0 && (
+                  <S.Details>
+                    <S.Title>Events</S.Title>
+                    <S.Characters>
+                      <HeroDetails
+                        content="events"
+                        page="series"
+                        urlId={serieId}
+                      />
+                    </S.Characters>
+                  </S.Details>
+                )}
+                {data[0].comics.available > 0 && (
+                  <S.Details>
+                    <S.Title>Comics</S.Title>
+                    <S.Characters>
+                      <HeroDetails
+                        content="comics"
+                        page="series"
+                        urlId={serieId}
+                      />
+                    </S.Characters>
+                  </S.Details>
+                )}
               </S.Container>
             </S.Wrapper>
           )}

@@ -18,7 +18,7 @@ const CreatorInfo = () => {
   if (error) {
     return <Error error={error} />;
   }
-  console.log("loading", loading);
+
   return (
     <>
       {data && (

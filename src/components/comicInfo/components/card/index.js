@@ -1,6 +1,10 @@
 import React, { useEffect } from "react";
 import * as S from "./styles";
-import { GET_COMIC_HEROS, GET_EVENT_HEROS } from "../../../../api/api";
+import {
+  GET_COMIC_HEROS,
+  GET_EVENT_HEROS,
+  GET_SERIE_HEROS,
+} from "../../../../api/api";
 import useFetch from "../../../../hooks/useFetch";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 
@@ -14,6 +18,10 @@ const Card = ({ urlId, page }) => {
     }
     if (page === "events") {
       const { url, options } = GET_EVENT_HEROS(urlId);
+      request(url, options);
+    }
+    if (page === "series") {
+      const { url, options } = GET_SERIE_HEROS(urlId);
       request(url, options);
     }
   }, [request, urlId, page]);

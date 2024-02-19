@@ -207,6 +207,32 @@ export function GET_SERIE(serieId) {
     },
   };
 }
+export function GET_SERIE_HEROS(serieId) {
+  return {
+    url: `${API_URL}/series/${serieId}/characters?${baseParams}&limit=100`,
+    options: {
+      method: "GET",
+    },
+  };
+}
+
+export function GET_SERIE_EVENTS(serieId) {
+  return {
+    url: `${API_URL}/series/${serieId}/events?${baseParams}&limit=100`,
+    options: {
+      method: "GET",
+    },
+  };
+}
+
+export function GET_SERIE_COMICS(serieId) {
+  return {
+    url: `${API_URL}/series/${serieId}/comics?${baseParams}&limit=100`,
+    options: {
+      method: "GET",
+    },
+  };
+}
 
 export function SEARCH_SERIES(name) {
   return {

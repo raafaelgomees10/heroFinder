@@ -23,7 +23,6 @@ const HeroInfo = () => {
     return <Error error={error} />;
   }
 
-  console.log("hero", data);
   return (
     <S.Section>
       <S.BackgroundImage />

@@ -34,7 +34,6 @@ const HeroDetails = ({ heroId, totalAvailible, title }) => {
   return (
     <S.Container>
       <S.Title>{title}</S.Title>
-      {title === "events" && console.log("events", data)}
       {loading ? (
         <>Carregando</>
       ) : (

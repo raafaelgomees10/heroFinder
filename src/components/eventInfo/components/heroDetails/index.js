@@ -1,23 +1,46 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import * as S from "./styles";
 import { Link } from "react-router-dom";
 import useFetch from "../../../../hooks/useFetch";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-import { GET_EVENT_COMICS, GET_EVENT_SERIES } from "../../../../api/api";
+import {
+  GET_EVENT_COMICS,
+  GET_EVENT_SERIES,
+  GET_SERIE_COMICS,
+  GET_SERIE_EVENTS,
+} from "../../../../api/api";
 
-const HeroDetails = ({ page, urlId }) => {
+const HeroDetails = ({ page, urlId, content }) => {
   const { data, loading, error, total, request } = useFetch();
 
   useEffect(() => {
-    if (page === "comics") {
-      const { url, options } = GET_EVENT_COMICS(urlId);
-      request(url, options);
-    }
+    const EventsPageData = () => {
+      if (content === "series") {
+        const { url, options } = GET_EVENT_SERIES(urlId);
+        request(url, options);
+      }
+      if (content === "comics") {
+        const { url, options } = GET_EVENT_COMICS(urlId);
+        request(url, options);
+      }
+    };
+    const SeriesPageData = () => {
+      if (content === "events") {
+        const { url, options } = GET_SERIE_EVENTS(urlId);
+        request(url, options);
+      }
+      if (content === "comics") {
+        const { url, options } = GET_SERIE_COMICS(urlId);
+        request(url, options);
+      }
+    };
+
     if (page === "events") {
-      const { url, options } = GET_EVENT_SERIES(urlId);
-      request(url, options);
+      EventsPageData();
+    } else if (page === "series") {
+      SeriesPageData();
     }
-  }, [request, urlId, page]);
+  }, [request, urlId, page, content]);
 
   return (
     <S.Container>
@@ -44,7 +67,7 @@ const HeroDetails = ({ page, urlId }) => {
                     <SplideSlide key={item.id}>
                       <S.Box>
                         {/* arrumar esse to aqui */}
-                        <Link to={`/${page}/${item.id}`} target="_blank">
+                        <Link to={`/${content}/${item.id}`} target="_blank">
                           <S.Image
                             src={`${
                               item.thumbnail
@@ -65,7 +88,7 @@ const HeroDetails = ({ page, urlId }) => {
               {data &&
                 data.map((item) => (
                   <S.Box key={item.id}>
-                    <Link to={`/${page}/${item.id}`} target="_blank">
+                    <Link to={`/${content}/${item.id}`} target="_blank">
                       <S.Image
                         src={`${
                           item.thumbnail
