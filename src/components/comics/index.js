@@ -5,7 +5,7 @@ import Magazine from "../magazine";
 import AvengersAnimation from "../loading";
 import useMedia from "../../hooks/useMedia";
 import useFetch from "../../hooks/useFetch";
-import HeaderBg from "../../assets/bg2.jpg";
+import HeaderBg from "../../assets/herosBg.jpg";
 import SearchInput from "../helper/searchInput";
 import SearchNotFound from "../helper/searchNotFound";
 import { GET_COMICS, SEARCH_COMICS } from "../../api/api";
@@ -44,66 +44,48 @@ const Comics = () => {
 
   return (
     <>
-      {loading ? (
-        <AvengersAnimation />
-      ) : (
-        <S.Section>
-          <S.Wrapper>
-            <S.Image src={mobile ? HeaderBgMobile : HeaderBg} />
-            <S.Text>
-              Personagens marvel
-              <span>
-                Conheça mais detalhes e fique por dentro das historias dos
-                herois e vilões
-              </span>
-            </S.Text>
-          </S.Wrapper>
-          {loading ? (
-            <AvengersAnimation />
-          ) : (
-            <S.Background>
-              <S.Container>
-                <form onSubmit={handleSubmit}>
-                  <SearchInput
-                    id="search"
-                    type="search"
-                    placeholder="Pesquisar quadrinhos"
-                    onChange={handleChange}
-                    value={search}
-                  />
-                </form>
+      <S.Section>
+        <S.Wrapper>
+          <S.Image src={mobile ? HeaderBgMobile : HeaderBg} />
+          <S.Text>
+            Comics
+            <span>
+              Find out more details and stay up to date with the stories of the
+              heroes and villains
+            </span>
+          </S.Text>
+        </S.Wrapper>
+        {loading ? (
+          <AvengersAnimation />
+        ) : (
+          <S.Background>
+            <S.Container>
+              <form onSubmit={handleSubmit}>
+                <SearchInput
+                  id="search"
+                  type="search"
+                  placeholder="Pesquisar quadrinhos"
+                  onChange={handleChange}
+                  value={search}
+                />
+              </form>
 
-                <S.Content>
-                  {total > 0 ? (
-                    <>
-                      {data &&
-                        data.map((hero, index) => (
-                          <Magazine key={index} data={hero} />
-                        ))}
-                    </>
-                  ) : (
-                    <SearchNotFound />
-                  )}
-                </S.Content>
-              </S.Container>
-            </S.Background>
-          )}
-        </S.Section>
-
-        // <S.Section>
-        //   <SearchInput
-        //     id="search"
-        //     type="search"
-        //     placeholder="Digite o nome do personagem que deseja buscar e tecle Enter"
-        //   />
-        //   <S.Content>
-        //     {data &&
-        //       data.map((comic, index) => (
-        //         <Card key={index} type="comics" data={comic} />
-        //       ))}
-        //   </S.Content>
-        // </S.Section>
-      )}
+              <S.Content>
+                {total > 0 ? (
+                  <>
+                    {data &&
+                      data.map((hero, index) => (
+                        <Magazine key={index} data={hero} />
+                      ))}
+                  </>
+                ) : (
+                  <SearchNotFound />
+                )}
+              </S.Content>
+            </S.Container>
+          </S.Background>
+        )}
+      </S.Section>
     </>
   );
 };

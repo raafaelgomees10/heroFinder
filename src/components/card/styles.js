@@ -87,6 +87,6 @@ export const Details = styled.div`
 `;
 
 export const Name = styled.p`
-  color: #fff;
+  color: #e6f5f4;
   margin: 0;
 `;

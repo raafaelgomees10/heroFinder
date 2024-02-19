@@ -47,10 +47,10 @@ const Creators = () => {
         <S.Wrapper>
           <S.Image src={mobile ? HeaderBgMobile : HeaderBg} />
           <S.Text>
-            Personagens marvel
+            Producers
             <span>
-              Conheça mais detalhes e fique por dentro das historias dos herois
-              e vilões
+              Meet the marvel producers and find out which stories they had a
+              role in
             </span>
           </S.Text>
         </S.Wrapper>

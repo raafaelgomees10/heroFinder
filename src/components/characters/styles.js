@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import BgTeste from "../../assets/bgBlack.jpg";
 
 export const Section = styled.section``;
 

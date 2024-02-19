@@ -75,7 +75,7 @@ export function SEARCH_HEROS(name) {
 
 export function GET_COMICS() {
   return {
-    url: `${API_URL}/comics?${baseParams}&offset=${randomComics}&limit=15`,
+    url: `${API_URL}/comics?${baseParams}&offset=${randomComics}&limit=16`,
     options: {
       method: "GET",
     },
@@ -102,7 +102,7 @@ export function GET_COMIC_HEROS(comicId) {
 
 export function SEARCH_COMICS(name) {
   return {
-    url: `${API_URL}/comics?titleStartsWith=${name}&${baseParams}&limit=15`,
+    url: `${API_URL}/comics?titleStartsWith=${name}&${baseParams}&limit=16`,
     options: {
       method: "GET",
     },
@@ -156,7 +156,7 @@ export function GET_EVENT_SERIES(eventId) {
 
 export function SEARCH_EVENTS(name) {
   return {
-    url: `${API_URL}/events?nameStartsWith=${name}&${baseParams}&limit=15`,
+    url: `${API_URL}/events?nameStartsWith=${name}&${baseParams}&limit=16`,
     options: {
       method: "GET",
     },
@@ -264,15 +264,6 @@ export function GET_SERIE_COMICS(serieId) {
 export function SEARCH_SERIES(name) {
   return {
     url: `${API_URL}/series?titleStartsWith=${name}&${baseParams}&limit=16`,
-    options: {
-      method: "GET",
-    },
-  };
-}
-
-export function GET_STORIES() {
-  return {
-    url: `${API_URL}/stories?${baseParams}&offset=${randomHerois}&limit=15`,
     options: {
       method: "GET",
     },

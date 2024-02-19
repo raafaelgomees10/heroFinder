@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const Container = styled(NavLink)`
   margin-top: 1rem;
-  color: #000;
+  color: #f2ecff;
 `;
 
 export const Content = styled.div``;

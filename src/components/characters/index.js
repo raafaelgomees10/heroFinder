@@ -47,10 +47,10 @@ const Characters = () => {
         <S.Wrapper>
           <S.Image src={mobile ? HeaderBgMobile : HeaderBg} />
           <S.Text>
-            Personagens marvel
+            CHARACTERS
             <span>
-              Conheça mais detalhes e fique por dentro das historias dos herois
-              e vilões
+              Find out more details and stay up to date with the stories of the
+              heroes and villains
             </span>
           </S.Text>
         </S.Wrapper>

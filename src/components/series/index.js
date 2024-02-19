@@ -6,7 +6,7 @@ import AvengersAnimation from "../loading";
 import useFetch from "../../hooks/useFetch";
 import SearchInput from "../helper/searchInput";
 import Magazine from "../magazine";
-import HeaderBg from "../../assets/bg2.jpg";
+import HeaderBg from "../../assets/herosBg.jpg";
 import Error from "../error/error";
 import useMedia from "../../hooks/useMedia";
 import SearchNotFound from "../helper/searchNotFound";
@@ -44,20 +44,20 @@ const Series = () => {
   }
   return (
     <>
-      {loading ? (
-        <AvengersAnimation />
-      ) : (
-        <S.Section>
-          <S.Wrapper>
-            <S.Image src={mobile ? HeaderBgMobile : HeaderBg} />
-            <S.Text>
-              Personagens marvel
-              <span>
-                Conheça mais detalhes e fique por dentro das historias dos
-                herois e vilões
-              </span>
-            </S.Text>
-          </S.Wrapper>
+      <S.Section>
+        <S.Wrapper>
+          <S.Image src={mobile ? HeaderBgMobile : HeaderBg} />
+          <S.Text>
+            Series
+            <span>
+              Find out more details and stay up to date with the stories of the
+              heroes and villains
+            </span>
+          </S.Text>
+        </S.Wrapper>
+        {loading ? (
+          <AvengersAnimation />
+        ) : (
           <S.Background>
             <S.Container>
               <form onSubmit={handleSubmit}>
@@ -84,8 +84,8 @@ const Series = () => {
               </S.Content>
             </S.Container>
           </S.Background>
-        </S.Section>
-      )}
+        )}
+      </S.Section>
     </>
   );
 };
