@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import BgImage from "../../assets/Sky.png";
 import BgBlack from "../../assets/bgBlack.jpg";
-import BgImage from "../../assets/SkyLinefinal.png";
+import BgImageMobile from "../../assets/SkyMobile.png";
 
 export const Section = styled.section``;
 
@@ -28,6 +29,18 @@ export const BackgroundImage = styled.div`
   background-position: bottom;
   background-repeat: repeat-x;
   min-height: 200px;
+
+  @media (max-width: 767px) {
+    background-image: url(${BgImageMobile}),
+      linear-gradient(
+        to bottom,
+        #163c52 0%,
+        #4f4f47 30%,
+        #c5752d 60%,
+        #b7490f 80%,
+        #2f1107 100%
+      );
+  }
 `;
 
 export const Container = styled.div`
@@ -49,7 +62,7 @@ export const Content = styled.div`
   gap: 3rem;
   width: 100%;
 
-  @media (max-width: 767px) {
+  @media (max-width: 1199px) {
     flex-direction: column;
   }
 `;

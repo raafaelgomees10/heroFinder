@@ -43,13 +43,18 @@ const Card = ({ urlId, page }) => {
                 rewind: true,
                 gap: "2rem",
                 perPage: 6,
-                // autoplay: true,
+                autoplay: true,
                 perMove: 1,
                 breakpoints: {
                   767: {
                     gap: "4rem",
                     perPage: 1,
                     pagination: false,
+                  },
+
+                  1199: {
+                    perPage: 3,
+                    gap: "3rem",
                   },
                 },
               }}

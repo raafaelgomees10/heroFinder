@@ -26,13 +26,10 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: stretch;
-  gap: 16px 37px;
+  flex-wrap: wrap;
   margin-top: 32px;
-  padding: 3rem auto;
 
   @media (max-width: 767px) {
     justify-content: center;

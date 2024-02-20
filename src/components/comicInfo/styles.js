@@ -1,14 +1,15 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import BgTeste from "../../assets/bgBlack.jpg";
-import BgImage from "../../assets/SkyLinefinal.png";
+import BgImage from "../../assets/Sky.png";
+import BgBlack from "../../assets/bgBlack.jpg";
+import BgImageMobile from "../../assets/SkyMobile.png";
 
 export const Section = styled.section``;
 
 export const Wrapper = styled.div`
   padding: 3rem 0;
   background-color: #fff;
-  background-image: url(${BgTeste});
+  background-image: url(${BgBlack});
   background-size: cover, auto;
   background-position: center;
   background-repeat: no-repeat;
@@ -70,7 +71,21 @@ export const Wrapper = styled.div`
 
 export const BackgroundImage = styled.div`
   background-image: url(${BgImage}),
-    /* #163c52 0%, */
+    linear-gradient(
+      to bottom,
+      #163c52 0%,
+      #4f4f47 30%,
+      #c5752d 60%,
+      #b7490f 80%,
+      #2f1107 100%
+    );
+  background-size: contain, auto;
+  background-position: bottom;
+  background-repeat: repeat-x;
+  min-height: 200px;
+
+  @media (max-width: 767px) {
+    background-image: url(${BgImageMobile}),
       linear-gradient(
         to bottom,
         #163c52 0%,
@@ -79,10 +94,7 @@ export const BackgroundImage = styled.div`
         #b7490f 80%,
         #2f1107 100%
       );
-  background-size: contain, auto;
-  background-position: bottom;
-  background-repeat: repeat-x;
-  min-height: 200px;
+  }
 `;
 
 export const Container = styled.div`
@@ -135,7 +147,12 @@ export const Details = styled.div`
   }
 
   .splide {
-    padding: 2rem 7rem;
+    width: 100%;
+    padding: 1.2rem 7rem;
+
+    @media (max-width: 767px) {
+      padding: 1.2rem 5rem;
+    }
 
     &__pagination__page {
       &:hover {
@@ -186,7 +203,7 @@ export const SubTitle = styled.h3`
     display: block;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 1199px) {
     font-size: 1.8rem;
 
     > span {

@@ -12,7 +12,7 @@ const Header = () => {
       <S.Container>
         <S.Box>
           <S.Logo>
-            <img src={Logo} alt="marvel" width={150} height={48} />
+            <S.Image src={Logo} alt="Logo Marvel" />
           </S.Logo>
           {mobile && (
             <S.MobileButton

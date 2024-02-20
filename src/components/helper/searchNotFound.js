@@ -6,10 +6,10 @@ const SearchNotFound = () => {
   return (
     <Container>
       <Text className="notFoundLabel">
-        Desculpe... Não foi possível encontrar sua pesquisa :(
+        Sorry... Couldn't find your search :(
       </Text>
       <Content>
-        <Image src={NotFound} alt="Groot triste por pesquisa não encontrada" />
+        <Image src={NotFound} alt="Groot sad about search not found" />
       </Content>
     </Container>
   );

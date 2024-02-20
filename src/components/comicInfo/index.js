@@ -141,7 +141,7 @@ const ComicInfo = () => {
                 </S.Content>
 
                 {data[0].characters.available > 0 && (
-                  <S.Details>
+                  <S.Details isCards={true}>
                     <S.Title>Characters</S.Title>
                     <S.Characters available={data[0].characters.available}>
                       <Card page="comics" urlId={comicId} />

@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 export const Header = styled.header`
   width: 100%;
-  /* background-color: #121212; */
   background-color: #163c52;
   padding: 10px;
   @media (max-width: 767px) {
@@ -19,12 +18,23 @@ export const Container = styled.div`
 
 export const Logo = styled.div``;
 
+export const Image = styled.img`
+  width: 150px;
+  height: 48px;
+
+  @media (max-width: 767px) {
+    width: 80px;
+    height: 30px;
+  }
+`;
+
 export const Box = styled.div`
   display: block;
 
   @media (max-width: 767px) {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
   }
 `;

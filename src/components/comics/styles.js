@@ -18,15 +18,15 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-wrap: wrap;
   margin-top: 32px;
 
   @media (max-width: 767px) {
+    justify-content: center;
     margin-top: 24px;
-    grid-template-columns: 1fr;
-    justify-items: center;
-    align-items: center;
   }
 `;
 

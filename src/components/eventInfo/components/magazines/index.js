@@ -50,6 +50,7 @@ const Magazines = ({ page, urlId, content, perPage }) => {
   }, [request, urlId, page, content]);
 
   const mobile = useMedia("(max-width:767px)");
+  const isCreator = page === "creators";
   return (
     <S.Container>
       {error ? (
@@ -73,6 +74,10 @@ const Magazines = ({ page, urlId, content, perPage }) => {
                       perPage: 1,
                       fixedHeight: 320,
                       pagination: false,
+                    },
+                    1199: {
+                      perPage: !isCreator ? 1 : 3,
+                      gap: "1rem",
                     },
                   },
                 }}
