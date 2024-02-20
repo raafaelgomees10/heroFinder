@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Card from "../card";
 import * as S from "./styles";
 import Error from "../helper/error";
 import AvengersAnimation from "../loading";
@@ -7,6 +6,7 @@ import useFetch from "../../hooks/useFetch";
 import useMedia from "../../hooks/useMedia";
 import HeaderBg from "../../assets/herosBg.jpg";
 import SearchInput from "../helper/searchInput";
+import CardContent from "../container/cardContent";
 import SearchNotFound from "../helper/searchNotFound";
 import HeaderBgMobile from "../../assets/herosBgMobile.jpg";
 import { GET_CREATORS, SEARCH_CREATORS } from "../../api/api";
@@ -41,6 +41,7 @@ const Creators = () => {
   if (error) {
     return <Error error={error} />;
   }
+  console.log("data", data);
   return (
     <>
       <S.Section>
@@ -72,10 +73,11 @@ const Creators = () => {
               <S.Content>
                 {total > 0 ? (
                   <>
-                    {data &&
-                      data.map((creator, index) => (
-                        <Card key={index} type="creators" data={creator} />
-                      ))}
+                    <CardContent
+                      items={data}
+                      type="creators"
+                      isHomePage={true}
+                    />
                   </>
                 ) : (
                   <SearchNotFound />

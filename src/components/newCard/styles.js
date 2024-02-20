@@ -3,11 +3,14 @@ import styled from "styled-components";
 
 export const Container = styled(NavLink)`
   position: relative;
-  width: 140px;
+  width: ${(props) => (props.$isHomePage ? "190px" : "140px")};
   margin-top: 1rem;
 
   &::after {
-    border-color: transparent #1e1e1e transparent transparent;
+    border-color: ${(props) =>
+      props.$isHomePage
+        ? "transparent #121212 transparent transparent"
+        : "transparent #1e1e1e transparent transparent"};
     border-style: solid;
     border-width: 12px 12px 0 0;
     bottom: 0;
@@ -40,7 +43,7 @@ export const Content = styled.div`
 `;
 
 export const Image = styled.img`
-  height: 140px;
+  height: ${(props) => (props.$isHomePage ? "210px" : "140px")};
   position: relative;
   width: 100%;
   transition: all 0.2s linear;
@@ -57,7 +60,7 @@ export const Details = styled.div`
   padding: 16px 6px;
   font-size: 1.2rem;
   position: relative;
-  height: 100px;
+  height: ${(props) => (props.$isHomePage ? "145px" : "100px")};
   width: 100%;
   background: #1f2121;
   transition: color 0.3s;

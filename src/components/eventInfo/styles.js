@@ -152,6 +152,10 @@ export const Details = styled.div`
       padding: ${(props) => (props.isCards ? "1.2rem 5rem" : "0 5rem 0")};
     }
 
+    &__pagination {
+      bottom: -16px;
+    }
+
     &__pagination__page {
       &:hover {
         background: #e62429;

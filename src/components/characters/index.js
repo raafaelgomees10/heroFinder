@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Card from "../card";
 import * as S from "./styles";
 import Error from "../helper/error";
 import AvengersAnimation from "../loading";
@@ -7,6 +6,7 @@ import useMedia from "../../hooks/useMedia";
 import useFetch from "../../hooks/useFetch";
 import HeaderBg from "../../assets/herosBg.jpg";
 import SearchInput from "../helper/searchInput";
+import CardContent from "../container/cardContent";
 import SearchNotFound from "../helper/searchNotFound";
 import { GET_HEROS, SEARCH_HEROS } from "../../api/api";
 import HeaderBgMobile from "../../assets/herosBgMobile.jpg";
@@ -47,7 +47,7 @@ const Characters = () => {
         <S.Wrapper>
           <S.Image src={mobile ? HeaderBgMobile : HeaderBg} />
           <S.Text>
-            CHARACTERS
+            Characters
             <span>
               Find out more details and stay up to date with the stories of the
               heroes and villains
@@ -72,10 +72,7 @@ const Characters = () => {
               <S.Content>
                 {total > 0 ? (
                   <>
-                    {data &&
-                      data.map((hero, index) => (
-                        <Card key={index} data={hero} />
-                      ))}
+                    <CardContent items={data} isHomePage={true} />
                   </>
                 ) : (
                   <SearchNotFound />

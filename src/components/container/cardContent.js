@@ -1,19 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./styles";
 import NewCard from "../newCard";
 import useMedia from "../../hooks/useMedia";
+import useFetch from "../../hooks/useFetch";
 import "@splidejs/react-splide/css/sea-green";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-import useFetch from "../../hooks/useFetch";
 import {
   GET_COMIC_HEROS,
   GET_EVENT_HEROS,
   GET_SERIE_HEROS,
 } from "../../api/api";
 
-const CardContent = ({ urlId, page }) => {
+const CardContent = ({ urlId, page, isHomePage = false, items = [], type }) => {
   const { data, loading, error, total, request } = useFetch();
-
   useEffect(() => {
     const pages = {
       comics: GET_COMIC_HEROS,
@@ -41,42 +40,61 @@ const CardContent = ({ urlId, page }) => {
 
   return (
     <>
-      {mobile || tablet || total > 6 ? (
-        <Splide
-          options={{
-            rewind: true,
-            gap: "2rem",
-            perPage: 6,
-            autoplay: true,
-            perMove: 1,
-            breakpoints: {
-              767: {
-                gap: "4rem",
-                perPage: 1,
-                pagination: false,
-              },
-
-              1199: {
-                perPage: 3,
-                gap: "3rem",
-              },
-            },
-          }}
-        >
-          {data &&
-            data.map((hero, index) => (
-              <SplideSlide key={hero.id}>
-                <NewCard hero={hero} />
-                {mobile && (
-                  <S.CurrentSlide>
-                    {index + 1}/{data.length}
-                  </S.CurrentSlide>
-                )}
-              </SplideSlide>
+      {isHomePage ? (
+        <>
+          {items &&
+            items.map((hero) => (
+              <NewCard
+                hero={hero}
+                type={type}
+                key={hero.id}
+                isHomePage={true}
+              />
             ))}
-        </Splide>
+        </>
       ) : (
-        <>{data && data.map((hero) => <NewCard key={hero.id} hero={hero} />)}</>
+        <>
+          {mobile || tablet || total > 6 ? (
+            <Splide
+              options={{
+                rewind: true,
+                gap: "2rem",
+                perPage: 6,
+                autoplay: true,
+                perMove: 1,
+                breakpoints: {
+                  767: {
+                    gap: "4rem",
+                    perPage: 1,
+                    pagination: false,
+                  },
+
+                  1199: {
+                    perPage: 3,
+                    gap: "3rem",
+                  },
+                },
+              }}
+            >
+              {data &&
+                data.map((hero, index) => (
+                  <SplideSlide key={hero.id}>
+                    <NewCard hero={hero} />
+                    {mobile && (
+                      <S.CurrentSlide>
+                        {index + 1}/{data.length}
+                      </S.CurrentSlide>
+                    )}
+                  </SplideSlide>
+                ))}
+            </Splide>
+          ) : (
+            <>
+              {data &&
+                data.map((hero) => <NewCard key={hero.id} hero={hero} />)}
+            </>
+          )}
+        </>
       )}
     </>
   );
