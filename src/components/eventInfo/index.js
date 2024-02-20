@@ -5,14 +5,15 @@ import Error from "../helper/error";
 import { GET_EVENT } from "../../api/api";
 import AvengersAnimation from "../loading";
 import useFetch from "../../hooks/useFetch";
-import Magazines from "./components/magazines";
-import { ReactComponent as ArrowIcon } from "../../assets/arrowRight.svg";
 import CardContent from "../container/cardContent";
+import MagazineContent from "../container/magazineContent";
+import { ReactComponent as ArrowIcon } from "../../assets/arrowRight.svg";
 
 const EventInfo = () => {
   const { data, loading, error, request } = useFetch();
   const urlPath = window.location.pathname.split("/");
   const eventId = urlPath.pop();
+
   useEffect(() => {
     const { url, options } = GET_EVENT(eventId);
     request(url, options);
@@ -21,15 +22,19 @@ const EventInfo = () => {
   const noDescription =
     data && (data[0].description === null || data[0].description === "");
 
-  const nextEventId = data && data[0].next.resourceURI.split("/").pop();
+  const nextEventId =
+    data && data[0].next ? data[0].next.resourceURI.split("/").pop() : false;
 
-  const prevEventId = data && data[0].previous.resourceURI.split("/").pop();
+  const prevEventId =
+    data && data[0].previous
+      ? data[0].previous.resourceURI.split("/").pop()
+      : false;
+
   // creating object for creators
   const creatorsObject = {};
 
   //mapping all creators and creating arrays for different role types which will contain the name and ID of everyone who is part of the same role
   data &&
-    // eslint-disable-next-line array-callback-return
     data[0].creators.items.map((creator) => {
       const urlPath = creator.resourceURI.split("/");
       const creatorId = urlPath.pop();
@@ -101,18 +106,25 @@ const EventInfo = () => {
                       </S.EventPeriod>
 
                       <S.EventsButtons>
-                        <S.Buttons
-                          prev="true"
-                          reloadDocument
-                          to={`/events/${prevEventId}`}
-                        >
-                          <ArrowIcon />
-                          Previous Event - {data[0].previous.name}
-                        </S.Buttons>
+                        {prevEventId && (
+                          <S.Buttons
+                            prev="true"
+                            reloadDocument
+                            to={`/events/${prevEventId}`}
+                          >
+                            <ArrowIcon />
+                            Previous Event - {data[0].previous.name}
+                          </S.Buttons>
+                        )}
 
-                        <S.Buttons to={`/events/${nextEventId}`} reloadDocument>
-                          Next Event - {data[0].next.name} <ArrowIcon />
-                        </S.Buttons>
+                        {nextEventId && (
+                          <S.Buttons
+                            to={`/events/${nextEventId}`}
+                            reloadDocument
+                          >
+                            Next Event - {data[0].next.name} <ArrowIcon />
+                          </S.Buttons>
+                        )}
                       </S.EventsButtons>
                     </S.Details>
 
@@ -147,36 +159,38 @@ const EventInfo = () => {
                 {data[0].characters.available > 0 && (
                   <S.Details isCards={true}>
                     <S.Title>Characters</S.Title>
-                    <S.Characters available={data[0].characters.available}>
+                    <S.ContainerContent
+                      available={data[0].characters.available}
+                    >
                       <CardContent page="events" urlId={eventId} />
-                    </S.Characters>
+                    </S.ContainerContent>
                   </S.Details>
                 )}
 
                 {data[0].series.available > 0 && (
                   <S.Details>
                     <S.Title>Series</S.Title>
-                    <S.ListContainer>
-                      <Magazines
+                    <S.ContainerContent>
+                      <MagazineContent
                         perPage={5}
                         page="events"
                         content="series"
                         urlId={eventId}
                       />
-                    </S.ListContainer>
+                    </S.ContainerContent>
                   </S.Details>
                 )}
                 {data[0].comics.available > 0 && (
                   <S.Details>
                     <S.Title>Comics</S.Title>
-                    <S.ListContainer>
-                      <Magazines
+                    <S.ContainerContent>
+                      <MagazineContent
                         perPage={5}
                         page="events"
                         content="comics"
                         urlId={eventId}
                       />
-                    </S.ListContainer>
+                    </S.ContainerContent>
                   </S.Details>
                 )}
               </S.Container>

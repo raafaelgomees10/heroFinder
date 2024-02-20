@@ -6,6 +6,7 @@ import AvengersAnimation from "../loading";
 import useFetch from "../../hooks/useFetch";
 import CardContent from "../container/cardContent";
 import Magazines from "../eventInfo/components/magazines";
+import MagazineContent from "../container/magazineContent";
 
 const SerieInfo = () => {
   const { data, loading, error, request } = useFetch();
@@ -121,7 +122,7 @@ const SerieInfo = () => {
                   <S.Details>
                     <S.Title>Events</S.Title>
                     <S.Characters>
-                      <Magazines
+                      <MagazineContent
                         perPage={5}
                         page="series"
                         content="events"
@@ -134,7 +135,7 @@ const SerieInfo = () => {
                   <S.Details>
                     <S.Title>Comics</S.Title>
                     <S.Characters>
-                      <Magazines
+                      <MagazineContent
                         perPage={5}
                         page="series"
                         content="comics"

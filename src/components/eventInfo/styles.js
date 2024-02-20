@@ -6,6 +6,34 @@ import BgImageMobile from "../../assets/SkyMobile.png";
 
 export const Section = styled.section``;
 
+export const BackgroundImage = styled.div`
+  background-image: url(${BgImage}),
+    linear-gradient(
+      to bottom,
+      #163c52 0%,
+      #4f4f47 30%,
+      #c5752d 60%,
+      #b7490f 80%,
+      #2f1107 100%
+    );
+  background-size: contain, auto;
+  background-position: bottom;
+  background-repeat: repeat-x;
+  min-height: 200px;
+
+  @media (max-width: 767px) {
+    background-image: url(${BgImageMobile}),
+      linear-gradient(
+        to bottom,
+        #163c52 0%,
+        #4f4f47 30%,
+        #c5752d 60%,
+        #b7490f 80%,
+        #2f1107 100%
+      );
+  }
+`;
+
 export const Wrapper = styled.div`
   padding: 3rem 0;
   background-image: url(${BgBlack});
@@ -68,37 +96,10 @@ export const Wrapper = styled.div`
     ); */
 `;
 
-export const BackgroundImage = styled.div`
-  background-image: url(${BgImage}),
-    linear-gradient(
-      to bottom,
-      #163c52 0%,
-      #4f4f47 30%,
-      #c5752d 60%,
-      #b7490f 80%,
-      #2f1107 100%
-    );
-  background-size: contain, auto;
-  background-position: bottom;
-  background-repeat: repeat-x;
-  min-height: 200px;
-
-  @media (max-width: 767px) {
-    background-image: url(${BgImageMobile}),
-      linear-gradient(
-        to bottom,
-        #163c52 0%,
-        #4f4f47 30%,
-        #c5752d 60%,
-        #b7490f 80%,
-        #2f1107 100%
-      );
-  }
-`;
-
 export const Container = styled.div`
   max-width: 1100px;
   margin: 0 auto;
+
   @media (max-width: 767px) {
     max-width: 300px;
   }
@@ -161,10 +162,6 @@ export const Details = styled.div`
           background: #eb474d;
         }
       }
-    }
-
-    &__track {
-      padding: ${(props) => (props.isCards ? "0 0 16px" : "12px 0")};
     }
 
     &__arrow {
@@ -243,12 +240,6 @@ export const Buttons = styled(Link)`
   }
 `;
 
-export const Characters = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  gap: ${(props) => (props.available > 6 ? "2rem" : "4rem")};
-`;
-
 export const Creators = styled.ul`
   margin-top: 16px;
   display: grid;
@@ -257,14 +248,10 @@ export const Creators = styled.ul`
   gap: 0 5rem;
 `;
 
-export const Series = styled(Creators)`
-  gap: 0 30rem;
-`;
-
-export const ListContainer = styled.div`
+export const ContainerContent = styled.div`
   display: flex;
-  justify-content: space-between;
-  gap: ${(props) => (props.available > 6 ? "2rem" : "4rem")};
+  padding: 16px 0;
+  gap: 4rem;
 `;
 
 export const Li = styled.li`

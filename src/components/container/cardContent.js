@@ -29,6 +29,7 @@ const CardContent = ({ urlId, page }) => {
   }, [request, urlId, page]);
 
   const mobile = useMedia("(max-width:767px)");
+  const tablet = useMedia("(max-width:1199px)");
 
   if (error) {
     return <S.TextError>Error: {error}</S.TextError>;
@@ -40,7 +41,7 @@ const CardContent = ({ urlId, page }) => {
 
   return (
     <>
-      {total > 6 || mobile ? (
+      {mobile || tablet || total > 6 ? (
         <Splide
           options={{
             rewind: true,

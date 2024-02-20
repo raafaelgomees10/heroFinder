@@ -5,6 +5,7 @@ import { GET_CREATOR } from "../../api/api";
 import AvengersAnimation from "../loading";
 import useFetch from "../../hooks/useFetch";
 import Magazines from "../eventInfo/components/magazines";
+import MagazineContent from "../container/magazineContent";
 
 const CreatorInfo = () => {
   const { data, loading, error, request } = useFetch();
@@ -50,7 +51,7 @@ const CreatorInfo = () => {
                       <S.Details>
                         <S.Title>Comics</S.Title>
                         <S.ListContainer>
-                          <Magazines
+                          <MagazineContent
                             perPage={3}
                             content="comics"
                             page="creators"
