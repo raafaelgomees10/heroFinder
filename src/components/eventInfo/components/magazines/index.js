@@ -17,6 +17,7 @@ import {
   GET_SERIE_COMICS,
   GET_SERIE_EVENTS,
 } from "../../../../api/api";
+
 const Magazines = ({ page, urlId, content, perPage }) => {
   const { data, loading, error, total, request } = useFetch();
 

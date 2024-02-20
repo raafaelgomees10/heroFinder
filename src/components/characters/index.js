@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Card from "../card";
 import * as S from "./styles";
-import Error from "../error/error";
+import Error from "../helper/error";
 import AvengersAnimation from "../loading";
 import useMedia from "../../hooks/useMedia";
 import useFetch from "../../hooks/useFetch";

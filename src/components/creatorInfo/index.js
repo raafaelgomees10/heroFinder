@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import * as S from "./styles";
-import Error from "../error/error";
+import Error from "../helper/error";
 import { GET_CREATOR } from "../../api/api";
 import AvengersAnimation from "../loading";
 import useFetch from "../../hooks/useFetch";
@@ -10,6 +10,7 @@ const CreatorInfo = () => {
   const { data, loading, error, request } = useFetch();
   const urlPath = window.location.pathname.split("/");
   const creatorId = urlPath.pop();
+
   useEffect(() => {
     const { url, options } = GET_CREATOR(creatorId);
     request(url, options);

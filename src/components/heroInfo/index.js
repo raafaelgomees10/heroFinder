@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import * as S from "./styles";
+import Error from "../helper/error";
 import { GET_HERO } from "../../api/api";
 import AvengersAnimation from "../loading";
 import useFetch from "../../hooks/useFetch";
-import Error from "../error/error";
 import Magazines from "../eventInfo/components/magazines";
 
 const HeroInfo = () => {

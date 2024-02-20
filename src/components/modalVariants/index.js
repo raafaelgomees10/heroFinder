@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import * as S from "./styles";
-import { ReactComponent as CloseButton } from "../../../../assets/closeIcon.svg";
+import { ReactComponent as CloseButton } from "../../assets/closeIcon.svg";
+
 const ModalVariants = ({ setModal, variants }) => {
   useEffect(() => {
     const escFunction = (event) => {

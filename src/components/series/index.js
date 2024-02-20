@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./styles";
-import { GET_SERIES, SEARCH_SERIES } from "../../api/api";
+import Magazine from "../magazine";
+import Error from "../helper/error";
 import AvengersAnimation from "../loading";
 import useFetch from "../../hooks/useFetch";
-import SearchInput from "../helper/searchInput";
-import Magazine from "../magazine";
-import HeaderBg from "../../assets/herosBg.jpg";
-import Error from "../error/error";
 import useMedia from "../../hooks/useMedia";
+import HeaderBg from "../../assets/herosBg.jpg";
+import SearchInput from "../helper/searchInput";
 import SearchNotFound from "../helper/searchNotFound";
+import { GET_SERIES, SEARCH_SERIES } from "../../api/api";
 import HeaderBgMobile from "../../assets/herosBgMobile.jpg";
 
 const Series = () => {

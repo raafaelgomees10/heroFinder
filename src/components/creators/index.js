@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-import * as S from "./styles";
 import Card from "../card";
+import * as S from "./styles";
+import Error from "../helper/error";
 import AvengersAnimation from "../loading";
 import useFetch from "../../hooks/useFetch";
-import { GET_CREATORS, SEARCH_CREATORS } from "../../api/api";
-import SearchInput from "../helper/searchInput";
-import SearchNotFound from "../helper/searchNotFound";
 import useMedia from "../../hooks/useMedia";
 import HeaderBg from "../../assets/herosBg.jpg";
+import SearchInput from "../helper/searchInput";
+import SearchNotFound from "../helper/searchNotFound";
 import HeaderBgMobile from "../../assets/herosBgMobile.jpg";
-import Error from "../error/error";
+import { GET_CREATORS, SEARCH_CREATORS } from "../../api/api";
 
 const Creators = () => {
   const [search, setSearch] = useState("");

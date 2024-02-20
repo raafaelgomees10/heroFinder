@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import dayjs from "dayjs";
 import * as S from "./styles";
-import Error from "../error/error";
+import Error from "../helper/error";
 import { GET_EVENT } from "../../api/api";
 import AvengersAnimation from "../loading";
 import useFetch from "../../hooks/useFetch";
-import Card from "../comicInfo/components/card";
-import { ReactComponent as ArrowIcon } from "../../assets/arrowRight.svg";
 import Magazines from "./components/magazines";
+import { ReactComponent as ArrowIcon } from "../../assets/arrowRight.svg";
+import CardContent from "../container/cardContent";
 
 const EventInfo = () => {
   const { data, loading, error, request } = useFetch();
@@ -148,7 +148,7 @@ const EventInfo = () => {
                   <S.Details isCards={true}>
                     <S.Title>Characters</S.Title>
                     <S.Characters available={data[0].characters.available}>
-                      <Card page="events" urlId={eventId} />
+                      <CardContent page="events" urlId={eventId} />
                     </S.Characters>
                   </S.Details>
                 )}

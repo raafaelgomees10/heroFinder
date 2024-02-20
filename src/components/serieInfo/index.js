@@ -1,12 +1,10 @@
 import React, { useEffect } from "react";
-import dayjs from "dayjs";
 import * as S from "./styles";
-import Error from "../error/error";
+import Error from "../helper/error";
 import { GET_SERIE } from "../../api/api";
 import AvengersAnimation from "../loading";
 import useFetch from "../../hooks/useFetch";
-import { ReactComponent as ArrowIcon } from "../../assets/arrowRight.svg";
-import Card from "../comicInfo/components/card";
+import CardContent from "../container/cardContent";
 import Magazines from "../eventInfo/components/magazines";
 
 const SerieInfo = () => {
@@ -115,7 +113,7 @@ const SerieInfo = () => {
                   <S.Details isCards={true}>
                     <S.Title>Characters</S.Title>
                     <S.Characters>
-                      <Card page="series" urlId={serieId} />
+                      <CardContent page="series" urlId={serieId} />
                     </S.Characters>
                   </S.Details>
                 )}

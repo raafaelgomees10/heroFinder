@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import * as S from "./styles";
-import Error from "../error/error";
-import Card from "./components/card";
+import Error from "../helper/error";
 import { GET_COMIC } from "../../api/api";
 import AvengersAnimation from "../loading";
 import useFetch from "../../hooks/useFetch";
-import ModalVariants from "./components/modalVariants";
+import ModalVariants from "../modalVariants";
+import CardContent from "../container/cardContent";
 import { ReactComponent as ArrowIcon } from "../../assets/arrowRight.svg";
 
 const ComicInfo = () => {
@@ -82,18 +82,22 @@ const ComicInfo = () => {
                     }`}
                     alt={data[0].title}
                   />
+
                   <S.Box>
                     <S.Details>
                       <S.Title>{data[0].title}</S.Title>
+
                       <S.SubTitle>
                         Published:
                         <span> {formatedDate}</span>
                       </S.SubTitle>
+
                       <S.Description>
                         {noDescription
                           ? "Marvel has not released a description for this comic."
                           : data[0].description}
                       </S.Description>
+
                       <S.SubTitle>
                         Serie:
                         <span>
@@ -143,8 +147,9 @@ const ComicInfo = () => {
                 {data[0].characters.available > 0 && (
                   <S.Details isCards={true}>
                     <S.Title>Characters</S.Title>
+
                     <S.Characters available={data[0].characters.available}>
-                      <Card page="comics" urlId={comicId} />
+                      <CardContent page="comics" urlId={comicId} />
                     </S.Characters>
                   </S.Details>
                 )}
