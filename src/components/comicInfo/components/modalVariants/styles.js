@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import BgModal from "../../../../assets/1.jpg";
 
 const fade = keyframes`
@@ -49,7 +49,7 @@ export const Content = styled.div`
   @media (max-width: 767px) {
     width: unset;
     line-height: 1;
-    padding: 16px;
+    padding: 40px 16px;
   }
 `;
 export const Title = styled.h2`

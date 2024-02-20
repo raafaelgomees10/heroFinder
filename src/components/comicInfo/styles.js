@@ -88,6 +88,7 @@ export const BackgroundImage = styled.div`
 export const Container = styled.div`
   max-width: 1100px;
   margin: 0 auto;
+
   @media (max-width: 767px) {
     max-width: 300px;
   }
@@ -101,13 +102,24 @@ export const Content = styled.div`
   display: flex;
   justify-content: flex-start;
   gap: 3rem;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
 `;
+
 export const Image = styled.img`
   height: 550px;
   width: 350px;
   border: solid #000;
   border-width: 3px 4px 3px 5px;
+
+  @media (max-width: 767px) {
+    height: 420px;
+    width: 300px;
+  }
 `;
+
 export const Box = styled.div`
   width: 100%;
 `;
@@ -158,23 +170,36 @@ export const Title = styled.h1`
   font-size: 3rem;
   font-family: "Bangers", sans-serif;
   letter-spacing: 2px;
+
+  @media (max-width: 767px) {
+    font-size: 2.4rem;
+  }
 `;
 
 export const SubTitle = styled.h3`
   font-size: 2rem;
   font-weight: 600;
-  letter-spacing: 0.7px;
 
   > span {
     font-size: 1.6rem;
     font-weight: 300;
     display: block;
   }
+
+  @media (max-width: 767px) {
+    font-size: 1.8rem;
+
+    > span {
+      font-size: 1.4rem;
+    }
+  }
 `;
 
 export const Description = styled.p`
   font-size: 1.4rem;
   margin: 0;
+  font-family: "Bangers", sans-serif;
+  letter-spacing: 1px;
 `;
 
 export const Covers = styled.div`

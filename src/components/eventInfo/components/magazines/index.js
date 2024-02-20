@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import * as S from "./styles";
 import { Link } from "react-router-dom";
+import "@splidejs/react-splide/css/sea-green";
+import useMedia from "../../../../hooks/useMedia";
 import useFetch from "../../../../hooks/useFetch";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-import "@splidejs/react-splide/css/sea-green";
 import {
   GET_CREATOR_COMICS,
   GET_CREATOR_EVENTS,
@@ -16,7 +17,6 @@ import {
   GET_SERIE_COMICS,
   GET_SERIE_EVENTS,
 } from "../../../../api/api";
-
 const Magazines = ({ page, urlId, content, perPage }) => {
   const { data, loading, error, total, request } = useFetch();
 
@@ -49,28 +49,37 @@ const Magazines = ({ page, urlId, content, perPage }) => {
     }
   }, [request, urlId, page, content]);
 
+  const mobile = useMedia("(max-width:767px)");
   return (
     <S.Container>
       {error ? (
         <>Error: {error}</>
       ) : loading ? (
-        <div class="custom-loader" />
+        <div className="custom-loader" />
       ) : (
         <S.Content className={total > 4 ? "" : "noSlide"}>
-          {total > 5 ? (
+          {total > 5 || mobile ? (
             <>
               <Splide
                 options={{
                   rewind: true,
                   gap: "2rem",
                   perPage: perPage,
-                  autoplay: false,
+                  autoplay: true,
                   perMove: 1,
+                  breakpoints: {
+                    767: {
+                      gap: "6rem",
+                      perPage: 1,
+                      fixedHeight: 320,
+                      pagination: false,
+                    },
+                  },
                 }}
-                aria-label={"title"}
+                aria-label={(`slides`, content)}
               >
                 {data &&
-                  data.map((item) => (
+                  data.map((item, index) => (
                     <SplideSlide key={item.id}>
                       <S.Box>
                         <Link to={`/${content}/${item.id}`} target="_blank">
@@ -85,6 +94,11 @@ const Magazines = ({ page, urlId, content, perPage }) => {
                           <S.Name>{item.title}</S.Name>
                         </Link>
                       </S.Box>
+                      {mobile && (
+                        <S.CurrentSlide>
+                          {index + 1}/{data.length}
+                        </S.CurrentSlide>
+                      )}
                     </SplideSlide>
                   ))}
               </Splide>

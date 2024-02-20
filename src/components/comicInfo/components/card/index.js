@@ -8,6 +8,7 @@ import {
 import useFetch from "../../../../hooks/useFetch";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css/sea-green";
+import useMedia from "../../../../hooks/useMedia";
 
 const Card = ({ urlId, page }) => {
   const { data, loading, error, total, request } = useFetch();
@@ -26,15 +27,17 @@ const Card = ({ urlId, page }) => {
     }
   }, [request, urlId, page]);
 
+  const mobile = useMedia("(max-width:767px)");
+
   return (
     <>
       {error ? (
         <S.TextError>Error: {error}</S.TextError>
       ) : loading ? (
-        <div class="custom-loader" />
+        <div className="custom-loader" />
       ) : (
         <>
-          {total > 6 ? (
+          {total > 6 || mobile ? (
             <Splide
               options={{
                 rewind: true,
@@ -42,10 +45,17 @@ const Card = ({ urlId, page }) => {
                 perPage: 6,
                 // autoplay: true,
                 perMove: 1,
+                breakpoints: {
+                  767: {
+                    gap: "4rem",
+                    perPage: 1,
+                    pagination: false,
+                  },
+                },
               }}
             >
               {data &&
-                data.map((hero) => (
+                data.map((hero, index) => (
                   <SplideSlide key={hero.id}>
                     <S.Container to={`/characters/${hero.id}`}>
                       <S.Content>
@@ -63,6 +73,11 @@ const Card = ({ urlId, page }) => {
                         <S.Name>{hero.name}</S.Name>
                       </S.Details>
                     </S.Container>
+                    {mobile && (
+                      <S.CurrentSlide>
+                        {index + 1}/{data.length}
+                      </S.CurrentSlide>
+                    )}
                   </SplideSlide>
                 ))}
             </Splide>

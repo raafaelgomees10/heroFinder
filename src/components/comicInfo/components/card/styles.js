@@ -4,7 +4,6 @@ import styled from "styled-components";
 export const Container = styled(NavLink)`
   position: relative;
   width: 140px;
-  position: relative;
   margin-top: 1rem;
 
   &::after {
@@ -84,7 +83,13 @@ export const Details = styled.div`
     }
   }
 `;
-
+export const CurrentSlide = styled.span`
+  display: block;
+  font-size: 1.4rem;
+  color: #c0c0c0;
+  text-align: center;
+  margin-top: 16px;
+`;
 export const Name = styled.p`
   color: #fff;
   margin: 0;

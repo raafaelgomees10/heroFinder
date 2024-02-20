@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import BgTeste from "../../assets/bgBlack.jpg";
 
-export const Section = styled.section`
-  /* padding: 0 0 64px; */
-`;
+export const Section = styled.section``;
+
 export const Container = styled.div`
   max-width: 1100px;
   margin: 0 auto;
   padding: 3rem 0 0;
+
   @media (max-width: 767px) {
     max-width: 300px;
   }
@@ -21,9 +21,12 @@ export const Content = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   margin-top: 32px;
+
   @media (max-width: 767px) {
-    justify-content: center;
     margin-top: 24px;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: center;
   }
 `;
 

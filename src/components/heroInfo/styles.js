@@ -33,6 +33,10 @@ export const Content = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 4rem;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
 `;
 
 export const BackgroundImage = styled.div`
@@ -65,6 +69,12 @@ export const Name = styled.h1`
   font-weight: 400;
   color: #f2ecff;
   margin: 0;
+  letter-spacing: 1.1px;
+
+  @media (max-width: 767px) {
+    font-size: 2.8rem;
+    /* text-align: center; */
+  }
 `;
 
 export const Description = styled.p`
@@ -72,6 +82,10 @@ export const Description = styled.p`
   font-family: "Bangers", sans-serif;
   color: #f2ecff;
   letter-spacing: 2px;
+  @media (max-width: 767px) {
+    font-size: 1.4rem;
+    /* text-align: center; */
+  }
 `;
 
 export const Image = styled.img`
@@ -105,7 +119,10 @@ export const Details = styled.div`
   .splide {
     width: 100%;
     padding: ${(props) => (props.isCards ? "1.2rem 7rem" : "0 7rem 1.2rem")};
-
+    @media (max-width: 767px) {
+      padding: ${(props) => (props.isCards ? "1.2rem 7rem" : "0 5rem 0")};
+      /* height: 310px; */
+    }
     &__pagination__page {
       &:hover {
         background: #e62429;

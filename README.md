@@ -8,4 +8,6 @@
 
 ### - nos creators, quando for 4 quadrinhos ta quebrando, ajustar isso
 
-###### REVISAR TUDO E FAZER MOBILE
+###### REVISAR TUDO MOBILE
+
+###### REVISAR TUDO E FAZER TABLET

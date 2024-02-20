@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Card from "../card";
 import * as S from "./styles";
 import { GET_SERIES, SEARCH_SERIES } from "../../api/api";
 import AvengersAnimation from "../loading";
@@ -42,6 +41,7 @@ const Series = () => {
   if (error) {
     return <Error error={error} />;
   }
+
   return (
     <>
       <S.Section>
@@ -64,7 +64,7 @@ const Series = () => {
                 <SearchInput
                   id="search"
                   type="search"
-                  placeholder="Pesquisar quadrinhos"
+                  placeholder="Search series"
                   onChange={handleChange}
                   value={search}
                 />

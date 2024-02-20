@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import * as S from "./styles";
 import { ReactComponent as CloseButton } from "../../../../assets/closeIcon.svg";
-import { Link } from "react-router-dom";
 const ModalVariants = ({ setModal, variants }) => {
   useEffect(() => {
     const escFunction = (event) => {
@@ -17,6 +16,7 @@ const ModalVariants = ({ setModal, variants }) => {
     };
   }, [setModal, variants]);
   const total = variants && variants.length;
+
   return (
     <S.Container>
       <S.Background onClick={() => setModal(false)} />
@@ -31,7 +31,7 @@ const ModalVariants = ({ setModal, variants }) => {
             const comicId = urlPath.pop();
 
             return (
-              <S.Item>
+              <S.Item key={comicId}>
                 <S.VariantsLink to={`/comics/${comicId}`} target="_blank">
                   {variant.name}
                 </S.VariantsLink>

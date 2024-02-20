@@ -11,10 +11,19 @@ export const Title = styled.h1`
   font-weight: 400;
   margin: 0;
 `;
+
 export const Teste = styled.div`
-  padding: 40px;
-  border: 3px solid red;
+  display: block;
 `;
+
+export const CurrentSlide = styled.span`
+  display: block;
+  font-size: 1.4rem;
+  color: #c0c0c0;
+  text-align: center;
+  margin-top: 16px;
+`;
+
 export const Content = styled.ul`
   display: flex;
   justify-content: space-between;
@@ -33,7 +42,7 @@ export const Box = styled.div`
   display: inline-block;
   transition: all 0.2s ease-in-out;
   max-width: 170px;
-
+  /* border: 1px solid red; */
   &:hover {
     transform: translate3d(0, -10px, 0);
   }
@@ -51,4 +60,8 @@ export const Name = styled.h3`
   margin: 20px 0 0;
   font-weight: 400;
   color: #c0c0c0;
+
+  @media (max-width: 767px) {
+    margin: 12px 0 0;
+  }
 `;

@@ -126,7 +126,7 @@ export const Links = styled(NavLink)`
 `;
 
 export const MobileButton = styled.button`
-  background: #1b1d20;
+  background: transparent;
   border-radius: 0.2rem;
   height: 40px;
   color: #ee171f;
@@ -148,7 +148,7 @@ export const MobileButton = styled.button`
 
   &.active {
     border-color: #ee171f;
-    background: #1b1d20;
+    /* background: #1b1d20; */
   }
   &::after {
     content: "";
@@ -167,7 +167,7 @@ export const MobileButton = styled.button`
     outline: none;
     border-color: #ee171f;
     color: #ee171f;
-    background: #1b1d20;
+    /* background: #1b1d20; */
   }
 
   &.active {

@@ -33,6 +33,7 @@ export const BackgroundImage = styled.div`
 export const Container = styled.div`
   max-width: 1100px;
   margin: 0 auto;
+
   @media (max-width: 767px) {
     max-width: 300px;
   }
@@ -46,6 +47,10 @@ export const Content = styled.div`
   display: flex;
   justify-content: flex-start;
   gap: 3rem;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
 `;
 
 export const Image = styled.img`
@@ -53,6 +58,11 @@ export const Image = styled.img`
   width: 350px;
   border: solid #000;
   border-width: 3px 4px 3px 5px;
+
+  @media (max-width: 767px) {
+    height: 420px;
+    width: 300px;
+  }
 `;
 
 export const Box = styled.div`
@@ -72,7 +82,9 @@ export const Details = styled.div`
   .splide {
     width: 100%;
     padding: ${(props) => (props.isCards ? "1.2rem 7rem" : "0 7rem 1.2rem")};
-
+    @media (max-width: 767px) {
+      padding: ${(props) => (props.isCards ? "1.2rem 5rem" : "0 5rem 0")};
+    }
     &__pagination__page {
       &:hover {
         background: #e62429;
@@ -105,12 +117,18 @@ export const Title = styled.h1`
   margin: 0;
   font-size: 3rem;
   font-family: "Bangers", sans-serif;
-  letter-spacing: 2px;
+  letter-spacing: 1.8px;
+
+  @media (max-width: 767px) {
+    font-size: 2.4rem;
+  }
 `;
 
 export const Description = styled.p`
   font-size: 1.4rem;
   margin: 20px 0;
+  font-family: "Bangers", sans-serif;
+  letter-spacing: 1px;
 `;
 
 export const Creators = styled.ul`

@@ -64,7 +64,7 @@ const Comics = () => {
                 <SearchInput
                   id="search"
                   type="search"
-                  placeholder="Pesquisar quadrinhos"
+                  placeholder="Search comics"
                   onChange={handleChange}
                   value={search}
                 />
