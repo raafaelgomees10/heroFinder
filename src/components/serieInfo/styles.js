@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 import BgImage from "../../assets/Sky.png";
 import BgBlack from "../../assets/bgBlack.jpg";
@@ -94,13 +94,13 @@ export const Details = styled.div`
 
   .splide {
     width: 100%;
-    padding: ${(props) => (props.isCards ? "1.2rem 7rem" : "0 7rem 1.2rem")};
+    padding: ${(props) => (props.$isCards ? "1.2rem 7rem" : "0 7rem 1.2rem")};
 
     @media (max-width: 767px) {
-      padding: ${(props) => (props.isCards ? "1.2rem 5rem" : "0 5rem 0")};
+      padding: ${(props) => (props.$isCards ? "1.2rem 5rem" : "0 5rem 0")};
     }
     @media (min-width: 767px) and (max-width: 1199px) {
-      padding: ${(props) => (props.isCards ? "1.2rem 5rem" : "0 4rem 3rem")};
+      padding: ${(props) => (props.$isCards ? "1.2rem 5rem" : "0 4rem 3rem")};
 
       &__pagination {
         bottom: 0;
@@ -120,7 +120,7 @@ export const Details = styled.div`
     }
 
     &__track {
-      padding: ${(props) => (props.isCards ? "0 0 16px" : "12px 0")};
+      padding: ${(props) => (props.$isCards ? "0 0 16px" : "12px 0")};
     }
 
     &__arrow {
@@ -161,10 +161,21 @@ export const Creators = styled.ul`
   gap: 0 5rem;
 `;
 
-export const Characters = styled.div`
+export const ContainerContent = styled.div`
   display: flex;
-  justify-content: flex-start;
-  gap: ${(props) => (props.available > 6 ? "2rem" : "4rem")};
+  gap: 4rem;
+  padding: ${(props) => (props.$total <= 5 ? "12px 16px" : "0")};
+
+  @media (max-width: 767px) {
+    padding: 0;
+
+    ${(props) =>
+      props.$total === 1 &&
+      css`
+        padding-top: 12px;
+        justify-content: center;
+      `}
+  }
 `;
 
 export const Li = styled.li`

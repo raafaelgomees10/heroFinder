@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import BgImage from "../../assets/Sky.png";
 import BgBlack from "../../assets/bgBlack.jpg";
 import BgImageMobile from "../../assets/SkyMobile.png";
@@ -120,6 +120,23 @@ export const Events = styled.div`
   height: 200px;
 `;
 
+export const ContainerContent = styled.div`
+  display: flex;
+  gap: 4rem;
+  padding: ${(props) => (props.$total <= 5 ? "12px 16px" : "0")};
+
+  @media (max-width: 767px) {
+    padding: 0;
+
+    ${(props) =>
+      props.$total === 1 &&
+      css`
+        padding-top: 12px;
+        justify-content: center;
+      `}
+  }
+`;
+
 export const Details = styled.div`
   padding: 1.6rem;
   border: solid #000;
@@ -154,7 +171,7 @@ export const Details = styled.div`
     }
 
     &__track {
-      padding: ${(props) => (props.isCards ? "0 0 16px" : "12px 0")};
+      padding: ${(props) => (props.$isCards ? "0 0 16px" : "12px 0")};
     }
 
     &__arrow {

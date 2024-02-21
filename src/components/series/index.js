@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./styles";
-import Magazine from "../magazine";
 import Error from "../helper/error";
 import AvengersAnimation from "../loading";
 import useFetch from "../../hooks/useFetch";
@@ -10,6 +9,7 @@ import SearchInput from "../helper/searchInput";
 import SearchNotFound from "../helper/searchNotFound";
 import { GET_SERIES, SEARCH_SERIES } from "../../api/api";
 import HeaderBgMobile from "../../assets/herosBgMobile.jpg";
+import MagazineContent from "../container/magazineContent";
 
 const Series = () => {
   const { data, loading, error, total, request } = useFetch();
@@ -72,12 +72,11 @@ const Series = () => {
 
               <S.Content>
                 {total > 0 ? (
-                  <>
-                    {data &&
-                      data.map((hero, index) => (
-                        <Magazine key={index} data={hero} />
-                      ))}
-                  </>
+                  <MagazineContent
+                    content="series"
+                    isHomePage={true}
+                    homePageItems={data}
+                  />
                 ) : (
                   <SearchNotFound />
                 )}

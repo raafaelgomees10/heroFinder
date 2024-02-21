@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 import BgImage from "../../assets/Sky.png";
 import BgBlack from "../../assets/bgBlack.jpg";
@@ -68,7 +68,7 @@ export const Content = styled.div`
 `;
 
 export const Image = styled.img`
-  height: ${(props) => (props.noImage ? "350px" : "550px")};
+  height: ${(props) => (props.$noImage ? "350px" : "550px")};
   width: 350px;
   border: solid #000;
   border-width: 3px 4px 3px 5px;
@@ -145,10 +145,21 @@ export const InfoList = styled.ul`
   gap: 0 2rem;
 `;
 
-export const ListContainer = styled.div`
+export const ContainerContent = styled.div`
   display: flex;
-  justify-content: space-between;
-  gap: ${(props) => (props.available > 6 ? "2rem" : "4rem")};
+  gap: 4rem;
+  padding: ${(props) => (props.$total <= 5 ? "12px 16px" : "0")};
+
+  @media (max-width: 767px) {
+    padding: 0;
+
+    ${(props) =>
+      props.$total === 1 &&
+      css`
+        padding-top: 12px;
+        justify-content: center;
+      `}
+  }
 `;
 
 export const LinkName = styled(Link)`

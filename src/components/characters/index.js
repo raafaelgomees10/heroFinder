@@ -71,9 +71,7 @@ const Characters = () => {
 
               <S.Content>
                 {total > 0 ? (
-                  <>
-                    <CardContent items={data} isHomePage={true} />
-                  </>
+                  <CardContent items={data} isHomePage={true} />
                 ) : (
                   <SearchNotFound />
                 )}

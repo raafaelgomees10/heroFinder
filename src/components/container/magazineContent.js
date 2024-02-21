@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import * as S from "./styles";
-import { Link } from "react-router-dom";
+import NewMagazine from "../newMagazine";
 import useMedia from "../../hooks/useMedia";
+import useFetch from "../../hooks/useFetch";
 import "@splidejs/react-splide/css/sea-green";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-import useFetch from "../../hooks/useFetch";
 import {
   GET_CREATOR_COMICS,
   GET_CREATOR_EVENTS,
@@ -17,9 +17,15 @@ import {
   GET_SERIE_COMICS,
   GET_SERIE_EVENTS,
 } from "../../api/api";
-import NewMagazine from "../newMagazine";
 
-const MagazineContent = ({ page, urlId, content, perPage }) => {
+const MagazineContent = ({
+  page,
+  urlId,
+  content,
+  perPage,
+  isHomePage,
+  homePageItems,
+}) => {
   const { data, loading, error, total, request } = useFetch();
 
   useEffect(() => {
@@ -65,49 +71,69 @@ const MagazineContent = ({ page, urlId, content, perPage }) => {
 
   return (
     <>
-      {mobile || tablet || total > 5 ? (
+      {isHomePage ? (
         <>
-          <Splide
-            options={{
-              rewind: true,
-              gap: "2rem",
-              perPage: perPage,
-              autoplay: true,
-              perMove: 1,
-              breakpoints: {
-                767: {
-                  gap: "6rem",
-                  perPage: 1,
-                  fixedHeight: 320,
-                  pagination: false,
-                },
-                1199: {
-                  perPage: 3,
-                  gap: "1rem",
-                },
-              },
-            }}
-            aria-label={(`slides`, content)}
-          >
-            {data &&
-              data.map((item, index) => (
-                <SplideSlide key={item.id}>
-                  <NewMagazine content={content} item={item} />
-                  {mobile && (
-                    <S.CurrentSlide>
-                      {index + 1}/{data.length}
-                    </S.CurrentSlide>
-                  )}
-                </SplideSlide>
-              ))}
-          </Splide>
+          {homePageItems.map((item) => (
+            <NewMagazine
+              item={item}
+              key={item.id}
+              isHomePage={true}
+              content={content}
+            />
+          ))}
         </>
       ) : (
         <>
-          {data &&
-            data.map((item) => (
-              <NewMagazine key={item.id} content={content} item={item} />
-            ))}
+          {(mobile && total > 1) || (tablet && total > 2) || total > perPage ? (
+            <>
+              <Splide
+                options={{
+                  rewind: true,
+                  gap: "2rem",
+                  perPage: perPage,
+                  autoplay: false,
+                  perMove: 1,
+                  breakpoints: {
+                    767: {
+                      gap: "6rem",
+                      perPage: 1,
+                      fixedHeight: 320,
+                      pagination: false,
+                    },
+                    1199: {
+                      perPage: 3,
+                      gap: "1rem",
+                    },
+                  },
+                }}
+                aria-label={(`slides`, content)}
+              >
+                {data &&
+                  data.map((item, index) => (
+                    <SplideSlide key={item.id}>
+                      <NewMagazine content={content} item={item} />
+                      {mobile && (
+                        <S.CurrentSlide>
+                          {index + 1}/{data.length}
+                        </S.CurrentSlide>
+                      )}
+                    </SplideSlide>
+                  ))}
+              </Splide>
+            </>
+          ) : (
+            <>
+              {data &&
+                data.map((item) => (
+                  <NewMagazine
+                    item={item}
+                    key={item.id}
+                    content={content}
+                    isSlide={total > 5}
+                  />
+                ))}
+            </>
+          )}
         </>
       )}
     </>

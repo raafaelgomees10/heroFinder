@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 import BgImage from "../../assets/Sky.png";
 import BgBlack from "../../assets/bgBlack.jpg";
@@ -140,20 +140,21 @@ export const Details = styled.div`
   border: solid #000;
   border-width: 3px 4px 3px 5px;
   color: #f2ecff;
+
   &:not(:first-of-type) {
     margin-top: 24px;
   }
 
   .splide {
     width: 100%;
-    padding: ${(props) => (props.isCards ? "1.2rem 7rem" : "0 7rem 1.2rem")};
+    padding: ${(props) => (props.$isCards ? "1.2rem 7rem" : "0 7rem 1.2rem")};
 
     @media (max-width: 767px) {
-      padding: ${(props) => (props.isCards ? "1.2rem 5rem" : "0 5rem 0")};
+      padding: ${(props) => (props.$isCards ? "1.2rem 5rem" : "0 5rem 0")};
     }
 
     &__pagination {
-      bottom: -16px;
+      bottom: 0px;
     }
 
     &__pagination__page {
@@ -166,6 +167,10 @@ export const Details = styled.div`
           background: #eb474d;
         }
       }
+    }
+
+    &__track {
+      padding: ${(props) => (props.$isCards ? "0 0 16px" : "12px 0")};
     }
 
     &__arrow {
@@ -210,9 +215,12 @@ export const Dates = styled.div`
   letter-spacing: 0.7px;
 
   > span {
-    font-size: 1.4rem;
     font-weight: 300;
     display: block;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 1.2rem;
   }
 `;
 
@@ -235,12 +243,16 @@ export const Buttons = styled(Link)`
   position: relative;
 
   > svg {
-    transform: ${(props) => props.prev && "rotate(180deg)"};
-    margin: ${(props) => (props.prev ? "0 3px 0 0" : "0 0 0 3px")};
+    transform: ${(props) => props.$prev && "rotate(180deg)"};
+    margin: ${(props) => (props.$prev ? "0 3px 0 0" : "0 0 0 3px")};
   }
   &:hover {
     text-decoration: underline;
     color: #ee171f;
+  }
+
+  @media (max-width: 1199px) {
+    font-size: 1.2rem;
   }
 `;
 
@@ -254,8 +266,19 @@ export const Creators = styled.ul`
 
 export const ContainerContent = styled.div`
   display: flex;
-  padding: 16px 0;
   gap: 4rem;
+  padding: ${(props) => (props.$total <= 5 ? "12px 16px" : "0")};
+
+  @media (max-width: 767px) {
+    padding: 0;
+
+    ${(props) =>
+      props.$total === 1 &&
+      css`
+        padding-top: 12px;
+        justify-content: center;
+      `}
+  }
 `;
 
 export const Li = styled.li`

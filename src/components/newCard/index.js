@@ -3,6 +3,7 @@ import * as S from "./styles";
 import "@splidejs/react-splide/css/sea-green";
 
 const NewCard = ({ hero, isHomePage = false, type }) => {
+  const name = hero.fullName ? hero.fullName : hero.name;
   return (
     <S.Container
       $isHomePage={isHomePage}
@@ -23,7 +24,7 @@ const NewCard = ({ hero, isHomePage = false, type }) => {
       </S.Content>
 
       <S.Details $isHomePage={isHomePage}>
-        <S.Name> {type === "creators" ? hero.fullName : hero.name} </S.Name>
+        <S.Name> {name} </S.Name>
       </S.Details>
     </S.Container>
   );

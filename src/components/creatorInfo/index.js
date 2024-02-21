@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import * as S from "./styles";
 import Error from "../helper/error";
-import { GET_CREATOR } from "../../api/api";
 import AvengersAnimation from "../loading";
+import { GET_CREATOR } from "../../api/api";
 import useFetch from "../../hooks/useFetch";
-import Magazines from "../eventInfo/components/magazines";
 import MagazineContent from "../container/magazineContent";
 
 const CreatorInfo = () => {
@@ -39,7 +38,7 @@ const CreatorInfo = () => {
                         : ""
                     }`}
                     alt={data[0].title}
-                    noImage={noImage === "image_not_available"}
+                    $noImage={noImage === "image_not_available"}
                   />
 
                   <S.Box>
@@ -50,14 +49,14 @@ const CreatorInfo = () => {
                     {data[0].comics.available > 0 && (
                       <S.Details>
                         <S.Title>Comics</S.Title>
-                        <S.ListContainer>
+                        <S.ContainerContent $total={data[0].comics.available}>
                           <MagazineContent
                             perPage={3}
                             content="comics"
                             page="creators"
                             urlId={creatorId}
                           />
-                        </S.ListContainer>
+                        </S.ContainerContent>
                       </S.Details>
                     )}
                   </S.Box>
@@ -65,28 +64,28 @@ const CreatorInfo = () => {
                 {data[0].events.available > 0 && (
                   <S.Details>
                     <S.Title>EVENTS</S.Title>
-                    <S.ListContainer>
-                      <Magazines
+                    <S.ContainerContent $total={data[0].events.available}>
+                      <MagazineContent
                         perPage={5}
                         page="creators"
                         content="events"
                         urlId={creatorId}
                       />
-                    </S.ListContainer>
+                    </S.ContainerContent>
                   </S.Details>
                 )}
 
                 {data[0].series.available > 0 && (
                   <S.Details>
                     <S.Title>Series</S.Title>
-                    <S.ListContainer>
-                      <Magazines
+                    <S.ContainerContent $total={data[0].series.available}>
+                      <MagazineContent
                         perPage={5}
                         content="series"
                         page="creators"
                         urlId={creatorId}
                       />
-                    </S.ListContainer>
+                    </S.ContainerContent>
                   </S.Details>
                 )}
               </S.Container>

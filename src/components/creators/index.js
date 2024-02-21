@@ -41,7 +41,7 @@ const Creators = () => {
   if (error) {
     return <Error error={error} />;
   }
-  console.log("data", data);
+
   return (
     <>
       <S.Section>
@@ -72,13 +72,7 @@ const Creators = () => {
 
               <S.Content>
                 {total > 0 ? (
-                  <>
-                    <CardContent
-                      items={data}
-                      type="creators"
-                      isHomePage={true}
-                    />
-                  </>
+                  <CardContent items={data} type="creators" isHomePage={true} />
                 ) : (
                   <SearchNotFound />
                 )}

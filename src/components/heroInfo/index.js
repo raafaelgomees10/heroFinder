@@ -4,7 +4,7 @@ import Error from "../helper/error";
 import { GET_HERO } from "../../api/api";
 import AvengersAnimation from "../loading";
 import useFetch from "../../hooks/useFetch";
-import Magazines from "../eventInfo/components/magazines";
+import MagazineContent from "../container/magazineContent";
 
 const HeroInfo = () => {
   const { data, loading, error, request } = useFetch();
@@ -22,6 +22,8 @@ const HeroInfo = () => {
   if (error) {
     return <Error error={error} />;
   }
+
+  console.log("data", data);
 
   return (
     <S.Section>
@@ -55,34 +57,40 @@ const HeroInfo = () => {
               {data[0].comics.available > 0 && (
                 <S.Details>
                   <S.Title>Comics</S.Title>
-                  <Magazines
-                    perPage={5}
-                    page="characters"
-                    content="comics"
-                    urlId={data[0].id}
-                  />
+                  <S.ContainerContent $total={data[0].comics.available}>
+                    <MagazineContent
+                      perPage={5}
+                      page="characters"
+                      content="comics"
+                      urlId={data[0].id}
+                    />
+                  </S.ContainerContent>
                 </S.Details>
               )}
               {data[0].events.available > 0 && (
                 <S.Details>
                   <S.Title>Events</S.Title>
-                  <Magazines
-                    perPage={5}
-                    page="characters"
-                    content="events"
-                    urlId={data[0].id}
-                  />
+                  <S.ContainerContent $total={data[0].events.available}>
+                    <MagazineContent
+                      perPage={5}
+                      page="characters"
+                      content="events"
+                      urlId={data[0].id}
+                    />
+                  </S.ContainerContent>
                 </S.Details>
               )}
               {data[0].series.available > 0 && (
                 <S.Details>
                   <S.Title>Series</S.Title>
-                  <Magazines
-                    perPage={5}
-                    page="characters"
-                    content="series"
-                    urlId={data[0].id}
-                  />
+                  <S.ContainerContent $total={data[0].series.available}>
+                    <MagazineContent
+                      perPage={5}
+                      page="characters"
+                      content="series"
+                      urlId={data[0].id}
+                    />
+                  </S.ContainerContent>
                 </S.Details>
               )}
             </S.Container>

@@ -5,7 +5,6 @@ import { GET_SERIE } from "../../api/api";
 import AvengersAnimation from "../loading";
 import useFetch from "../../hooks/useFetch";
 import CardContent from "../container/cardContent";
-import Magazines from "../eventInfo/components/magazines";
 import MagazineContent from "../container/magazineContent";
 
 const SerieInfo = () => {
@@ -111,37 +110,37 @@ const SerieInfo = () => {
                   </S.Box>
                 </S.Content>
                 {data[0].characters.available > 0 && (
-                  <S.Details isCards={true}>
+                  <S.Details $isCards={true}>
                     <S.Title>Characters</S.Title>
-                    <S.Characters>
+                    <S.ContainerContent>
                       <CardContent page="series" urlId={serieId} />
-                    </S.Characters>
+                    </S.ContainerContent>
                   </S.Details>
                 )}
                 {data[0].events.available > 0 && (
                   <S.Details>
                     <S.Title>Events</S.Title>
-                    <S.Characters>
+                    <S.ContainerContent $total={data[0].events.available}>
                       <MagazineContent
                         perPage={5}
                         page="series"
                         content="events"
                         urlId={serieId}
                       />
-                    </S.Characters>
+                    </S.ContainerContent>
                   </S.Details>
                 )}
                 {data[0].comics.available > 0 && (
                   <S.Details>
                     <S.Title>Comics</S.Title>
-                    <S.Characters>
+                    <S.ContainerContent $total={data[0].comics.available}>
                       <MagazineContent
                         perPage={5}
                         page="series"
                         content="comics"
                         urlId={serieId}
                       />
-                    </S.Characters>
+                    </S.ContainerContent>
                   </S.Details>
                 )}
               </S.Container>

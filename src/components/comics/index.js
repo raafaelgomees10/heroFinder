@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./styles";
-import Magazine from "../magazine";
 import Error from "../helper/error";
 import AvengersAnimation from "../loading";
 import useMedia from "../../hooks/useMedia";
@@ -9,6 +8,7 @@ import HeaderBg from "../../assets/herosBg.jpg";
 import SearchInput from "../helper/searchInput";
 import SearchNotFound from "../helper/searchNotFound";
 import { GET_COMICS, SEARCH_COMICS } from "../../api/api";
+import MagazineContent from "../container/magazineContent";
 import HeaderBgMobile from "../../assets/herosBgMobile.jpg";
 
 const Comics = () => {
@@ -72,12 +72,11 @@ const Comics = () => {
 
               <S.Content>
                 {total > 0 ? (
-                  <>
-                    {data &&
-                      data.map((hero, index) => (
-                        <Magazine key={index} data={hero} />
-                      ))}
-                  </>
+                  <MagazineContent
+                    content="comics"
+                    isHomePage={true}
+                    homePageItems={data}
+                  />
                 ) : (
                   <SearchNotFound />
                 )}

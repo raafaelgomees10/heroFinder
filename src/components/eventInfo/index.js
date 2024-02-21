@@ -5,6 +5,7 @@ import Error from "../helper/error";
 import { GET_EVENT } from "../../api/api";
 import AvengersAnimation from "../loading";
 import useFetch from "../../hooks/useFetch";
+import useMedia from "../../hooks/useMedia";
 import CardContent from "../container/cardContent";
 import MagazineContent from "../container/magazineContent";
 import { ReactComponent as ArrowIcon } from "../../assets/arrowRight.svg";
@@ -13,6 +14,7 @@ const EventInfo = () => {
   const { data, loading, error, request } = useFetch();
   const urlPath = window.location.pathname.split("/");
   const eventId = urlPath.pop();
+  const mobile = useMedia("(max-width:767px)");
 
   useEffect(() => {
     const { url, options } = GET_EVENT(eventId);
@@ -89,31 +91,37 @@ const EventInfo = () => {
                       </S.Description>
 
                       <S.EventPeriod>
-                        <S.Dates>
-                          Released:
-                          <span>
-                            {" "}
-                            {dayjs(data[0].start).format("MMMM D, YYYY")}
-                          </span>
-                        </S.Dates>
-                        <S.Dates>
-                          Finished:
-                          <span>
-                            {" "}
-                            {dayjs(data[0].end).format("MMMM D, YYYY")}
-                          </span>
-                        </S.Dates>
+                        {data[0].start && (
+                          <S.Dates>
+                            Released:
+                            <span>
+                              {" "}
+                              {dayjs(data[0].start).format("MMMM D, YYYY")}
+                            </span>
+                          </S.Dates>
+                        )}
+
+                        {data[0].end && (
+                          <S.Dates>
+                            Finished:
+                            <span>
+                              {" "}
+                              {dayjs(data[0].end).format("MMMM D, YYYY")}
+                            </span>
+                          </S.Dates>
+                        )}
                       </S.EventPeriod>
 
                       <S.EventsButtons>
                         {prevEventId && (
                           <S.Buttons
-                            prev="true"
+                            $prev={true}
                             reloadDocument
                             to={`/events/${prevEventId}`}
                           >
                             <ArrowIcon />
-                            Previous Event - {data[0].previous.name}
+                            Previous Event{" "}
+                            {!mobile && `- ${data[0].previous.name}`}
                           </S.Buttons>
                         )}
 
@@ -122,7 +130,8 @@ const EventInfo = () => {
                             to={`/events/${nextEventId}`}
                             reloadDocument
                           >
-                            Next Event - {data[0].next.name} <ArrowIcon />
+                            Next Event {!mobile && `- ${data[0].next.name}`}{" "}
+                            <ArrowIcon />
                           </S.Buttons>
                         )}
                       </S.EventsButtons>
@@ -157,7 +166,7 @@ const EventInfo = () => {
                 </S.Content>
 
                 {data[0].characters.available > 0 && (
-                  <S.Details isCards={true}>
+                  <S.Details $isCards={true}>
                     <S.Title>Characters</S.Title>
                     <S.ContainerContent
                       available={data[0].characters.available}
@@ -170,7 +179,7 @@ const EventInfo = () => {
                 {data[0].series.available > 0 && (
                   <S.Details>
                     <S.Title>Series</S.Title>
-                    <S.ContainerContent>
+                    <S.ContainerContent $total={data[0].series.available}>
                       <MagazineContent
                         perPage={5}
                         page="events"
@@ -183,7 +192,7 @@ const EventInfo = () => {
                 {data[0].comics.available > 0 && (
                   <S.Details>
                     <S.Title>Comics</S.Title>
-                    <S.ContainerContent>
+                    <S.ContainerContent $total={data[0].comics.available}>
                       <MagazineContent
                         perPage={5}
                         page="events"
