@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import dayjs from "dayjs";
-import * as S from "./styles";
 import Error from "../helper/error";
+import * as S from "../globalStyles";
 import { GET_COMIC } from "../../api/api";
 import AvengersAnimation from "../loading";
 import useFetch from "../../hooks/useFetch";
 import ModalVariants from "../modalVariants";
+import { Infos, Covers, SerieName } from "./styles";
 import CardContent from "../container/cardContent";
 import { ReactComponent as ArrowIcon } from "../../assets/arrowRight.svg";
 
@@ -87,10 +88,10 @@ const ComicInfo = () => {
                     <S.Details>
                       <S.Title>{data[0].title}</S.Title>
 
-                      <S.SubTitle>
+                      <Infos>
                         Published:
                         <span> {formatedDate}</span>
-                      </S.SubTitle>
+                      </Infos>
 
                       <S.Description>
                         {noDescription
@@ -98,21 +99,21 @@ const ComicInfo = () => {
                           : data[0].description}
                       </S.Description>
 
-                      <S.SubTitle>
+                      <Infos>
                         Serie:
                         <span>
-                          <S.Text to={`/series/${serieId}`}>
+                          <SerieName to={`/series/${serieId}`}>
                             <p>
                               {data[0].series.name} <ArrowIcon />
                             </p>
-                          </S.Text>
+                          </SerieName>
                         </span>
-                      </S.SubTitle>
+                      </Infos>
 
                       {data[0].variants.length > 0 && (
-                        <S.Covers onClick={() => setModal(true)}>
+                        <Covers onClick={() => setModal(true)}>
                           See cover variants <ArrowIcon />
-                        </S.Covers>
+                        </Covers>
                       )}
                     </S.Details>
 
@@ -122,7 +123,7 @@ const ComicInfo = () => {
                         <S.Creators>
                           {creators.map((creator, index) => {
                             return (
-                              <S.Role key={index}>
+                              <S.CreatorRole key={index}>
                                 {creator.role}
                                 <br />
                                 {creator.people.map((item, i) => (
@@ -135,7 +136,7 @@ const ComicInfo = () => {
                                     {i !== creator.people.length - 1 && ", "}
                                   </S.CreatorName>
                                 ))}
-                              </S.Role>
+                              </S.CreatorRole>
                             );
                           })}
                         </S.Creators>
@@ -145,12 +146,14 @@ const ComicInfo = () => {
                 </S.Content>
 
                 {data[0].characters.available > 0 && (
-                  <S.Details isCards={true}>
+                  <S.Details $isCards={true}>
                     <S.Title>Characters</S.Title>
 
-                    <S.Characters available={data[0].characters.available}>
+                    <S.ContainerContent
+                      available={data[0].characters.available}
+                    >
                       <CardContent page="comics" urlId={comicId} />
-                    </S.Characters>
+                    </S.ContainerContent>
                   </S.Details>
                 )}
 

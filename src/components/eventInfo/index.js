@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import dayjs from "dayjs";
-import * as S from "./styles";
+import * as S from "../globalStyles";
 import Error from "../helper/error";
 import { GET_EVENT } from "../../api/api";
 import AvengersAnimation from "../loading";
@@ -8,6 +8,7 @@ import useFetch from "../../hooks/useFetch";
 import useMedia from "../../hooks/useMedia";
 import CardContent from "../container/cardContent";
 import MagazineContent from "../container/magazineContent";
+import { EventPeriod, Buttons, EventsButtons, Dates } from "./styles";
 import { ReactComponent as ArrowIcon } from "../../assets/arrowRight.svg";
 
 const EventInfo = () => {
@@ -90,31 +91,31 @@ const EventInfo = () => {
                           : data[0].description}
                       </S.Description>
 
-                      <S.EventPeriod>
+                      <EventPeriod>
                         {data[0].start && (
-                          <S.Dates>
+                          <Dates>
                             Released:
                             <span>
                               {" "}
                               {dayjs(data[0].start).format("MMMM D, YYYY")}
                             </span>
-                          </S.Dates>
+                          </Dates>
                         )}
 
                         {data[0].end && (
-                          <S.Dates>
+                          <Dates>
                             Finished:
                             <span>
                               {" "}
                               {dayjs(data[0].end).format("MMMM D, YYYY")}
                             </span>
-                          </S.Dates>
+                          </Dates>
                         )}
-                      </S.EventPeriod>
+                      </EventPeriod>
 
-                      <S.EventsButtons>
+                      <EventsButtons>
                         {prevEventId && (
-                          <S.Buttons
+                          <Buttons
                             $prev={true}
                             reloadDocument
                             to={`/events/${prevEventId}`}
@@ -122,19 +123,16 @@ const EventInfo = () => {
                             <ArrowIcon />
                             Previous Event{" "}
                             {!mobile && `- ${data[0].previous.name}`}
-                          </S.Buttons>
+                          </Buttons>
                         )}
 
                         {nextEventId && (
-                          <S.Buttons
-                            to={`/events/${nextEventId}`}
-                            reloadDocument
-                          >
+                          <Buttons to={`/events/${nextEventId}`} reloadDocument>
                             Next Event {!mobile && `- ${data[0].next.name}`}{" "}
                             <ArrowIcon />
-                          </S.Buttons>
+                          </Buttons>
                         )}
-                      </S.EventsButtons>
+                      </EventsButtons>
                     </S.Details>
 
                     {data[0].creators.available > 0 && (
@@ -143,20 +141,20 @@ const EventInfo = () => {
                         <S.Creators>
                           {creators.map((creator, index) => {
                             return (
-                              <S.Li key={index}>
+                              <S.CreatorRole key={index}>
                                 {creator.role}
                                 <br />
                                 {creator.people.map((item, i) => (
-                                  <S.LinkName
+                                  <S.CreatorName
                                     key={item.creatorId}
                                     to={`/creators/${item.creatorId}`}
                                     target="_blank"
                                   >
                                     <span>{item.name}</span>
                                     {i !== creator.people.length - 1 && ", "}
-                                  </S.LinkName>
+                                  </S.CreatorName>
                                 ))}
-                              </S.Li>
+                              </S.CreatorRole>
                             );
                           })}
                         </S.Creators>

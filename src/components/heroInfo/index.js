@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import * as S from "./styles";
 import Error from "../helper/error";
+import * as S from "../globalStyles";
 import { GET_HERO } from "../../api/api";
 import AvengersAnimation from "../loading";
 import useFetch from "../../hooks/useFetch";
@@ -23,8 +23,6 @@ const HeroInfo = () => {
     return <Error error={error} />;
   }
 
-  console.log("data", data);
-
   return (
     <S.Section>
       <S.BackgroundImage />
@@ -37,6 +35,7 @@ const HeroInfo = () => {
             <S.Container>
               <S.Content>
                 <S.Image
+                  $isSquareImage
                   src={`${
                     data[0].thumbnail
                       ? ` ${data[0].thumbnail.path}.${data[0].thumbnail.extension}`
@@ -44,15 +43,14 @@ const HeroInfo = () => {
                   }`}
                   alt={data[0].name}
                 />
-
-                <S.Box>
-                  <S.Name>{data[0].name}</S.Name>
+                <S.Details>
+                  <S.Title $isCharacters>{data[0].name}</S.Title>
                   <S.Description>
                     {noDescription
                       ? "Marvel has not released a description for this character."
                       : data[0].description}
                   </S.Description>
-                </S.Box>
+                </S.Details>
               </S.Content>
               {data[0].comics.available > 0 && (
                 <S.Details>

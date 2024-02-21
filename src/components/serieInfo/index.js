@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import * as S from "./styles";
 import Error from "../helper/error";
+import * as S from "../globalStyles";
 import { GET_SERIE } from "../../api/api";
 import AvengersAnimation from "../loading";
 import useFetch from "../../hooks/useFetch";
@@ -88,20 +88,20 @@ const SerieInfo = () => {
                         <S.Creators>
                           {creators.map((creator, index) => {
                             return (
-                              <S.Li key={index}>
+                              <S.CreatorRole key={index}>
                                 {creator.role}
                                 <br />
                                 {creator.people.map((item, i) => (
-                                  <S.LinkName
+                                  <S.CreatorName
                                     key={item.creatorId}
                                     to={`/creators/${item.creatorId}`}
                                     target="_blank"
                                   >
                                     <span>{item.name}</span>
                                     {i !== creator.people.length - 1 && ", "}
-                                  </S.LinkName>
+                                  </S.CreatorName>
                                 ))}
-                              </S.Li>
+                              </S.CreatorRole>
                             );
                           })}
                         </S.Creators>

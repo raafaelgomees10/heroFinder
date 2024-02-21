@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
-import * as S from "./styles";
+import { Box } from "./styles";
 import Error from "../helper/error";
+import * as S from "../globalStyles";
 import AvengersAnimation from "../loading";
 import { GET_CREATOR } from "../../api/api";
 import useFetch from "../../hooks/useFetch";
@@ -19,7 +20,9 @@ const CreatorInfo = () => {
   if (error) {
     return <Error error={error} />;
   }
+
   const noImage = data && data[0].thumbnail.path.split("/").pop();
+
   return (
     <>
       {data && (
@@ -38,10 +41,10 @@ const CreatorInfo = () => {
                         : ""
                     }`}
                     alt={data[0].title}
-                    $noImage={noImage === "image_not_available"}
+                    $isSquareImage={noImage === "image_not_available"}
                   />
 
-                  <S.Box>
+                  <Box $isSquareImage={noImage === "image_not_available"}>
                     <S.Details style={{ textAlign: "center" }}>
                       <S.Title>{data[0].fullName}</S.Title>
                     </S.Details>
@@ -59,7 +62,7 @@ const CreatorInfo = () => {
                         </S.ContainerContent>
                       </S.Details>
                     )}
-                  </S.Box>
+                  </Box>
                 </S.Content>
                 {data[0].events.available > 0 && (
                   <S.Details>
