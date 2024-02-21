@@ -63,7 +63,7 @@ const Characters = () => {
                 <SearchInput
                   id="search"
                   type="search"
-                  placeholder="Pesquisar Personagem"
+                  placeholder="Search characters"
                   onChange={handleChange}
                   value={heroSearch}
                 />

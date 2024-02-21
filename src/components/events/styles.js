@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Section = styled.section``;
 
@@ -34,6 +34,13 @@ export const Content = styled.div`
     justify-content: center;
     margin-top: 24px;
   }
+
+  ${(props) =>
+    props.$total < 4 &&
+    css`
+      gap: 4rem;
+      justify-content: flex-start;
+    `}
 `;
 
 export const Image = styled.img`
@@ -76,5 +83,27 @@ export const Text = styled.div`
       margin-top: 8px;
       font-size: 1.6rem;
     }
+  }
+`;
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const LoadMore = styled.button`
+  background-color: #ee171f;
+  color: #fff;
+  padding: 8px 16px;
+  font-size: 1.4rem;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 24px 0 0;
+
+  &:hover {
+    background-color: #c4161c;
   }
 `;

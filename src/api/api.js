@@ -109,9 +109,9 @@ export function SEARCH_COMICS(name) {
   };
 }
 
-export function GET_EVENTS() {
+export function GET_EVENTS(offset) {
   return {
-    url: `${API_URL}/events?${baseParams}&limit=16`,
+    url: `${API_URL}/events?${baseParams}&limit=16&offset=${offset}`,
     options: {
       method: "GET",
     },

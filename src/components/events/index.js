@@ -13,14 +13,28 @@ import HeaderBgMobile from "../../assets/herosBgMobile.jpg";
 
 const Events = () => {
   const [eventSearch, setEventSearch] = useState("");
+  const [offset, setOffset] = useState(0);
+  const [loadedItems, setLoadedItems] = useState([]);
   const { data, loading, error, total, request } = useFetch();
+  const mobile = useMedia("(max-width:767px)");
 
   useEffect(() => {
-    const { url, options } = GET_EVENTS();
+    const { url, options } = GET_EVENTS(offset);
     request(url, options);
-  }, [request]);
+  }, [request, offset]);
 
-  const mobile = useMedia("(max-width:767px)");
+  useEffect(() => {
+    if (data) {
+      setLoadedItems((prevItems) => {
+        // Verifica se os novos dados já estão presentes em prevItems
+        const newData = data.filter(
+          (item) => !prevItems.some((prevItem) => prevItem.id === item.id)
+        );
+        // Retorna a combinação de prevItems e os novos dados filtrados
+        return [...prevItems, ...newData];
+      });
+    }
+  }, [data]);
 
   const handleChange = (event) => {
     setEventSearch(event.target.value);
@@ -28,12 +42,20 @@ const Events = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setLoadedItems([]);
+
     if (eventSearch !== "") {
       const { url, options } = SEARCH_EVENTS(eventSearch);
       request(url, options);
     } else {
-      const { url, options } = GET_EVENTS();
+      const { url, options } = GET_EVENTS(offset);
       request(url, options);
+    }
+  };
+
+  const handleLoadMore = () => {
+    if (offset + 16 < total) {
+      setOffset(offset + 16);
     }
   };
 
@@ -54,7 +76,7 @@ const Events = () => {
             </span>
           </S.Text>
         </S.Wrapper>
-        {loading ? (
+        {loading && loadedItems.length === 0 ? (
           <AvengersAnimation />
         ) : (
           <S.Background>
@@ -69,17 +91,24 @@ const Events = () => {
                 />
               </form>
 
-              <S.Content>
+              <S.Content $total={total}>
                 {total > 0 ? (
                   <MagazineContent
                     content="events"
                     isHomePage={true}
-                    homePageItems={data}
+                    homePageItems={loadedItems}
                   />
                 ) : (
                   <SearchNotFound />
                 )}
               </S.Content>
+
+              {total > loadedItems.length && (
+                <S.ButtonContainer>
+                  <S.LoadMore onClick={handleLoadMore}>Load More</S.LoadMore>
+                  {loading && <div className="custom-loader" />}
+                </S.ButtonContainer>
+              )}
             </S.Container>
           </S.Background>
         )}
