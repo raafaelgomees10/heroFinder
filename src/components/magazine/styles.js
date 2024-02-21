@@ -1,36 +1,45 @@
-import { NavLink } from "react-router-dom";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
-export const Container = styled(NavLink)`
-  margin-top: 1rem;
-  color: #f2ecff;
+const shine = keyframes`
+to {
+    background-position-x: -200%;
+  }
 `;
-
-export const Content = styled.div``;
 
 export const Box = styled.div`
   cursor: pointer;
   position: relative;
   display: inline-block;
-  margin-bottom: 20px;
   transition: all 0.2s ease-in-out;
 
+  margin-bottom: ${(props) => (props.$isHomePage ? "20px" : "0")};
   &:hover {
     transform: translate3d(0, -10px, 0);
   }
 `;
 
 export const Image = styled.img`
-  width: 224px;
-  height: 336px;
-  box-shadow: 0 26px 24px -16px rgba(0, 0, 0, 0.8);
+  width: ${(props) => (props.$isHomePage ? "224px" : "164px")};
+  height: ${(props) => (props.$isHomePage ? "336px" : "226px")};
+  box-shadow: 0 26px 24px -16px rgba(0, 0, 0, 0.6);
+
+  /* THIS IS FOR BEFORE IMAGE RENDER, SKELETON STYLE */
+  background: #50535a;
+  background: linear-gradient(90deg, #50535a 8%, #656871 18%, #50535a 33%);
+  background-size: 200% 100%;
+  animation: 1.5s ${shine} linear infinite;
 `;
-export const Title = styled.h3`
-  /* text-align: center; */
+
+export const Name = styled.h3`
   font-size: 1.8rem;
   font-family: "Bangers", sans-serif;
   background-color: transparent;
   margin: 20px 0 0;
   font-weight: 400;
-  max-width: 215px;
+  color: #f2ecff;
+  letter-spacing: 0.7px;
+  width: ${(props) => (props.$isHomePage ? "220px" : "164px")};
+  @media (max-width: 767px) {
+    margin: 12px 0 0;
+  }
 `;

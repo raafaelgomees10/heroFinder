@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import * as S from "./styles";
-import NewCard from "../newCard";
+import Card from "../card";
 import useMedia from "../../hooks/useMedia";
 import useFetch from "../../hooks/useFetch";
 import "@splidejs/react-splide/css/sea-green";
@@ -44,12 +44,7 @@ const CardContent = ({ urlId, page, isHomePage = false, items = [], type }) => {
         <>
           {items &&
             items.map((hero) => (
-              <NewCard
-                hero={hero}
-                type={type}
-                key={hero.id}
-                isHomePage={true}
-              />
+              <Card hero={hero} type={type} key={hero.id} isHomePage={true} />
             ))}
         </>
       ) : (
@@ -79,7 +74,7 @@ const CardContent = ({ urlId, page, isHomePage = false, items = [], type }) => {
               {data &&
                 data.map((hero, index) => (
                   <SplideSlide key={hero.id}>
-                    <NewCard hero={hero} />
+                    <Card hero={hero} />
                     {mobile && (
                       <S.CurrentSlide>
                         {index + 1}/{data.length}
@@ -90,8 +85,7 @@ const CardContent = ({ urlId, page, isHomePage = false, items = [], type }) => {
             </Splide>
           ) : (
             <>
-              {data &&
-                data.map((hero) => <NewCard key={hero.id} hero={hero} />)}
+              {data && data.map((hero) => <Card key={hero.id} hero={hero} />)}
             </>
           )}
         </>

@@ -2,20 +2,21 @@ import React from "react";
 import * as S from "./styles";
 import { Link } from "react-router-dom";
 
-const Magazine = ({ data }) => {
-  const title = data.title ? data.title : data.name;
+const Magazine = ({ content, item, isHomePage = false }) => {
+  const title = item.title ? item.title : item.name;
   return (
-    <S.Box>
-      <Link to={`${data.id}`}>
+    <S.Box $isHomePage={isHomePage}>
+      <Link to={`/${content}/${item.id}`} target="_blank">
         <S.Image
+          // alt={title}
           src={`${
-            data.thumbnail
-              ? ` ${data.thumbnail.path}.${data.thumbnail.extension}`
+            item.thumbnail
+              ? ` ${item.thumbnail.path}.${item.thumbnail.extension}`
               : ""
           }`}
-          alt={data.title}
+          $isHomePage={isHomePage}
         />
-        <S.Title>{title}</S.Title>
+        <S.Name $isHomePage={isHomePage}>{title}</S.Name>
       </Link>
     </S.Box>
   );

@@ -1,8 +1,7 @@
 import React from "react";
 import * as S from "./styles";
-import "@splidejs/react-splide/css/sea-green";
 
-const NewCard = ({ hero, isHomePage = false, type }) => {
+const Card = ({ hero, isHomePage = false, type }) => {
   const name = hero.fullName ? hero.fullName : hero.name;
   return (
     <S.Container
@@ -30,4 +29,4 @@ const NewCard = ({ hero, isHomePage = false, type }) => {
   );
 };
 
-export default NewCard;
+export default Card;

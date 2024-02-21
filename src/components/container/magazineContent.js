@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import * as S from "./styles";
-import NewMagazine from "../newMagazine";
+import Magazine from "../magazine";
 import useMedia from "../../hooks/useMedia";
 import useFetch from "../../hooks/useFetch";
 import "@splidejs/react-splide/css/sea-green";
@@ -74,7 +74,7 @@ const MagazineContent = ({
       {isHomePage ? (
         <>
           {homePageItems.map((item) => (
-            <NewMagazine
+            <Magazine
               item={item}
               key={item.id}
               isHomePage={true}
@@ -111,7 +111,7 @@ const MagazineContent = ({
                 {data &&
                   data.map((item, index) => (
                     <SplideSlide key={item.id}>
-                      <NewMagazine content={content} item={item} />
+                      <Magazine content={content} item={item} />
                       {mobile && (
                         <S.CurrentSlide>
                           {index + 1}/{data.length}
@@ -125,7 +125,7 @@ const MagazineContent = ({
             <>
               {data &&
                 data.map((item) => (
-                  <NewMagazine
+                  <Magazine
                     item={item}
                     key={item.id}
                     content={content}

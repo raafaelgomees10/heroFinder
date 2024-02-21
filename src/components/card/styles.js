@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const Container = styled(NavLink)`
   position: relative;
@@ -22,14 +22,23 @@ export const Container = styled(NavLink)`
   }
 `;
 
+const shine = keyframes`
+to {
+    background-position-x: -200%;
+  }
+`;
 export const Content = styled.div`
-  //adicionar efeito skeleton na cor antes de caregar img
-  background: #2e2e2e;
   margin: 0;
   overflow: hidden;
   padding: 0;
   width: 100%;
   position: relative;
+
+  /* THIS IS FOR BEFORE IMAGE RENDER, SKELETON STYLE */
+  background: #50535a;
+  background: linear-gradient(90deg, #50535a 8%, #656871 18%, #50535a 33%);
+  background-size: 200% 100%;
+  animation: 1.5s ${shine} linear infinite;
 
   &::after {
     height: 4px;
@@ -86,6 +95,7 @@ export const Details = styled.div`
     }
   }
 `;
+
 export const CurrentSlide = styled.span`
   display: block;
   font-size: 1.4rem;
@@ -93,6 +103,7 @@ export const CurrentSlide = styled.span`
   text-align: center;
   margin-top: 16px;
 `;
+
 export const Name = styled.p`
   color: #fff;
   margin: 0;

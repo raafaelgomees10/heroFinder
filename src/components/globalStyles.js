@@ -87,11 +87,6 @@ export const Image = styled.img`
 
 export const Box = styled.div`
   width: 100%;
-  padding: 1.6rem;
-  border: solid #000;
-  border-width: 3px 4px 3px 5px;
-  color: #f2ecff;
-  width: 100%;
 `;
 
 export const Title = styled.h1`

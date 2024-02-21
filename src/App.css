@@ -26,6 +26,8 @@ html,body{
   content:"Loading..."
 }
 
+@keyframes l4 {to{clip-path: inset(0 -1ch 0 0)}}
+
 .custom-loader {
   margin-top: 16px;
   width: 45px;
