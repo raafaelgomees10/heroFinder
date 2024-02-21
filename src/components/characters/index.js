@@ -11,14 +11,19 @@ import SearchNotFound from "../helper/searchNotFound";
 import { GET_HEROS, SEARCH_HEROS } from "../../api/api";
 import HeaderBgMobile from "../../assets/herosBgMobile.jpg";
 
-const Characters = () => {
+const Characters = ({ setFooterData }) => {
   const [heroSearch, setHeroSearch] = useState("");
   const { data, loading, error, total, request } = useFetch();
 
   useEffect(() => {
-    const { url, options } = GET_HEROS();
-    request(url, options);
-  }, [request]);
+    const fetchData = async () => {
+      const { url, options } = GET_HEROS();
+      const { json } = await request(url, options);
+
+      setFooterData(json.attributionText);
+    };
+    fetchData();
+  }, [request, setFooterData]);
 
   const mobile = useMedia("(max-width:767px)");
 
