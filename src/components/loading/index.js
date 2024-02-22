@@ -12,7 +12,7 @@ const AvengersAnimation = () => {
     gsap.config({ trialWarn: false });
 
     // Cria uma timeline
-    const tl = gsap.timeline({ delay: 0.4, repeat: 2 });
+    const tl = gsap.timeline({ delay: 0.4, repeat: 100 });
 
     const heroGroups = [
       ["#america1", "#america2", "#america3"],

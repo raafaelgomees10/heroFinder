@@ -11,8 +11,16 @@ import {
   GET_SERIE_HEROS,
 } from "../../api/api";
 
-const CardContent = ({ urlId, page, isHomePage = false, items = [], type }) => {
+const CardContent = ({
+  type,
+  page,
+  urlId,
+  items = [],
+  isHomePage = false,
+  isHomeLoading,
+}) => {
   const { data, loading, error, total, request } = useFetch();
+
   useEffect(() => {
     const pages = {
       comics: GET_COMIC_HEROS,
@@ -44,7 +52,13 @@ const CardContent = ({ urlId, page, isHomePage = false, items = [], type }) => {
         <>
           {items &&
             items.map((hero) => (
-              <Card hero={hero} type={type} key={hero.id} isHomePage={true} />
+              <Card
+                hero={hero}
+                type={type}
+                key={hero.id}
+                isHomePage={true}
+                isHomeLoading={isHomeLoading}
+              />
             ))}
         </>
       ) : (

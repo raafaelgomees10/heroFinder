@@ -59,21 +59,29 @@ const Characters = () => {
             </span>
           </S.Text>
         </S.Wrapper>
-        {loading ? (
-          <AvengersAnimation />
-        ) : (
-          <S.Background>
-            <S.Container>
-              <form onSubmit={handleSubmit}>
-                <SearchInput
-                  id="search"
-                  type="search"
-                  placeholder="Search characters"
-                  onChange={handleChange}
-                  value={heroSearch}
-                />
-              </form>
-
+        <S.Background>
+          <S.Container>
+            <form onSubmit={handleSubmit}>
+              <SearchInput
+                id="search"
+                type="search"
+                placeholder="Search characters"
+                onChange={handleChange}
+                value={heroSearch}
+              />
+            </form>
+            {loading ? (
+              <>
+                <AvengersAnimation />
+                <S.Content>
+                  <CardContent
+                    isHomePage={true}
+                    isHomeLoading={loading}
+                    items={Array(5).fill(0)}
+                  />
+                </S.Content>
+              </>
+            ) : (
               <S.Content>
                 {total > 0 ? (
                   <CardContent items={data} isHomePage={true} />
@@ -81,10 +89,10 @@ const Characters = () => {
                   <SearchNotFound />
                 )}
               </S.Content>
-            </S.Container>
-            <div className="subFooter">{footerText}</div>
-          </S.Background>
-        )}
+            )}
+          </S.Container>
+          <div className="subFooter">{footerText}</div>
+        </S.Background>
       </S.Section>
     </>
   );

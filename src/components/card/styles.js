@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
 export const Container = styled(NavLink)`
   position: relative;
@@ -49,6 +49,12 @@ export const Content = styled.div`
     left: 0;
     bottom: 0;
   }
+
+  ${(props) =>
+    props.$isHomeLoading &&
+    css`
+      height: 210px;
+    `}
 `;
 
 export const Image = styled.img`
@@ -107,6 +113,17 @@ export const CurrentSlide = styled.span`
 export const Name = styled.p`
   color: #fff;
   margin: 0;
+
+  ${(props) =>
+    props.$isHomeLoading &&
+    css`
+      width: 70%;
+      background: #50535a;
+      background: linear-gradient(90deg, #50535a 8%, #656871 18%, #50535a 33%);
+      background-size: 200% 100%;
+      animation: 1.5s ${shine} linear infinite;
+      height: 15px;
+    `}
 `;
 
 export const TextError = styled.p`
