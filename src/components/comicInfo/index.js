@@ -43,6 +43,7 @@ const ComicInfo = () => {
 
   //mapping all creators and creating arrays for different role types which will contain the name and ID of everyone who is part of the same role
   data &&
+    // eslint-disable-next-line array-callback-return
     data[0].creators.items.map((creator) => {
       const urlPath = creator.resourceURI.split("/");
       const creatorId = urlPath.pop();

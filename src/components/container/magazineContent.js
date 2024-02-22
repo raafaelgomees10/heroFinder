@@ -24,6 +24,7 @@ const MagazineContent = ({
   content,
   perPage,
   isHomePage,
+  isHomeLoading,
   homePageItems,
 }) => {
   const { data, loading, error, total, request } = useFetch();
@@ -79,6 +80,7 @@ const MagazineContent = ({
               key={item.id}
               isHomePage={true}
               content={content}
+              isHomeLoading={isHomeLoading}
             />
           ))}
         </>

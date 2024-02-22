@@ -1,9 +1,16 @@
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
 const shine = keyframes`
 to {
     background-position-x: -200%;
   }
+`;
+
+const skeleton = css`
+  background: #50535a;
+  background: linear-gradient(90deg, #50535a 8%, #656871 18%, #50535a 33%);
+  background-size: 200% 100%;
+  animation: 1.5s ${shine} linear infinite;
 `;
 
 export const Box = styled.div`
@@ -16,6 +23,14 @@ export const Box = styled.div`
   &:hover {
     transform: translate3d(0, -10px, 0);
   }
+
+  ${(props) =>
+    props.$isHomeLoading &&
+    css`
+      width: 224px;
+      height: 336px;
+      ${skeleton}
+    `}
 `;
 
 export const Image = styled.img`
@@ -24,10 +39,7 @@ export const Image = styled.img`
   box-shadow: 0 26px 24px -16px rgba(0, 0, 0, 0.6);
 
   /* THIS IS FOR BEFORE IMAGE RENDER, SKELETON STYLE */
-  background: #50535a;
-  background: linear-gradient(90deg, #50535a 8%, #656871 18%, #50535a 33%);
-  background-size: 200% 100%;
-  animation: 1.5s ${shine} linear infinite;
+  ${skeleton}
 `;
 
 export const Name = styled.h3`

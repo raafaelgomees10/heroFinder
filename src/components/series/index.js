@@ -61,21 +61,29 @@ const Series = () => {
             </span>
           </S.Text>
         </S.Wrapper>
-        {loading ? (
-          <AvengersAnimation />
-        ) : (
-          <S.Background>
-            <S.Container>
-              <form onSubmit={handleSubmit}>
-                <SearchInput
-                  id="search"
-                  type="search"
-                  placeholder="Search series"
-                  onChange={handleChange}
-                  value={search}
-                />
-              </form>
-
+        <S.Background>
+          <S.Container>
+            <form onSubmit={handleSubmit}>
+              <SearchInput
+                id="search"
+                type="search"
+                placeholder="Search series"
+                onChange={handleChange}
+                value={search}
+              />
+            </form>
+            {loading ? (
+              <>
+                <AvengersAnimation />
+                <S.Content>
+                  <MagazineContent
+                    isHomePage={true}
+                    isHomeLoading={loading}
+                    homePageItems={Array(4).fill(0)}
+                  />
+                </S.Content>
+              </>
+            ) : (
               <S.Content>
                 {total > 0 ? (
                   <MagazineContent
@@ -87,10 +95,10 @@ const Series = () => {
                   <SearchNotFound />
                 )}
               </S.Content>
-            </S.Container>
-            <div className="subFooter">{footerText}</div>
-          </S.Background>
-        )}
+            )}
+          </S.Container>
+          <div className="subFooter">{footerText}</div>
+        </S.Background>
       </S.Section>
     </>
   );

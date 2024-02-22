@@ -61,21 +61,29 @@ const Creators = () => {
             </span>
           </S.Text>
         </S.Wrapper>
-        {loading ? (
-          <AvengersAnimation />
-        ) : (
-          <S.Background>
-            <S.Container>
-              <form onSubmit={handleSubmit}>
-                <SearchInput
-                  id="search"
-                  type="search"
-                  placeholder="Search producers"
-                  onChange={handleChange}
-                  value={search}
-                />
-              </form>
-
+        <S.Background>
+          <S.Container>
+            <form onSubmit={handleSubmit}>
+              <SearchInput
+                id="search"
+                type="search"
+                placeholder="Search producers"
+                onChange={handleChange}
+                value={search}
+              />
+            </form>
+            {loading ? (
+              <>
+                <AvengersAnimation />
+                <S.Content>
+                  <CardContent
+                    isHomePage={true}
+                    isHomeLoading={loading}
+                    items={Array(5).fill(0)}
+                  />
+                </S.Content>
+              </>
+            ) : (
               <S.Content>
                 {total > 0 ? (
                   <CardContent items={data} type="creators" isHomePage={true} />
@@ -83,10 +91,10 @@ const Creators = () => {
                   <SearchNotFound />
                 )}
               </S.Content>
-            </S.Container>
-            <div className="subFooter">{footerText}</div>
-          </S.Background>
-        )}
+            )}
+          </S.Container>
+          <div className="subFooter">{footerText}</div>
+        </S.Background>
       </S.Section>
     </>
   );

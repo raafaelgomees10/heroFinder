@@ -82,21 +82,29 @@ const Events = () => {
             </span>
           </S.Text>
         </S.Wrapper>
-        {loading && loadedItems.length === 0 ? (
-          <AvengersAnimation />
-        ) : (
-          <S.Background>
-            <S.Container>
-              <form onSubmit={handleSubmit}>
-                <SearchInput
-                  id="search"
-                  type="search"
-                  placeholder="Search events"
-                  onChange={handleChange}
-                  value={eventSearch}
-                />
-              </form>
-
+        <S.Background>
+          <S.Container>
+            <form onSubmit={handleSubmit}>
+              <SearchInput
+                id="search"
+                type="search"
+                placeholder="Search events"
+                onChange={handleChange}
+                value={eventSearch}
+              />
+            </form>
+            {loading && loadedItems.length === 0 ? (
+              <>
+                <AvengersAnimation />
+                <S.Content>
+                  <MagazineContent
+                    isHomePage={true}
+                    isHomeLoading={loading}
+                    homePageItems={Array(4).fill(0)}
+                  />
+                </S.Content>
+              </>
+            ) : (
               <S.Content $total={total}>
                 {total > 0 ? (
                   <MagazineContent
@@ -108,17 +116,16 @@ const Events = () => {
                   <SearchNotFound />
                 )}
               </S.Content>
-
-              {total > loadedItems.length && (
-                <S.ButtonContainer>
-                  <S.LoadMore onClick={handleLoadMore}>Load More</S.LoadMore>
-                  {loading && <div className="custom-loader" />}
-                </S.ButtonContainer>
-              )}
-            </S.Container>
-            <div className="subFooter">{footerText}</div>
-          </S.Background>
-        )}
+            )}
+            {total > loadedItems.length && (
+              <S.ButtonContainer>
+                <S.LoadMore onClick={handleLoadMore}>Load More</S.LoadMore>
+                {loading && <div className="custom-loader" />}
+              </S.ButtonContainer>
+            )}
+          </S.Container>
+          <div className="subFooter">{footerText}</div>
+        </S.Background>
       </S.Section>
     </>
   );
