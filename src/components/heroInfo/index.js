@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Error from "../helper/error";
 import * as S from "../globalStyles";
 import { GET_HERO } from "../../api/api";
@@ -8,12 +8,17 @@ import MagazineContent from "../container/magazineContent";
 
 const HeroInfo = () => {
   const { data, loading, error, request } = useFetch();
+  const [footerText, setFooterText] = useState("");
 
   useEffect(() => {
-    const urlPath = window.location.pathname.split("/");
-    const heroId = urlPath.pop();
-    const { url, options } = GET_HERO(heroId);
-    request(url, options);
+    const fetchData = async () => {
+      const urlPath = window.location.pathname.split("/");
+      const heroId = urlPath.pop();
+      const { url, options } = GET_HERO(heroId);
+      const { json } = await request(url, options);
+      setFooterText(json.attributionText);
+    };
+    fetchData();
   }, [request]);
 
   const noDescription =
@@ -95,6 +100,7 @@ const HeroInfo = () => {
           )}
         </S.Wrapper>
       )}
+      <div className="subFooter">{footerText}</div>
     </S.Section>
   );
 };

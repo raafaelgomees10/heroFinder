@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 import * as S from "./styles";
-import Logo from "../../assets/logo.png";
 import useMedia from "../../hooks/useMedia";
+import { useLocation } from "react-router-dom";
 
 const Header = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
   const mobile = useMedia("(max-width:767px)");
+  const location = useLocation();
+  const isInfoPage = /\/\d+$/.test(location.pathname);
 
   return (
-    <S.Header>
+    <S.Header $isInfoPage={isInfoPage}>
       <S.Container>
         <S.Box>
           <S.Logo>
-            <S.Image src={Logo} alt="Logo Marvel" />
+            <S.Logo className="logoName">Hero Finder</S.Logo>
           </S.Logo>
           {mobile && (
             <S.MobileButton

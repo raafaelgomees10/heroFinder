@@ -1,5 +1,4 @@
 import "./App.css";
-import { useState } from "react";
 import Header from "./components/header";
 import Comics from "./components/comics";
 import Series from "./components/series";
@@ -16,54 +15,28 @@ import CreatorInfo from "./components/creatorInfo";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
-  const [footerData, setFooterData] = useState("");
   return (
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route
-          path="/"
-          element={<Characters setFooterData={setFooterData} />}
-        />
-        <Route
-          path="/characters/:id"
-          element={<HeroInfo setFooterData={setFooterData} />}
-        />
+        <Route path="/" element={<Characters />} />
+        <Route path="/characters/:id" element={<HeroInfo />} />
 
-        <Route
-          path="comics"
-          element={<Comics setFooterData={setFooterData} />}
-        />
-        <Route
-          path="/comics/:id"
-          element={<ComicInfo setFooterData={setFooterData} />}
-        />
+        <Route path="comics" element={<Comics />} />
+        <Route path="/comics/:id" element={<ComicInfo />} />
 
-        <Route
-          path="events"
-          element={<Events setFooterData={setFooterData} />}
-        />
-        <Route
-          path="/events/:id"
-          element={<EventInfo setFooterData={setFooterData} />}
-        />
+        <Route path="events" element={<Events />} />
+        <Route path="/events/:id" element={<EventInfo />} />
 
         <Route path="series" element={<Series />} />
-        <Route
-          path="/series/:id"
-          element={<SerieInfo setFooterData={setFooterData} />}
-        />
+        <Route path="/series/:id" element={<SerieInfo />} />
 
-        <Route
-          path="creators"
-          element={<Creators />}
-          setFooterData={setFooterData}
-        />
+        <Route path="creators" element={<Creators />} />
         <Route path="/creators/:id" element={<CreatorInfo />} />
 
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer footerData={footerData} />
+      <Footer />
     </BrowserRouter>
   );
 }

@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 export const Header = styled.header`
   width: 100%;
-  background-color: #163c52;
-  padding: 10px;
+  background-color: ${(props) => (props.$isInfoPage ? "#163c52" : "#121212")};
+  padding: 16px 10px;
   @media (max-width: 767px) {
     text-align: center;
   }

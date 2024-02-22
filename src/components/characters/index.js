@@ -11,19 +11,19 @@ import SearchNotFound from "../helper/searchNotFound";
 import { GET_HEROS, SEARCH_HEROS } from "../../api/api";
 import HeaderBgMobile from "../../assets/herosBgMobile.jpg";
 
-const Characters = ({ setFooterData }) => {
+const Characters = () => {
   const [heroSearch, setHeroSearch] = useState("");
+  const [footerText, setFooterText] = useState("");
   const { data, loading, error, total, request } = useFetch();
 
   useEffect(() => {
     const fetchData = async () => {
       const { url, options } = GET_HEROS();
       const { json } = await request(url, options);
-
-      setFooterData(json.attributionText);
+      setFooterText(json.attributionText);
     };
     fetchData();
-  }, [request, setFooterData]);
+  }, [request]);
 
   const mobile = useMedia("(max-width:767px)");
 
@@ -82,6 +82,7 @@ const Characters = ({ setFooterData }) => {
                 )}
               </S.Content>
             </S.Container>
+            <div className="subFooter">{footerText}</div>
           </S.Background>
         )}
       </S.Section>

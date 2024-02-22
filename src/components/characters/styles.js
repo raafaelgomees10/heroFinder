@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
   max-width: 1100px;
-  margin: 0 auto;
+  margin: 0 auto 3rem;
 
   @media (max-width: 767px) {
     max-width: 300px;
@@ -52,7 +52,8 @@ export const Image = styled.img`
 
 export const Background = styled.div`
   background: #121212;
-  padding: 3rem 0;
+  padding: 3rem 0 0;
+  position: relative;
 `;
 
 export const Text = styled.div`
@@ -80,4 +81,18 @@ export const Text = styled.div`
       font-size: 1.6rem;
     }
   }
+`;
+
+export const SubFooter = styled.div`
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #a5a5a5;
+  background: #282a2d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(180deg, #282a2d 10%, #1d1d1d 100%);
 `;
