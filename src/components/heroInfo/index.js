@@ -7,19 +7,20 @@ import useFetch from "../../hooks/useFetch";
 import MagazineContent from "../container/magazineContent";
 
 const HeroInfo = () => {
-  const { data, loading, error, request } = useFetch();
   const [footerText, setFooterText] = useState("");
+  const { data, loading, error, request } = useFetch();
+
+  const urlPath = window.location.pathname.split("/");
+  const heroId = urlPath.pop();
 
   useEffect(() => {
     const fetchData = async () => {
-      const urlPath = window.location.pathname.split("/");
-      const heroId = urlPath.pop();
       const { url, options } = GET_HERO(heroId);
       const { json } = await request(url, options);
       setFooterText(json.attributionText);
     };
     fetchData();
-  }, [request]);
+  }, [heroId, request]);
 
   const noDescription =
     data && (data[0].description === null || data[0].description === "");

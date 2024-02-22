@@ -12,13 +12,19 @@ import HeaderBgMobile from "../../assets/herosBgMobile.jpg";
 import MagazineContent from "../container/magazineContent";
 
 const Series = () => {
-  const { data, loading, error, total, request } = useFetch();
   const [search, setSearch] = useState("");
+  const [footerText, setFooterText] = useState("");
+
+  const { data, loading, error, total, request } = useFetch();
 
   useEffect(() => {
-    const { url, options } = GET_SERIES();
+    const fetchData = async () => {
+      const { url, options } = GET_SERIES();
 
-    request(url, options);
+      const { json } = await request(url, options);
+      setFooterText(json.attributionText);
+    };
+    fetchData();
   }, [request]);
 
   const mobile = useMedia("(max-width:767px)");
@@ -82,6 +88,7 @@ const Series = () => {
                 )}
               </S.Content>
             </S.Container>
+            <div className="subFooter">{footerText}</div>
           </S.Background>
         )}
       </S.Section>

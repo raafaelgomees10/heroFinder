@@ -13,12 +13,17 @@ import HeaderBgMobile from "../../assets/herosBgMobile.jpg";
 
 const Comics = () => {
   const [search, setSearch] = useState("");
+  const [footerText, setFooterText] = useState("");
   const { data, loading, error, total, request } = useFetch();
 
   useEffect(() => {
-    const { url, options } = GET_COMICS();
+    const fetchData = async () => {
+      const { url, options } = GET_COMICS();
 
-    request(url, options);
+      const { json } = await request(url, options);
+      setFooterText(json.attributionText);
+    };
+    fetchData();
   }, [request]);
 
   const mobile = useMedia("(max-width:767px)");
@@ -82,6 +87,7 @@ const Comics = () => {
                 )}
               </S.Content>
             </S.Container>
+            <div className="subFooter">{footerText}</div>
           </S.Background>
         )}
       </S.Section>

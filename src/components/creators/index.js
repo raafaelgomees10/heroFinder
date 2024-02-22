@@ -13,12 +13,18 @@ import { GET_CREATORS, SEARCH_CREATORS } from "../../api/api";
 
 const Creators = () => {
   const [search, setSearch] = useState("");
+  const [footerText, setFooterText] = useState("");
+
   const { data, loading, total, error, request } = useFetch();
 
   useEffect(() => {
-    const { url, options } = GET_CREATORS();
+    const fetchData = async () => {
+      const { url, options } = GET_CREATORS();
 
-    request(url, options);
+      const { json } = await request(url, options);
+      setFooterText(json.attributionText);
+    };
+    fetchData();
   }, [request]);
 
   const mobile = useMedia("(max-width:767px)");
@@ -78,6 +84,7 @@ const Creators = () => {
                 )}
               </S.Content>
             </S.Container>
+            <div className="subFooter">{footerText}</div>
           </S.Background>
         )}
       </S.Section>

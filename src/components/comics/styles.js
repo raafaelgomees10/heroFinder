@@ -1,12 +1,11 @@
 import styled from "styled-components";
-import BgTeste from "../../assets/bgBlack.jpg";
 
 export const Section = styled.section``;
 
 export const Container = styled.div`
   max-width: 1100px;
   margin: 0 auto;
-  padding: 3rem 0 0;
+  padding: 3rem 0;
 
   @media (max-width: 767px) {
     max-width: 300px;
@@ -40,6 +39,7 @@ export const Image = styled.img`
     height: 300px;
   }
 `;
+
 export const Wrapper = styled.div`
   position: relative;
   display: flex;
@@ -49,10 +49,6 @@ export const Wrapper = styled.div`
 `;
 
 export const Background = styled.div`
-  /* background-image: url(${BgTeste});
-  background-size: cover, auto;
-  background-position: top;
-  background-repeat: no-repeat; */
   background-color: #121212;
 `;
 

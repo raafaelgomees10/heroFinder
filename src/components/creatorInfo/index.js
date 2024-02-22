@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Box } from "./styles";
 import Error from "../helper/error";
 import * as S from "../globalStyles";
@@ -8,13 +8,19 @@ import useFetch from "../../hooks/useFetch";
 import MagazineContent from "../container/magazineContent";
 
 const CreatorInfo = () => {
+  const [footerText, setFooterText] = useState("");
   const { data, loading, error, request } = useFetch();
+
   const urlPath = window.location.pathname.split("/");
   const creatorId = urlPath.pop();
 
   useEffect(() => {
-    const { url, options } = GET_CREATOR(creatorId);
-    request(url, options);
+    const fetchData = async () => {
+      const { url, options } = GET_CREATOR(creatorId);
+      const { json } = await request(url, options);
+      setFooterText(json.attributionText);
+    };
+    fetchData();
   }, [creatorId, request]);
 
   if (error) {
@@ -22,6 +28,7 @@ const CreatorInfo = () => {
   }
 
   const noImage = data && data[0].thumbnail.path.split("/").pop();
+  console.log("data", data);
 
   return (
     <>
@@ -94,6 +101,7 @@ const CreatorInfo = () => {
               </S.Container>
             </S.Wrapper>
           )}
+          <div className="subFooter">{footerText}</div>
         </S.Section>
       )}
     </>

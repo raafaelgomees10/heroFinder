@@ -13,6 +13,7 @@ export const Wrapper = styled.div`
 export const Container = styled.div`
   max-width: 1100px;
   margin: 0 auto;
+  padding: 3rem 0;
 
   @media (max-width: 767px) {
     max-width: 300px;
@@ -56,7 +57,6 @@ export const Image = styled.img`
 
 export const Background = styled.div`
   background: #121212;
-  padding: 3rem 0;
 `;
 
 export const Text = styled.div`

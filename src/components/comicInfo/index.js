@@ -13,13 +13,16 @@ import { ReactComponent as ArrowIcon } from "../../assets/arrowRight.svg";
 const ComicInfo = () => {
   const [modal, setModal] = useState(false);
   const { data, loading, error, request } = useFetch();
+  const [footerText, setFooterText] = useState("");
+
   const urlPath = window.location.pathname.split("/");
   const comicId = urlPath.pop();
 
   useEffect(() => {
     const fetchComics = async () => {
       const { url, options } = GET_COMIC(comicId);
-      await request(url, options);
+      const { json } = await request(url, options);
+      setFooterText(json.attributionText);
     };
 
     fetchComics();
@@ -166,6 +169,7 @@ const ComicInfo = () => {
               </S.Container>
             </S.Wrapper>
           )}
+          <div className="subFooter">{footerText}</div>
         </S.Section>
       )}
     </>

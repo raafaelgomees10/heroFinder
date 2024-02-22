@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import * as S from "../globalStyles";
 import Error from "../helper/error";
@@ -12,14 +12,21 @@ import { EventPeriod, Buttons, EventsButtons, Dates } from "./styles";
 import { ReactComponent as ArrowIcon } from "../../assets/arrowRight.svg";
 
 const EventInfo = () => {
+  const [footerText, setFooterText] = useState("");
   const { data, loading, error, request } = useFetch();
+
   const urlPath = window.location.pathname.split("/");
   const eventId = urlPath.pop();
+
   const mobile = useMedia("(max-width:767px)");
 
   useEffect(() => {
-    const { url, options } = GET_EVENT(eventId);
-    request(url, options);
+    const fetchData = async () => {
+      const { url, options } = GET_EVENT(eventId);
+      const { json } = await request(url, options);
+      setFooterText(json.attributionText);
+    };
+    fetchData();
   }, [eventId, request]);
 
   const noDescription =
@@ -203,6 +210,7 @@ const EventInfo = () => {
               </S.Container>
             </S.Wrapper>
           )}
+          <div className="subFooter">{footerText}</div>
         </S.Section>
       )}
     </>

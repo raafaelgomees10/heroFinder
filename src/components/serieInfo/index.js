@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Error from "../helper/error";
 import * as S from "../globalStyles";
 import { GET_SERIE } from "../../api/api";
@@ -8,13 +8,19 @@ import CardContent from "../container/cardContent";
 import MagazineContent from "../container/magazineContent";
 
 const SerieInfo = () => {
+  const [footerText, setFooterText] = useState("");
   const { data, loading, error, request } = useFetch();
+
   const urlPath = window.location.pathname.split("/");
   const serieId = urlPath.pop();
 
   useEffect(() => {
-    const { url, options } = GET_SERIE(serieId);
-    request(url, options);
+    const fetchData = async () => {
+      const { url, options } = GET_SERIE(serieId);
+      const { json } = await request(url, options);
+      setFooterText(json.attributionText);
+    };
+    fetchData();
   }, [request, serieId]);
 
   const noDescription =
@@ -146,6 +152,7 @@ const SerieInfo = () => {
               </S.Container>
             </S.Wrapper>
           )}
+          <div className="subFooter">{footerText}</div>
         </S.Section>
       )}
     </>

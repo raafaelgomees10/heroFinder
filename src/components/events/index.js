@@ -12,15 +12,21 @@ import MagazineContent from "../container/magazineContent";
 import HeaderBgMobile from "../../assets/herosBgMobile.jpg";
 
 const Events = () => {
-  const [eventSearch, setEventSearch] = useState("");
   const [offset, setOffset] = useState(0);
+  const [footerText, setFooterText] = useState("");
+  const [eventSearch, setEventSearch] = useState("");
   const [loadedItems, setLoadedItems] = useState([]);
   const { data, loading, error, total, request } = useFetch();
+
   const mobile = useMedia("(max-width:767px)");
 
   useEffect(() => {
-    const { url, options } = GET_EVENTS(offset);
-    request(url, options);
+    const fetchData = async () => {
+      const { url, options } = GET_EVENTS(offset);
+      const { json } = await request(url, options);
+      setFooterText(json.attributionText);
+    };
+    fetchData();
   }, [request, offset]);
 
   useEffect(() => {
@@ -110,6 +116,7 @@ const Events = () => {
                 </S.ButtonContainer>
               )}
             </S.Container>
+            <div className="subFooter">{footerText}</div>
           </S.Background>
         )}
       </S.Section>
