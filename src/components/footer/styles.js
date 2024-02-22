@@ -94,7 +94,7 @@ export const Li = styled.li`
   font-size: 1.2rem;
   margin-right: 16px;
   @media (max-width: 767px) {
-    padding: 10px 20px;
+    padding: 0;
     margin: 0 8px;
   }
 `;

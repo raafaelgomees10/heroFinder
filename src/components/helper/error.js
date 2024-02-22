@@ -1,101 +1,122 @@
-import React, { useState } from "react";
+import React from "react";
 import { Thanos } from "react-thanos";
 import styled from "styled-components";
-import InfinityGauntlet from "react-thanos-snap";
-import ThanosSnap from "../../assets/thanosSnap.gif";
-import ThanosEyes from "../../assets/thanosEyes.gif";
+import { useNavigate } from "react-router-dom";
 import DeadPoolGif from "../../assets/deadpool2.gif";
 
 const Error = ({ error }) => {
-  const [snap, setSnap] = useState(false);
-  const [thanos, setThanos] = useState(true);
+  const navigate = useNavigate();
 
-  const toggleThanos = () => {
-    setThanos(!thanos);
+  const handleClick = () => {
+    setTimeout(() => {
+      navigate("/");
+    }, 1000);
   };
 
   return (
     <Container>
-      <Text dangerouslySetInnerHTML={{ __html: error }} />
-
-      <div>
-        <InfinityGauntlet snap={snap}>
-          <img
-            src={DeadPoolGif}
-            alt="Deadpool fixing armor"
-            width="350px"
-            height="350px"
-          />
-        </InfinityGauntlet>
-      </div>
-
       <Content>
-        <ThanosDiv onClick={toggleThanos}>
-          <Thanos
-            onSnapReverse={() => setSnap(false)}
-            onSnap={() => setSnap(true)}
-          />
-        </ThanosDiv>
-
-        <ImageBox>
-          <ThanosImage
-            src={ThanosSnap}
-            alt="Thanos Snap"
-            className={thanos ? "visible" : ""}
-          />
-          <ThanosImage
-            src={ThanosEyes}
-            alt="Thanos Eyes"
-            className={thanos ? "" : "visible"}
-          />
-        </ImageBox>
+        <Box>
+          <Title>{error}</Title>
+          <Text>
+            Something is wrong. <br />
+            The avengers advise you to return to the homepage
+          </Text>
+          <SubTitle>
+            Click on the Infinity Gauntlet to return to the home page
+          </SubTitle>
+          <div onClick={handleClick}>
+            <Thanos
+              onSnap={() => handleClick()}
+              onSnapReverse={() => handleClick()}
+            />
+          </div>
+        </Box>
+        <Image src={DeadPoolGif} alt="Deadpool fixing armor" />
       </Content>
+
+      {/* <ImageBox>
+            <ThanosImage
+              src={ThanosSnap}
+              alt="Thanos Snap"
+              className={thanos ? "visible" : ""}
+              loop="false"
+            />
+            <ThanosImage
+              src={ThanosEyes}
+              alt="Thanos Eyes"
+              className={thanos ? "" : "visible"}
+            />
+          </ImageBox> */}
     </Container>
   );
 };
 
 export default Error;
 
-const Container = styled.div`
-  padding: 30px 0;
-  background-color: #000;
-  width: 1100px;
-  margin: auto;
+export const Container = styled.div`
+  width: 100%;
+  position: relative;
+  background: #000;
 `;
 
-const Text = styled.p`
-  font-size: 2.4rem;
-  color: #f31;
-  margin: 0 auto 4rem;
-  max-width: 800px;
-  text-align: center;
-`;
-
-const Content = styled.div`
-  float: right;
+export const Content = styled.div`
+  padding: 0 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 600px;
+  position: relative;
+  @media (max-width: 767px) {
+    flex-direction: column-reverse;
+  }
 `;
 
-const ThanosDiv = styled.div`
+const Box = styled.div`
+  position: relative;
   z-index: 999;
-  position: relative;
+  max-width: 600px;
+
+  @media (max-width: 767px) {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
-const ImageBox = styled.div`
-  position: relative;
-  width: 350px;
-  height: 350px;
+export const Title = styled.h1`
+  font-size: 2rem;
+  color: #f31;
 `;
 
-const ThanosImage = styled.img`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transition: opacity 2.5s ease-in-out;
-  opacity: ${({ className }) => (className === "visible" ? 1 : 0)};
+const Text = styled.p`
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 16px;
+
+  @media (max-width: 767px) {
+    font-size: 1.2rem;
+  }
 `;
+
+const SubTitle = styled.span`
+  font-size: 1.2rem;
+`;
+
+export const Image = styled.img`
+  width: 380px;
+
+  @media (max-width: 767px) {
+    width: 250px;
+  }
+`;
+
+// const ThanosImage = styled.img`
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   transition: opacity 2.5s ease-in-out;
+//   opacity: ${({ className }) => (className === "visible" ? 1 : 0)};
+// `;

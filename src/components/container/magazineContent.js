@@ -74,10 +74,10 @@ const MagazineContent = ({
     <>
       {isHomePage ? (
         <>
-          {homePageItems.map((item) => (
+          {homePageItems.map((item, index) => (
             <Magazine
               item={item}
-              key={item.id}
+              key={index}
               isHomePage={true}
               content={content}
               isHomeLoading={isHomeLoading}

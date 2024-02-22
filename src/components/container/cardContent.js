@@ -51,11 +51,11 @@ const CardContent = ({
       {isHomePage ? (
         <>
           {items &&
-            items.map((hero) => (
+            items.map((hero, index) => (
               <Card
                 hero={hero}
                 type={type}
-                key={hero.id}
+                key={index}
                 isHomePage={true}
                 isHomeLoading={isHomeLoading}
               />
