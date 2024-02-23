@@ -42,15 +42,16 @@ const Wrapper = styled.div`
   width: 100%;
   height: 5.125rem;
   padding: 0 8px;
-  /* box-shadow: 0 0 4px #ee171f; */
   display: flex;
   align-items: center;
-  background-color: #121212;
+  background-color: transparent;
   color: #fff;
   border: 1px solid transparent;
   border-bottom-color: #ee171f;
   transition: all 0.2s ease;
+
   &:focus-within {
+    background-color: #202020;
     border-color: #ee171f;
   }
 `;

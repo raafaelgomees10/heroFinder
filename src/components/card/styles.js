@@ -7,10 +7,7 @@ export const Container = styled(NavLink)`
   margin-top: 1rem;
 
   &::after {
-    border-color: ${(props) =>
-      props.$isHomePage
-        ? "transparent #121212 transparent transparent"
-        : "transparent #1e1e1e transparent transparent"};
+    border-color: transparent #1e1e1e transparent transparent;
     border-style: solid;
     border-width: 12px 12px 0 0;
     bottom: 0;

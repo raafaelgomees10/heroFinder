@@ -2,4 +2,8 @@
 
 ### HOME PAGE
 
+### BOX SHADOW CARDS
+
+### http://localhost:3000/characters/1011182
+
 #### BOTÃO CARREGAR MAIS PARA CHARACTERS, COMICS, PRODUCERS

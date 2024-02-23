@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import BgBlack from "../../assets/bgBlack.jpg";
 
 export const Section = styled.section``;
 
@@ -48,7 +49,10 @@ export const Wrapper = styled.div`
 `;
 
 export const Background = styled.div`
-  background-color: #121212;
+  background-image: url(${BgBlack});
+  background-size: cover, auto;
+  background-position: center;
+  background-repeat: no-repeat;
 `;
 
 export const Text = styled.div`

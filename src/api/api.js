@@ -13,7 +13,7 @@ const baseParams = `ts=${config.timeStamp}&apikey=${config.apiKey}&hash=${config
 
 export function GET_HEROS() {
   return {
-    url: `${API_URL}/characters?${baseParams}&offset=${randomHerois}&limit=15&sasds`,
+    url: `${API_URL}/characters?${baseParams}&offset=${randomHerois}&limit=15`,
     options: {
       method: "GET",
     },
