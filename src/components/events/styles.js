@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import BgBlack from "../../assets/bgBlack.jpg";
+import bgBalls from "../../assets/balls.svg";
 
 export const Section = styled.section``;
 
@@ -62,6 +63,7 @@ export const Background = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   min-height: calc(100vh - 16rem);
+  padding-bottom: 2rem;
 `;
 
 export const Text = styled.div`
@@ -94,21 +96,46 @@ export const Text = styled.div`
 export const ButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
+  position: relative;
   align-items: center;
+  z-index: 0;
 `;
 
 export const LoadMore = styled.button`
-  background-color: #ee171f;
-  color: #fff;
   padding: 8px 16px;
-  font-size: 1.4rem;
-  border: none;
-  border-radius: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin: 24px 0 0;
+  margin: 24px 0;
+
+  text-align: center;
+  font-family: "Dekko", cursive;
+  text-transform: uppercase;
+  font-size: 2rem;
+  letter-spacing: 0.2rem;
+  background: url(${bgBalls}), #ffcd28;
+  background-size: 12px, 100%;
+  border: 4px solid #000;
+  position: relative;
+  transition: all 0.15s 0.15s ease-out;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 2px;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    border: 4px solid #000;
+    transition: all 0.15s 0.15s ease-out;
+    z-index: -5;
+  }
 
   &:hover {
-    background-color: #c4161c;
+    &::before {
+      left: 0;
+      bottom: 0px;
+      top: -10px;
+      left: 4px;
+    }
   }
 `;

@@ -45,7 +45,7 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
   max-width: 1100px;
-  margin: 0 auto;
+  margin: 0 auto 24px;
 
   @media (max-width: 767px) {
     max-width: 300px;

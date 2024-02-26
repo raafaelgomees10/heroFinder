@@ -174,8 +174,8 @@ const ComicInfo = () => {
               )}
             </>
           )}
+          <div className="subFooter">{footerText}</div>
         </S.Wrapper>
-        <div className="subFooter">{footerText}</div>
       </S.Section>
     </>
   );

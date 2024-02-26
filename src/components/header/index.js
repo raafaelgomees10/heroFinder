@@ -1,17 +1,22 @@
 import React, { useState } from "react";
 import * as S from "./styles";
 import useMedia from "../../hooks/useMedia";
+import { useNavigate } from "react-router-dom";
 
 const Header = ({ isRelative, isInfoPage }) => {
   const [mobileMenu, setMobileMenu] = useState(false);
   const mobile = useMedia("(max-width:767px)");
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/");
+  };
 
   return (
     <S.Header $isRelative={isRelative} $isInfoPage={isInfoPage}>
       <S.Container>
         <S.Box>
-          <S.Logo>
-            <S.Logo className="logoName">Hero Finder</S.Logo>
+          <S.Logo className="logoName" onClick={handleClick}>
+            Hero Finder
           </S.Logo>
           {mobile && (
             <S.MobileButton

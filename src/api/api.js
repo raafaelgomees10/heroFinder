@@ -1,6 +1,6 @@
 import config from "../core/config";
 
-const API_URL = "http://gateway.marvel.com/v1/public";
+const API_URL = "https://gateway.marvel.com/v1/public";
 const totalHeros = 1564; //total de herois consultado na api
 const totalComics = 59124;
 const totalSeries = 14673;
@@ -165,7 +165,7 @@ export function SEARCH_EVENTS(name) {
 
 export function GET_CREATORS() {
   return {
-    url: `${API_URL}/creators?${baseParams}&offset=${randomHerois}&limit=15`,
+    url: `${API_URL}/creators?${baseParams}&offset=${randomCreators}&limit=15`,
     options: {
       method: "GET",
     },

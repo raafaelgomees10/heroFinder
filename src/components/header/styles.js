@@ -21,7 +21,9 @@ export const Container = styled.div`
   align-items: center;
 `;
 
-export const Logo = styled.div``;
+export const Logo = styled.div`
+  cursor: pointer;
+`;
 
 export const Image = styled.img`
   width: 150px;
