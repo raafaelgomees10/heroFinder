@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Rain from "../../assets/rain.gif";
-import BgPurple from "../../assets/3.jpg";
+import BgPurple from "../../assets/bgPurple.jpg";
 
 export const Container = styled.div`
   width: 100%;

@@ -34,7 +34,7 @@ export const Content = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-  /* flex-wrap: wrap; */
+  min-height: calc(100vh - 16rem);
 
   @media (max-width: 820px) {
     flex-direction: column;
@@ -81,8 +81,8 @@ export const Ballon = styled.div`
 `;
 export const Image = styled.img`
   display: block;
-  width: 380px;
-  height: 580px;
+  width: 310px;
+  height: 520px;
 
   @media (max-width: 820px) {
     width: 280px;

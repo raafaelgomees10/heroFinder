@@ -2,7 +2,8 @@ import React from "react";
 import { Thanos } from "react-thanos";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import DeadPoolGif from "../../assets/deadpool2.gif";
+import DeadPoolGif from "../../assets/deadpool.gif";
+import BgPurple from "../../assets/bgPurple.jpg";
 
 const Error = ({ error }) => {
   const navigate = useNavigate();
@@ -57,17 +58,31 @@ export default Error;
 export const Container = styled.div`
   width: 100%;
   position: relative;
-  background: #000;
+  background: url(${BgPurple});
+  background-size: cover, auto;
+  background-position: center;
+  background-repeat: no-repeat;
 `;
 
 export const Content = styled.div`
-  padding: 0 80px;
+  margin: 0 auto;
+  padding: 80px 0;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  max-width: 1100px;
+  min-height: calc(100vh - 9.2rem);
   position: relative;
+
   @media (max-width: 767px) {
     flex-direction: column-reverse;
+    max-width: 300px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1199px) {
+    max-width: 700px;
   }
 `;
 
@@ -105,6 +120,8 @@ const SubTitle = styled.span`
 
 export const Image = styled.img`
   width: 380px;
+  /* border: 2px solid black; */
+  border-radius: 0 50% 0 0;
 
   @media (max-width: 767px) {
     width: 250px;
