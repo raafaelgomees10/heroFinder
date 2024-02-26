@@ -40,7 +40,7 @@ export const Wrapper = styled.div`
   background-size: cover, auto;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 100vh;
+  min-height: calc(100vh - 16rem);
 `;
 
 export const Container = styled.div`

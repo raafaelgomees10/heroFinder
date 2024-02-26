@@ -9,13 +9,13 @@ const Magazine = ({ content, item, isHomePage = false, isHomeLoading }) => {
       {!isHomeLoading && (
         <Link to={`/${content}/${item.id}`} target="_blank">
           <S.Image
-            // alt={title}
             src={`${
               item.thumbnail
                 ? ` ${item.thumbnail.path}.${item.thumbnail.extension}`
                 : ""
             }`}
             $isHomePage={isHomePage}
+            alt={title}
           />
           <S.Name $isHomePage={isHomePage}>{title}</S.Name>
         </Link>

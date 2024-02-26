@@ -36,11 +36,11 @@ const CreatorInfo = () => {
       <S.Section>
         <S.BackgroundImage />
         <S.Wrapper>
-          {data && (
+          {loading ? (
+            <AvengersAnimation />
+          ) : (
             <>
-              {loading ? (
-                <AvengersAnimation />
-              ) : (
+              {data && (
                 <S.Container>
                   <S.Content>
                     <S.Image

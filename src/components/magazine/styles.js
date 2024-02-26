@@ -37,7 +37,8 @@ export const Image = styled.img`
   width: ${(props) => (props.$isHomePage ? "224px" : "164px")};
   height: ${(props) => (props.$isHomePage ? "336px" : "226px")};
   box-shadow: 0 26px 24px -16px rgba(0, 0, 0, 0.6);
-
+  font-size: 1.8rem;
+  color: #fff;
   /* THIS IS FOR BEFORE IMAGE RENDER, SKELETON STYLE */
   ${skeleton}
 `;

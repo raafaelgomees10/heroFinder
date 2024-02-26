@@ -53,7 +53,10 @@ const Comics = () => {
       <Header />
       <S.Section>
         <S.Wrapper>
-          <S.Image src={mobile ? HeaderBgMobile : HeaderBg} />
+          <S.Image
+            src={mobile ? HeaderBgMobile : HeaderBg}
+            alt="Comics with marvel characters"
+          />
           <S.Text>
             Comics
             <span>
