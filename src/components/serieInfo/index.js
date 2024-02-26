@@ -63,102 +63,103 @@ const SerieInfo = () => {
   return (
     <>
       <Header isRelative={true} isInfoPage={true} />
-
-      {data && (
-        <S.Section>
-          <S.BackgroundImage />
-          {loading ? (
-            <AvengersAnimation />
-          ) : (
-            <S.Wrapper>
-              <S.Container>
-                <S.Content>
-                  <S.Image
-                    src={`${
-                      data[0].thumbnail
-                        ? ` ${data[0].thumbnail.path}.${data[0].thumbnail.extension}`
-                        : ""
-                    }`}
-                    alt={data[0].title}
-                  />
-                  <S.Box>
-                    <S.Details>
-                      <S.Title>{data[0].title}</S.Title>
-
-                      <S.Description>
-                        {noDescription
-                          ? "Marvel has not released a description for this serie."
-                          : data[0].description}
-                      </S.Description>
-                    </S.Details>
-
-                    {data[0].creators.available > 0 && (
+      <S.Section>
+        <S.BackgroundImage />
+        <S.Wrapper>
+          {data && (
+            <>
+              {loading ? (
+                <AvengersAnimation />
+              ) : (
+                <S.Container>
+                  <S.Content>
+                    <S.Image
+                      src={`${
+                        data[0].thumbnail
+                          ? ` ${data[0].thumbnail.path}.${data[0].thumbnail.extension}`
+                          : ""
+                      }`}
+                      alt={data[0].title}
+                    />
+                    <S.Box>
                       <S.Details>
-                        <S.Title>Producers</S.Title>
-                        <S.Creators>
-                          {creators.map((creator, index) => {
-                            return (
-                              <S.CreatorRole key={index}>
-                                {creator.role}
-                                <br />
-                                {creator.people.map((item, i) => (
-                                  <S.CreatorName
-                                    key={item.creatorId}
-                                    to={`/creators/${item.creatorId}`}
-                                    target="_blank"
-                                  >
-                                    <span>{item.name}</span>
-                                    {i !== creator.people.length - 1 && ", "}
-                                  </S.CreatorName>
-                                ))}
-                              </S.CreatorRole>
-                            );
-                          })}
-                        </S.Creators>
+                        <S.Title>{data[0].title}</S.Title>
+
+                        <S.Description>
+                          {noDescription
+                            ? "Marvel has not released a description for this serie."
+                            : data[0].description}
+                        </S.Description>
                       </S.Details>
-                    )}
-                  </S.Box>
-                </S.Content>
-                {data[0].characters.available > 0 && (
-                  <S.Details $isCards={true}>
-                    <S.Title>Characters</S.Title>
-                    <S.ContainerContent>
-                      <CardContent page="series" urlId={serieId} />
-                    </S.ContainerContent>
-                  </S.Details>
-                )}
-                {data[0].events.available > 0 && (
-                  <S.Details>
-                    <S.Title>Events</S.Title>
-                    <S.ContainerContent $total={data[0].events.available}>
-                      <MagazineContent
-                        perPage={5}
-                        page="series"
-                        content="events"
-                        urlId={serieId}
-                      />
-                    </S.ContainerContent>
-                  </S.Details>
-                )}
-                {data[0].comics.available > 0 && (
-                  <S.Details>
-                    <S.Title>Comics</S.Title>
-                    <S.ContainerContent $total={data[0].comics.available}>
-                      <MagazineContent
-                        perPage={5}
-                        page="series"
-                        content="comics"
-                        urlId={serieId}
-                      />
-                    </S.ContainerContent>
-                  </S.Details>
-                )}
-              </S.Container>
-            </S.Wrapper>
+
+                      {data[0].creators.available > 0 && (
+                        <S.Details>
+                          <S.Title>Producers</S.Title>
+                          <S.Creators>
+                            {creators.map((creator, index) => {
+                              return (
+                                <S.CreatorRole key={index}>
+                                  {creator.role}
+                                  <br />
+                                  {creator.people.map((item, i) => (
+                                    <S.CreatorName
+                                      key={item.creatorId}
+                                      to={`/creators/${item.creatorId}`}
+                                      target="_blank"
+                                    >
+                                      <span>{item.name}</span>
+                                      {i !== creator.people.length - 1 && ", "}
+                                    </S.CreatorName>
+                                  ))}
+                                </S.CreatorRole>
+                              );
+                            })}
+                          </S.Creators>
+                        </S.Details>
+                      )}
+                    </S.Box>
+                  </S.Content>
+                  {data[0].characters.available > 0 && (
+                    <S.Details $isCards={true}>
+                      <S.Title>Characters</S.Title>
+                      <S.ContainerContent>
+                        <CardContent page="series" urlId={serieId} />
+                      </S.ContainerContent>
+                    </S.Details>
+                  )}
+                  {data[0].events.available > 0 && (
+                    <S.Details>
+                      <S.Title>Events</S.Title>
+                      <S.ContainerContent $total={data[0].events.available}>
+                        <MagazineContent
+                          perPage={5}
+                          page="series"
+                          content="events"
+                          urlId={serieId}
+                        />
+                      </S.ContainerContent>
+                    </S.Details>
+                  )}
+                  {data[0].comics.available > 0 && (
+                    <S.Details>
+                      <S.Title>Comics</S.Title>
+                      <S.ContainerContent $total={data[0].comics.available}>
+                        <MagazineContent
+                          perPage={5}
+                          page="series"
+                          content="comics"
+                          urlId={serieId}
+                        />
+                      </S.ContainerContent>
+                    </S.Details>
+                  )}
+                </S.Container>
+              )}
+            </>
           )}
-          <div className="subFooter">{footerText}</div>
-        </S.Section>
-      )}
+        </S.Wrapper>
+        <div className="subFooter">{footerText}</div>
+      </S.Section>
     </>
   );
 };

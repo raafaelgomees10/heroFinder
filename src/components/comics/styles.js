@@ -54,6 +54,7 @@ export const Background = styled.div`
   background-size: cover, auto;
   background-position: center;
   background-repeat: no-repeat;
+  min-height: 100vh;
 `;
 
 export const Text = styled.div`

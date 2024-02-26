@@ -9,7 +9,7 @@ html,body{
   margin: 0;
   padding: 0;
   color: #fff;
-  background-color: #000;
+  background-color: #121212;
   font-size: 62.5%;
   text-decoration: none;
 }
@@ -18,7 +18,7 @@ html,body{
   font-size: 3.2rem;
   text-shadow: -1px -1px yellow, 1px 1px orange, 2px 2px orange;
   font-weight: 600;
-  color: black;
+  color: #000;
   text-shadow: -1px -1px yellow, 1px 1px orange, 2px 2px orange;
   -webkit-transform: rotate(-3deg) skew(-10deg, 0);
   -moz-transform: rotate(-3deg) skew(-10deg, 0);

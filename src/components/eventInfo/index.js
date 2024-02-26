@@ -74,149 +74,153 @@ const EventInfo = () => {
   return (
     <>
       <Header isRelative={true} isInfoPage={true} />
-
-      {data && (
-        <S.Section>
-          <S.BackgroundImage />
-          {loading ? (
-            <AvengersAnimation />
-          ) : (
-            <S.Wrapper>
-              <S.Container>
-                <S.Content>
-                  <S.Image
-                    src={`${
-                      data[0].thumbnail
-                        ? ` ${data[0].thumbnail.path}.${data[0].thumbnail.extension}`
-                        : ""
-                    }`}
-                    alt={data[0].title}
-                  />
-                  <S.Box>
-                    <S.Details>
-                      <S.Title>{data[0].title}</S.Title>
-
-                      <S.Description>
-                        {noDescription
-                          ? "Marvel has not released a description for this event."
-                          : data[0].description}
-                      </S.Description>
-
-                      <EventPeriod>
-                        {data[0].start && (
-                          <Dates>
-                            Released:
-                            <span>
-                              {" "}
-                              {dayjs(data[0].start).format("MMMM D, YYYY")}
-                            </span>
-                          </Dates>
-                        )}
-
-                        {data[0].end && (
-                          <Dates>
-                            Finished:
-                            <span>
-                              {" "}
-                              {dayjs(data[0].end).format("MMMM D, YYYY")}
-                            </span>
-                          </Dates>
-                        )}
-                      </EventPeriod>
-
-                      <EventsButtons>
-                        {prevEventId && (
-                          <Buttons
-                            $prev={true}
-                            reloadDocument
-                            to={`/events/${prevEventId}`}
-                          >
-                            <ArrowIcon />
-                            Previous Event{" "}
-                            {!mobile && `- ${data[0].previous.name}`}
-                          </Buttons>
-                        )}
-
-                        {nextEventId && (
-                          <Buttons to={`/events/${nextEventId}`} reloadDocument>
-                            Next Event {!mobile && `- ${data[0].next.name}`}{" "}
-                            <ArrowIcon />
-                          </Buttons>
-                        )}
-                      </EventsButtons>
-                    </S.Details>
-
-                    {data[0].creators.available > 0 && (
+      <S.Section>
+        <S.BackgroundImage />
+        <S.Wrapper>
+          {data && (
+            <>
+              {loading ? (
+                <AvengersAnimation />
+              ) : (
+                <S.Container>
+                  <S.Content>
+                    <S.Image
+                      src={`${
+                        data[0].thumbnail
+                          ? ` ${data[0].thumbnail.path}.${data[0].thumbnail.extension}`
+                          : ""
+                      }`}
+                      alt={data[0].title}
+                    />
+                    <S.Box>
                       <S.Details>
-                        <S.Title>Producers</S.Title>
-                        <S.Creators>
-                          {creators.map((creator, index) => {
-                            return (
-                              <S.CreatorRole key={index}>
-                                {creator.role}
-                                <br />
-                                {creator.people.map((item, i) => (
-                                  <S.CreatorName
-                                    key={item.creatorId}
-                                    to={`/creators/${item.creatorId}`}
-                                    target="_blank"
-                                  >
-                                    <span>{item.name}</span>
-                                    {i !== creator.people.length - 1 && ", "}
-                                  </S.CreatorName>
-                                ))}
-                              </S.CreatorRole>
-                            );
-                          })}
-                        </S.Creators>
+                        <S.Title>{data[0].title}</S.Title>
+
+                        <S.Description>
+                          {noDescription
+                            ? "Marvel has not released a description for this event."
+                            : data[0].description}
+                        </S.Description>
+
+                        <EventPeriod>
+                          {data[0].start && (
+                            <Dates>
+                              Released:
+                              <span>
+                                {" "}
+                                {dayjs(data[0].start).format("MMMM D, YYYY")}
+                              </span>
+                            </Dates>
+                          )}
+
+                          {data[0].end && (
+                            <Dates>
+                              Finished:
+                              <span>
+                                {" "}
+                                {dayjs(data[0].end).format("MMMM D, YYYY")}
+                              </span>
+                            </Dates>
+                          )}
+                        </EventPeriod>
+
+                        <EventsButtons>
+                          {prevEventId && (
+                            <Buttons
+                              $prev={true}
+                              reloadDocument
+                              to={`/events/${prevEventId}`}
+                            >
+                              <ArrowIcon />
+                              Previous Event{" "}
+                              {!mobile && `- ${data[0].previous.name}`}
+                            </Buttons>
+                          )}
+
+                          {nextEventId && (
+                            <Buttons
+                              to={`/events/${nextEventId}`}
+                              reloadDocument
+                            >
+                              Next Event {!mobile && `- ${data[0].next.name}`}{" "}
+                              <ArrowIcon />
+                            </Buttons>
+                          )}
+                        </EventsButtons>
                       </S.Details>
-                    )}
-                  </S.Box>
-                </S.Content>
 
-                {data[0].characters.available > 0 && (
-                  <S.Details $isCards={true}>
-                    <S.Title>Characters</S.Title>
-                    <S.ContainerContent
-                      available={data[0].characters.available}
-                    >
-                      <CardContent page="events" urlId={eventId} />
-                    </S.ContainerContent>
-                  </S.Details>
-                )}
+                      {data[0].creators.available > 0 && (
+                        <S.Details>
+                          <S.Title>Producers</S.Title>
+                          <S.Creators>
+                            {creators.map((creator, index) => {
+                              return (
+                                <S.CreatorRole key={index}>
+                                  {creator.role}
+                                  <br />
+                                  {creator.people.map((item, i) => (
+                                    <S.CreatorName
+                                      key={item.creatorId}
+                                      to={`/creators/${item.creatorId}`}
+                                      target="_blank"
+                                    >
+                                      <span>{item.name}</span>
+                                      {i !== creator.people.length - 1 && ", "}
+                                    </S.CreatorName>
+                                  ))}
+                                </S.CreatorRole>
+                              );
+                            })}
+                          </S.Creators>
+                        </S.Details>
+                      )}
+                    </S.Box>
+                  </S.Content>
 
-                {data[0].series.available > 0 && (
-                  <S.Details>
-                    <S.Title>Series</S.Title>
-                    <S.ContainerContent $total={data[0].series.available}>
-                      <MagazineContent
-                        perPage={5}
-                        page="events"
-                        content="series"
-                        urlId={eventId}
-                      />
-                    </S.ContainerContent>
-                  </S.Details>
-                )}
-                {data[0].comics.available > 0 && (
-                  <S.Details>
-                    <S.Title>Comics</S.Title>
-                    <S.ContainerContent $total={data[0].comics.available}>
-                      <MagazineContent
-                        perPage={5}
-                        page="events"
-                        content="comics"
-                        urlId={eventId}
-                      />
-                    </S.ContainerContent>
-                  </S.Details>
-                )}
-              </S.Container>
-            </S.Wrapper>
+                  {data[0].characters.available > 0 && (
+                    <S.Details $isCards={true}>
+                      <S.Title>Characters</S.Title>
+                      <S.ContainerContent
+                        available={data[0].characters.available}
+                      >
+                        <CardContent page="events" urlId={eventId} />
+                      </S.ContainerContent>
+                    </S.Details>
+                  )}
+
+                  {data[0].series.available > 0 && (
+                    <S.Details>
+                      <S.Title>Series</S.Title>
+                      <S.ContainerContent $total={data[0].series.available}>
+                        <MagazineContent
+                          perPage={5}
+                          page="events"
+                          content="series"
+                          urlId={eventId}
+                        />
+                      </S.ContainerContent>
+                    </S.Details>
+                  )}
+                  {data[0].comics.available > 0 && (
+                    <S.Details>
+                      <S.Title>Comics</S.Title>
+                      <S.ContainerContent $total={data[0].comics.available}>
+                        <MagazineContent
+                          perPage={5}
+                          page="events"
+                          content="comics"
+                          urlId={eventId}
+                        />
+                      </S.ContainerContent>
+                    </S.Details>
+                  )}
+                </S.Container>
+              )}
+            </>
           )}
-          <div className="subFooter">{footerText}</div>
-        </S.Section>
-      )}
+        </S.Wrapper>
+        <div className="subFooter">{footerText}</div>
+      </S.Section>
     </>
   );
 };

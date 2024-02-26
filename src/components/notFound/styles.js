@@ -1,27 +1,40 @@
 import styled from "styled-components";
 import Rain from "../../assets/rain.gif";
+import BgPurple from "../../assets/3.jpg";
 
 export const Container = styled.div`
   width: 100%;
   position: relative;
-  background: #000;
+  background: url(${BgPurple});
+  background-size: cover, auto;
+  background-position: center;
+  background-repeat: no-repeat;
 `;
 
 export const Content = styled.div`
-  padding: 0 80px;
+  margin: 0 auto;
+  padding: 80px 0;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  max-width: 1100px;
+  min-height: calc(100vh - 16rem);
   position: relative;
 
   @media (max-width: 767px) {
     flex-direction: column-reverse;
+    max-width: 300px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1199px) {
+    max-width: 700px;
   }
 `;
 
 export const BgRain = styled.div`
   width: 100%;
-  background-color: red;
   height: 30px;
   position: absolute;
   height: 100%;

@@ -72,109 +72,114 @@ const ComicInfo = () => {
   return (
     <>
       <Header isRelative={true} isInfoPage={true} />
-      {data && (
-        <S.Section>
-          <S.BackgroundImage />
-          {loading ? (
-            <AvengersAnimation />
-          ) : (
-            <S.Wrapper>
-              <S.Container>
-                <S.Content>
-                  <S.Image
-                    src={`${
-                      data[0].thumbnail
-                        ? ` ${data[0].thumbnail.path}.${data[0].thumbnail.extension}`
-                        : ""
-                    }`}
-                    alt={data[0].title}
-                  />
+      <S.Section>
+        <S.BackgroundImage />
+        <S.Wrapper>
+          {data && (
+            <>
+              {loading ? (
+                <AvengersAnimation />
+              ) : (
+                <>
+                  <S.Container>
+                    <S.Content>
+                      <S.Image
+                        src={`${
+                          data[0].thumbnail
+                            ? ` ${data[0].thumbnail.path}.${data[0].thumbnail.extension}`
+                            : ""
+                        }`}
+                        alt={data[0].title}
+                      />
 
-                  <S.Box>
-                    <S.Details>
-                      <S.Title>{data[0].title}</S.Title>
+                      <S.Box>
+                        <S.Details>
+                          <S.Title>{data[0].title}</S.Title>
 
-                      <Infos>
-                        Published:
-                        <span> {formatedDate}</span>
-                      </Infos>
+                          <Infos>
+                            Published:
+                            <span> {formatedDate}</span>
+                          </Infos>
 
-                      <S.Description>
-                        {noDescription
-                          ? "Marvel has not released a description for this comic."
-                          : data[0].description}
-                      </S.Description>
+                          <S.Description>
+                            {noDescription
+                              ? "Marvel has not released a description for this comic."
+                              : data[0].description}
+                          </S.Description>
 
-                      <Infos>
-                        Serie:
-                        <span>
-                          <SerieName to={`/series/${serieId}`}>
-                            <p>
-                              {data[0].series.name} <ArrowIcon />
-                            </p>
-                          </SerieName>
-                        </span>
-                      </Infos>
+                          <Infos>
+                            Serie:
+                            <span>
+                              <SerieName to={`/series/${serieId}`}>
+                                <p>
+                                  {data[0].series.name} <ArrowIcon />
+                                </p>
+                              </SerieName>
+                            </span>
+                          </Infos>
 
-                      {data[0].variants.length > 0 && (
-                        <Covers onClick={() => setModal(true)}>
-                          See cover variants <ArrowIcon />
-                        </Covers>
-                      )}
-                    </S.Details>
+                          {data[0].variants.length > 0 && (
+                            <Covers onClick={() => setModal(true)}>
+                              See cover variants <ArrowIcon />
+                            </Covers>
+                          )}
+                        </S.Details>
 
-                    {data[0].creators.available > 0 && (
-                      <S.Details>
-                        <S.Title>Producers</S.Title>
-                        <S.Creators>
-                          {creators.map((creator, index) => {
-                            return (
-                              <S.CreatorRole key={index}>
-                                {creator.role}
-                                <br />
-                                {creator.people.map((item, i) => (
-                                  <S.CreatorName
-                                    key={item.creatorId}
-                                    to={`/creators/${item.creatorId}`}
-                                    target="_blank"
-                                  >
-                                    <span>{item.name}</span>
-                                    {i !== creator.people.length - 1 && ", "}
-                                  </S.CreatorName>
-                                ))}
-                              </S.CreatorRole>
-                            );
-                          })}
-                        </S.Creators>
+                        {data[0].creators.available > 0 && (
+                          <S.Details>
+                            <S.Title>Producers</S.Title>
+                            <S.Creators>
+                              {creators.map((creator, index) => {
+                                return (
+                                  <S.CreatorRole key={index}>
+                                    {creator.role}
+                                    <br />
+                                    {creator.people.map((item, i) => (
+                                      <S.CreatorName
+                                        key={item.creatorId}
+                                        to={`/creators/${item.creatorId}`}
+                                        target="_blank"
+                                      >
+                                        <span>{item.name}</span>
+                                        {i !== creator.people.length - 1 &&
+                                          ", "}
+                                      </S.CreatorName>
+                                    ))}
+                                  </S.CreatorRole>
+                                );
+                              })}
+                            </S.Creators>
+                          </S.Details>
+                        )}
+                      </S.Box>
+                    </S.Content>
+
+                    {data[0].characters.available > 0 && (
+                      <S.Details $isCards={true}>
+                        <S.Title>Characters</S.Title>
+
+                        <S.ContainerContent
+                          available={data[0].characters.available}
+                        >
+                          <CardContent page="comics" urlId={comicId} />
+                        </S.ContainerContent>
                       </S.Details>
                     )}
-                  </S.Box>
-                </S.Content>
 
-                {data[0].characters.available > 0 && (
-                  <S.Details $isCards={true}>
-                    <S.Title>Characters</S.Title>
-
-                    <S.ContainerContent
-                      available={data[0].characters.available}
-                    >
-                      <CardContent page="comics" urlId={comicId} />
-                    </S.ContainerContent>
-                  </S.Details>
-                )}
-
-                {modal && (
-                  <ModalVariants
-                    variants={data[0].variants}
-                    setModal={setModal}
-                  />
-                )}
-              </S.Container>
-            </S.Wrapper>
+                    {modal && (
+                      <ModalVariants
+                        variants={data[0].variants}
+                        setModal={setModal}
+                      />
+                    )}
+                  </S.Container>
+                </>
+              )}
+            </>
           )}
-          <div className="subFooter">{footerText}</div>
-        </S.Section>
-      )}
+        </S.Wrapper>
+        <div className="subFooter">{footerText}</div>
+      </S.Section>
     </>
   );
 };

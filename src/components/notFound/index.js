@@ -16,9 +16,9 @@ const NotFound = () => {
 
   return (
     <>
-      <Header />
       <S.Container>
         <S.BgRain />
+        <Header isRelative={true} />
         <S.Content>
           <S.Box>
             <S.Title>Error 404 page not found</S.Title>

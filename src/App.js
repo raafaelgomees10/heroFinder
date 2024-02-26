@@ -16,29 +16,32 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
+    <div className="app">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
 
-        <Route path="/characters" element={<Characters />} />
-        <Route path="/characters/:id" element={<HeroInfo />} />
+          <Route path="/characters" element={<Characters />} />
+          <Route path="/characters/:id" element={<HeroInfo />} />
 
-        <Route path="comics" element={<Comics />} />
-        <Route path="/comics/:id" element={<ComicInfo />} />
+          <Route path="comics" element={<Comics />} />
+          <Route path="/comics/:id" element={<ComicInfo />} />
 
-        <Route path="events" element={<Events />} />
-        <Route path="/events/:id" element={<EventInfo />} />
+          <Route path="events" element={<Events />} />
+          <Route path="/events/:id" element={<EventInfo />} />
 
-        <Route path="series" element={<Series />} />
-        <Route path="/series/:id" element={<SerieInfo />} />
+          <Route path="series" element={<Series />} />
+          <Route path="/series/:id" element={<SerieInfo />} />
 
-        <Route path="creators" element={<Creators />} />
-        <Route path="/creators/:id" element={<CreatorInfo />} />
+          <Route path="creators" element={<Creators />} />
+          <Route path="/creators/:id" element={<CreatorInfo />} />
 
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+
+        <Footer />
+      </BrowserRouter>
+    </div>
   );
 }
 
