@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import * as S from "./styles";
+import * as S from "../searchPageStyles";
 import Header from "../header";
 import Error from "../helper/error";
 import AvengersAnimation from "../loading";
@@ -86,7 +86,7 @@ const Creators = () => {
                 </S.Content>
               </>
             ) : (
-              <S.Content>
+              <S.Content $isCards={true}>
                 {total > 0 ? (
                   <CardContent items={data} type="creators" isHomePage={true} />
                 ) : (

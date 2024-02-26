@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import * as S from "./styles";
 import Header from "../header";
 import Error from "../helper/error";
+import * as S from "../searchPageStyles";
 import AvengersAnimation from "../loading";
 import useFetch from "../../hooks/useFetch";
 import useMedia from "../../hooks/useMedia";

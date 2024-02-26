@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Box } from "./styles";
 import Header from "../header";
 import Error from "../helper/error";
-import * as S from "../globalStyles";
+import * as S from "../infoPageStyles";
 import AvengersAnimation from "../loading";
 import { GET_CREATOR } from "../../api/api";
 import useFetch from "../../hooks/useFetch";

@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
-import BgBlack from "../../assets/bgBlack.jpg";
-import bgBalls from "../../assets/balls.svg";
+import BgBlack from "../assets/bgBlack.jpg";
+import bgBalls from "../assets/balls.svg";
 
 export const Section = styled.section``;
 
@@ -33,10 +33,13 @@ export const Content = styled.div`
   flex-wrap: wrap;
   margin-top: 32px;
 
-  @media (max-width: 767px) {
-    justify-content: center;
-    margin-top: 24px;
-  }
+  ${(props) =>
+    props.$isCards &&
+    css`
+      justify-content: flex-start;
+      /* padding: 3rem auto; */
+      gap: 16px 36px;
+    `}
 
   ${(props) =>
     props.$total < 4 &&
@@ -44,6 +47,11 @@ export const Content = styled.div`
       gap: 4rem;
       justify-content: flex-start;
     `}
+
+  @media (max-width: 767px) {
+    justify-content: center;
+    margin-top: 24px;
+  }
 `;
 
 export const Image = styled.img`
@@ -74,13 +82,15 @@ export const Text = styled.div`
   position: absolute;
   text-transform: uppercase;
   font-size: 3.4rem;
-  font-family: "Roboto";
+  font-family: "Bangers", cursive;
+  letter-spacing: 2px;
   font-weight: 700;
 
   > span {
     text-transform: none;
     font-size: 1.8rem;
     font-weight: 300;
+    letter-spacing: 0.1px;
   }
 
   @media (max-width: 767px) {

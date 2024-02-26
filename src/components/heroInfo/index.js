@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "../header";
 import Error from "../helper/error";
-import * as S from "../globalStyles";
+import * as S from "../infoPageStyles";
 import { GET_HERO } from "../../api/api";
 import AvengersAnimation from "../loading";
 import useFetch from "../../hooks/useFetch";
