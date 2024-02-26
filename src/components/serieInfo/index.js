@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Header from "../header";
 import Error from "../helper/error";
 import * as S from "../globalStyles";
 import { GET_SERIE } from "../../api/api";
@@ -61,6 +62,8 @@ const SerieInfo = () => {
 
   return (
     <>
+      <Header isRelative={true} isInfoPage={true} />
+
       {data && (
         <S.Section>
           <S.BackgroundImage />

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import dayjs from "dayjs";
+import Header from "../header";
 import Error from "../helper/error";
 import * as S from "../globalStyles";
 import { GET_COMIC } from "../../api/api";
@@ -70,6 +71,7 @@ const ComicInfo = () => {
 
   return (
     <>
+      <Header isRelative={true} isInfoPage={true} />
       {data && (
         <S.Section>
           <S.BackgroundImage />

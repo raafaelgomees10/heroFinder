@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./styles";
+import Header from "../header";
 import Error from "../helper/error";
 import AvengersAnimation from "../loading";
 import useMedia from "../../hooks/useMedia";
@@ -49,6 +50,7 @@ const Comics = () => {
 
   return (
     <>
+      <Header />
       <S.Section>
         <S.Wrapper>
           <S.Image src={mobile ? HeaderBgMobile : HeaderBg} />

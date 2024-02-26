@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import dayjs from "dayjs";
+import Header from "../header";
 import * as S from "../globalStyles";
 import Error from "../helper/error";
 import { GET_EVENT } from "../../api/api";
@@ -72,6 +73,8 @@ const EventInfo = () => {
 
   return (
     <>
+      <Header isRelative={true} isInfoPage={true} />
+
       {data && (
         <S.Section>
           <S.BackgroundImage />

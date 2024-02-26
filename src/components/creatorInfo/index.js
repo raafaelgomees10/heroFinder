@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Box } from "./styles";
+import Header from "../header";
 import Error from "../helper/error";
 import * as S from "../globalStyles";
 import AvengersAnimation from "../loading";
@@ -28,10 +29,10 @@ const CreatorInfo = () => {
   }
 
   const noImage = data && data[0].thumbnail.path.split("/").pop();
-  console.log("data", data);
 
   return (
     <>
+      <Header isRelative={true} isInfoPage={true} />
       {data && (
         <S.Section>
           <S.BackgroundImage />

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./styles";
+import Header from "../header";
 import Error from "../helper/error";
 import AvengersAnimation from "../loading";
 import useFetch from "../../hooks/useFetch";
@@ -50,6 +51,7 @@ const Series = () => {
 
   return (
     <>
+      <Header />
       <S.Section>
         <S.Wrapper>
           <S.Image src={mobile ? HeaderBgMobile : HeaderBg} />

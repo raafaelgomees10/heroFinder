@@ -1,5 +1,5 @@
 import "./App.css";
-import Header from "./components/header";
+import Home from "./components/home";
 import Comics from "./components/comics";
 import Series from "./components/series";
 import Events from "./components/events";
@@ -13,12 +13,10 @@ import EventInfo from "./components/eventInfo";
 import Characters from "./components/characters";
 import CreatorInfo from "./components/creatorInfo";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./components/home";
 
 function App() {
   return (
     <BrowserRouter>
-      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
 

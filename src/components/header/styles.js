@@ -1,10 +1,15 @@
 import { NavLink } from "react-router-dom";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Header = styled.header`
   width: 100%;
-  background-color: ${(props) => (props.$isInfoPage ? "#163c52" : "#121212")};
   padding: 16px 10px;
+  position: ${(props) => (props.$isRelative ? "relative" : "absolute")};
+  background-color: ${(props) => props.$isInfoPage && "#163c52"};
+  top: 0;
+  left: 0;
+  z-index: 1;
+
   @media (max-width: 767px) {
     text-align: center;
   }
@@ -92,7 +97,7 @@ export const Ul = styled.ul`
 `;
 
 export const Li = styled.li`
-  font-size: 1.8rem;
+  font-size: 2.4rem;
   margin: 0px 16px;
 
   @media (max-width: 767px) {
@@ -103,7 +108,7 @@ export const Li = styled.li`
 
 export const Links = styled(NavLink)`
   color: #fff;
-
+  font-family: "Bangers", sans-serif;
   transition: color 0.5s;
   position: relative;
 

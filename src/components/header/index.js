@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 import * as S from "./styles";
 import useMedia from "../../hooks/useMedia";
-import { useLocation } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ isRelative, isInfoPage }) => {
   const [mobileMenu, setMobileMenu] = useState(false);
   const mobile = useMedia("(max-width:767px)");
-  const location = useLocation();
-  const isInfoPage = /\/\d+$/.test(location.pathname);
 
   return (
-    <S.Header $isInfoPage={isInfoPage}>
+    <S.Header $isRelative={isRelative} $isInfoPage={isInfoPage}>
       <S.Container>
         <S.Box>
           <S.Logo>
@@ -32,7 +29,7 @@ const Header = () => {
         >
           <S.Ul>
             <S.Li>
-              <S.Links to="/">Characters</S.Links>
+              <S.Links to="/characters">Characters</S.Links>
             </S.Li>
             <S.Li>
               <S.Links to="/comics">Comics</S.Links>
