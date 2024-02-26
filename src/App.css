@@ -25,7 +25,7 @@ html,body{
   -ms-transform: rotate(-3deg) skew(-10deg, 0);
   -o-transform: rotate(-3deg) skew(-10deg, 0);
   transform: rotate(-3deg) skew(-10deg, 0);
-  font-family: "Bangers", sans-serif;
+  font-family: "Bangers", cursive;
 }
 
 
@@ -44,7 +44,18 @@ html,body{
   border-radius: 32px;
   border: 2px solid black;
   padding: 16px 80px;
+}
 
+@media(max-width: 767px){
+  .subFooter{
+   
+
+    justify-content: center;
+
+    margin: 0 auto;
+    border: 2px solid black;
+    padding: 16px ;
+  }
 }
 
 .loader {

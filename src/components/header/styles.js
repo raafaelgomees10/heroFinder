@@ -110,7 +110,7 @@ export const Li = styled.li`
 
 export const Links = styled(NavLink)`
   color: #fff;
-  font-family: "Bangers", sans-serif;
+  font-family: "Bangers", cursive;
   transition: color 0.5s;
   position: relative;
 

@@ -92,7 +92,7 @@ export const Box = styled.div`
 
 export const Title = styled.h1`
   font-size: 4rem;
-  font-family: "Bangers", sans-serif;
+  font-family: "Bangers", cursive;
   font-weight: 400;
   letter-spacing: 1.1px;
   margin: 0;
@@ -119,7 +119,7 @@ export const SubTitle = styled(Title)`
 
 export const Description = styled.p`
   font-size: 1.6rem;
-  font-family: "Bangers", sans-serif;
+  font-family: "Luckiest Guy", cursive;
   font-weight: 400;
   margin: 20px 0;
   letter-spacing: 1.5px;

@@ -88,6 +88,10 @@ export const Ul = styled.ul`
   justify-content: space-between;
   padding: 0;
   margin: 8px 0 0;
+
+  @media (max-width: 325px) {
+    display: none;
+  }
 `;
 
 export const Li = styled.li`

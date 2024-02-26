@@ -5,6 +5,7 @@ export const Container = styled(NavLink)`
   position: relative;
   width: ${(props) => (props.$isHomePage ? "190px" : "140px")};
   margin-top: 1rem;
+  box-shadow: -5px 26px 24px -16px rgba(0, 0, 0, 0.4);
 
   &::after {
     border-color: transparent #1e1e1e transparent transparent;

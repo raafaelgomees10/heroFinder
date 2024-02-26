@@ -50,8 +50,8 @@ export const New = styled.div`
 export const Text = styled.div`
   position: relative;
   max-width: 350px;
-  font-size: 3.2rem;
-  font-family: "Bangers", sans-serif;
+  font-size: 3rem;
+  font-family: "Luckiest Guy", cursive;
   text-align: center;
 
   @media (max-width: 820px) {

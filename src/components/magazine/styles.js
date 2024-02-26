@@ -45,7 +45,7 @@ export const Image = styled.img`
 
 export const Name = styled.h3`
   font-size: 1.8rem;
-  font-family: "Bangers", sans-serif;
+  font-family: "Bangers", cursive;
   background-color: transparent;
   margin: 20px 0 0;
   font-weight: 400;
