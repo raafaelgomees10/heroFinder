@@ -13,13 +13,16 @@ import EventInfo from "./components/eventInfo";
 import Characters from "./components/characters";
 import CreatorInfo from "./components/creatorInfo";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./components/home";
 
 function App() {
   return (
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Characters />} />
+        <Route path="/" element={<Home />} />
+
+        <Route path="/characters" element={<Characters />} />
         <Route path="/characters/:id" element={<HeroInfo />} />
 
         <Route path="comics" element={<Comics />} />
