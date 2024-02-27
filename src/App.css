@@ -15,7 +15,7 @@ html,body{
 }
 
 .logoName{
-  font-size: 3.2rem;
+  font-size: 4rem;
   text-shadow: -1px -1px yellow, 1px 1px orange, 2px 2px orange;
   font-weight: 600;
   color: #000;
@@ -28,13 +28,11 @@ html,body{
   font-family: "Bangers", cursive;
 }
 
-
 .subFooter{
   font-size: 1.4rem;
   font-weight: 500;
   font-family: "Poppins",sans-serif;
   color: #000;
-  
   background: #7FD8FF;
   display: flex;
   justify-content: center;
@@ -48,16 +46,19 @@ html,body{
 
 @media(max-width: 767px){
   .subFooter{
-   
-
     justify-content: center;
-
     margin: 0 auto;
     border: 2px solid black;
     padding: 16px ;
   }
+
+  .logoName{
+    font-size: 3rem;
+  }
 }
 
+
+/* ### LOADINGS ### */
 .loader {
   width: fit-content;
   font-weight: bold;

@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import { Link } from "react-router-dom";
-import BgModal from "../../assets/1.jpg";
+import BgModal from "../../assets/bgModal.jpg";
 
 const fade = keyframes`
 0% {

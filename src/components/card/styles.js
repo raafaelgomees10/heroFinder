@@ -71,7 +71,6 @@ export const Image = styled.img`
 export const Details = styled.div`
   word-break: break-word;
   padding: 16px 6px;
-  font-size: 1.2rem;
   position: relative;
   height: ${(props) => (props.$isHomePage ? "145px" : "100px")};
   width: 100%;
@@ -111,6 +110,11 @@ export const CurrentSlide = styled.span`
 export const Name = styled.p`
   color: #fff;
   margin: 0;
+  font-size: 1.6rem;
+  font-family: "Luckiest Guy", cursive;
+  letter-spacing: 1px;
+  font-weight: 300;
+  -webkit-text-stroke: 0.5px black;
 
   ${(props) =>
     props.$isHomeLoading &&

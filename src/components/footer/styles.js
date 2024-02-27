@@ -1,13 +1,13 @@
 import { NavLink } from "react-router-dom";
 import styled, { css } from "styled-components";
-import BgBlack from "../../assets/8.jpg";
+import BgBlue from "../../assets/bgBlue.jpg";
 
 export const Footer = styled.footer`
   font-size: 2rem;
   padding: 16px 64px;
   background: #1d1d1d;
   color: #fff;
-  background-image: url(${BgBlack});
+  background-image: url(${BgBlue});
   background-size: cover, auto;
   background-position: center;
   background-repeat: no-repeat;
@@ -103,7 +103,7 @@ export const Ul = styled.ul`
 `;
 
 export const Li = styled.li`
-  font-size: 1.3rem;
+  font-size: 1.6rem;
 
   margin-right: 16px;
   @media (max-width: 767px) {
@@ -150,7 +150,7 @@ export const Links = styled(NavLink)`
 `;
 
 export const Text = styled.p`
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   margin: 0;
   font-family: "Luckiest Guy", cursive;
   letter-spacing: 1px;
@@ -170,5 +170,6 @@ export const Text = styled.p`
 
   @media (max-width: 767px) {
     text-align: center;
+    font-size: 1.4rem;
   }
 `;
