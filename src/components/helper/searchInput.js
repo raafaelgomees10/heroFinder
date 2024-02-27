@@ -64,7 +64,8 @@ const Input = styled.input`
   width: 100%;
   margin-left: 16px;
   color: #fff;
-
+  font-family: "Bangers", cursive;
+  letter-spacing: 1.2px;
   &:focus {
     outline: none;
     border-radius: 10px;
