@@ -13,8 +13,9 @@ const Home = () => {
             <S.Box>
               <S.Ballon>
                 <S.Text>
-                  Find out more more details, elevate your experiences about
-                  heroes and villains, comics and events
+                  Discover more about comic book icons and the masters behind
+                  Marvel stories. Find intriguing details and join this exciting
+                  journey.
                 </S.Text>
               </S.Ballon>
             </S.Box>

@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const Header = styled.header`
   width: 100%;
@@ -113,6 +113,7 @@ export const Links = styled(NavLink)`
   font-family: "Bangers", cursive;
   transition: color 0.5s;
   position: relative;
+  -webkit-text-stroke: 0.5px black;
 
   &.active {
     &::after {

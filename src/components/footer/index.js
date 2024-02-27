@@ -6,30 +6,29 @@ import { ReactComponent as LinkedIn } from "../../assets/linkedin.svg";
 import { ReactComponent as WhatsApp } from "../../assets/whatsapp.svg";
 import { useNavigate } from "react-router-dom";
 
-const contacts = [
-  {
-    link: "https://api.whatsapp.com/send?phone=5535984775696",
-    name: "Telefone",
-    icon: WhatsApp,
-  },
-  {
-    link: "https://www.linkedin.com/in/rafael-gomes-77ab23160/",
-    name: "LinkedIn",
-    icon: LinkedIn,
-  },
-  {
-    link: "https://github.com/raafaelgomees10",
-    name: "GitHub",
-    icon: GitHub,
-  },
-  {
-    link: "https://www.instagram.com/rafaelskatee/",
-    name: "Email",
-    icon: Instagram,
-  },
-];
-
 const Footer = () => {
+  const contacts = [
+    {
+      link: "https://api.whatsapp.com/send?phone=5535984775696",
+      name: "Telefone",
+      icon: WhatsApp,
+    },
+    {
+      link: "https://www.linkedin.com/in/rafael-gomes-77ab23160/",
+      name: "LinkedIn",
+      icon: LinkedIn,
+    },
+    {
+      link: "https://github.com/raafaelgomees10",
+      name: "GitHub",
+      icon: GitHub,
+    },
+    {
+      link: "https://www.instagram.com/rafaelskatee/",
+      name: "Email",
+      icon: Instagram,
+    },
+  ];
   const navigate = useNavigate();
   const handleClick = () => {
     navigate("/");
@@ -52,7 +51,7 @@ const Footer = () => {
             </S.Text>
             <S.Ul>
               <S.Li>
-                <S.Links to="/">Characters</S.Links>
+                <S.Links to="/characters">Characters</S.Links>
               </S.Li>
               <S.Li>
                 <S.Links to="/comics">Comics</S.Links>

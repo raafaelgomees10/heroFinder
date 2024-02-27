@@ -77,12 +77,30 @@ export const Image = styled.img`
     height: 420px;
     width: 300px;
   }
+  @media (max-width: 300px) {
+    height: 300px;
+    width: 200px;
+  }
+
+  @media (max-width: 199px) {
+    display: none;
+  }
 
   ${(props) =>
     props.$isSquareImage &&
     css`
       height: 300px;
       width: 300px;
+
+      @media (max-width: 767px) {
+        height: 300px;
+        width: 300px;
+      }
+
+      @media (max-width: 300px) {
+        height: 200px;
+        width: 200px;
+      }
     `}
 `;
 

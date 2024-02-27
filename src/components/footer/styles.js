@@ -1,11 +1,16 @@
 import { NavLink } from "react-router-dom";
 import styled, { css } from "styled-components";
+import BgBlack from "../../assets/8.jpg";
 
 export const Footer = styled.footer`
   font-size: 2rem;
   padding: 16px 64px;
   background: #1d1d1d;
-  color: #a5a5a5;
+  color: #fff;
+  background-image: url(${BgBlack});
+  background-size: cover, auto;
+  background-position: center;
+  background-repeat: no-repeat;
 
   @media (max-width: 767px) {
     padding: 16px;
@@ -39,6 +44,9 @@ export const Box = styled.div`
 
       @media (max-width: 767px) {
         margin-top: 16px;
+      }
+      @media (max-width: 199px) {
+        display: none;
       }
     `}
 `;
@@ -74,7 +82,7 @@ export const Logo = styled.div`
 `;
 
 export const Divider = styled.div`
-  background: #a5a5a5;
+  background: #fff;
   width: 1.2px;
   margin: 0 12px 0 20px;
   height: 60px;
@@ -95,7 +103,8 @@ export const Ul = styled.ul`
 `;
 
 export const Li = styled.li`
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+
   margin-right: 16px;
   @media (max-width: 767px) {
     padding: 0;
@@ -104,8 +113,11 @@ export const Li = styled.li`
 `;
 
 export const Links = styled(NavLink)`
-  color: #a5a5a5;
-
+  color: #fff;
+  font-family: "Bangers", cursive;
+  letter-spacing: 1px;
+  font-weight: 300;
+  -webkit-text-stroke: 0.5px black;
   transition: color 0.5s;
   position: relative;
 
@@ -140,12 +152,19 @@ export const Links = styled(NavLink)`
 export const Text = styled.p`
   font-size: 1.2rem;
   margin: 0;
+  font-family: "Luckiest Guy", cursive;
+  letter-spacing: 1px;
+  font-weight: 300;
+  -webkit-text-stroke: 0.5px black;
 
   > a {
-    color: #a5a5a5;
-
+    color: #fff;
+    font-family: "Luckiest Guy", cursive;
+    letter-spacing: 1px;
+    font-weight: 300;
+    -webkit-text-stroke: 0.5px black;
     &:hover {
-      color: #8257e6;
+      color: #e3ca31;
     }
   }
 
