@@ -11,6 +11,7 @@ import SearchNotFound from "../helper/searchNotFound";
 import { GET_COMICS, SEARCH_COMICS } from "../../api/api";
 import MagazineContent from "../container/magazineContent";
 import HeaderBgMobile from "../../assets/herosBgMobile.jpg";
+import Head from "../helper/head";
 
 const Comics = () => {
   const [search, setSearch] = useState("");
@@ -50,6 +51,7 @@ const Comics = () => {
 
   return (
     <>
+      <Head title="Comics" />
       <Header />
       <S.Section>
         <S.Wrapper>

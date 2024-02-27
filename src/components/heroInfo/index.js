@@ -6,6 +6,7 @@ import { GET_HERO } from "../../api/api";
 import AvengersAnimation from "../loading";
 import useFetch from "../../hooks/useFetch";
 import MagazineContent from "../container/magazineContent";
+import Head from "../helper/head";
 
 const HeroInfo = () => {
   const [footerText, setFooterText] = useState("");
@@ -42,6 +43,7 @@ const HeroInfo = () => {
             <>
               {data && (
                 <S.Container>
+                  <Head title={data[0].name} />
                   <S.Content>
                     <S.Image
                       $isSquareImage

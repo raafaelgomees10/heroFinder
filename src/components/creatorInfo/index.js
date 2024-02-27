@@ -7,6 +7,7 @@ import AvengersAnimation from "../loading";
 import { GET_CREATOR } from "../../api/api";
 import useFetch from "../../hooks/useFetch";
 import MagazineContent from "../container/magazineContent";
+import Head from "../helper/head";
 
 const CreatorInfo = () => {
   const [footerText, setFooterText] = useState("");
@@ -42,6 +43,7 @@ const CreatorInfo = () => {
             <>
               {data && (
                 <S.Container>
+                  <Head title={data[0].firstName} />
                   <S.Content>
                     <S.Image
                       src={`${

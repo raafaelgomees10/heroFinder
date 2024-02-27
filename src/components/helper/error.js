@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import DeadPoolGif from "../../assets/deadpool.gif";
 import BgPurple from "../../assets/bgPurple.jpg";
+import Head from "./head";
 
 const Error = ({ error }) => {
   const navigate = useNavigate();
@@ -16,6 +17,7 @@ const Error = ({ error }) => {
 
   return (
     <Container>
+      <Head title="Error" />
       <Content>
         <Box>
           <Title>{error}</Title>

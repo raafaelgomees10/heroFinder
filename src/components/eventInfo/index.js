@@ -11,6 +11,7 @@ import CardContent from "../container/cardContent";
 import MagazineContent from "../container/magazineContent";
 import { EventPeriod, Buttons, EventsButtons, Dates } from "./styles";
 import { ReactComponent as ArrowIcon } from "../../assets/arrowRight.svg";
+import Head from "../helper/head";
 
 const EventInfo = () => {
   const [footerText, setFooterText] = useState("");
@@ -83,6 +84,7 @@ const EventInfo = () => {
             <>
               {data && (
                 <S.Container>
+                  <Head title={data[0].title} />
                   <S.Content>
                     <S.Image
                       src={`${

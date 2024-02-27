@@ -7,6 +7,7 @@ import AvengersAnimation from "../loading";
 import useFetch from "../../hooks/useFetch";
 import CardContent from "../container/cardContent";
 import MagazineContent from "../container/magazineContent";
+import Head from "../helper/head";
 
 const SerieInfo = () => {
   const [footerText, setFooterText] = useState("");
@@ -72,6 +73,7 @@ const SerieInfo = () => {
             <>
               {data && (
                 <S.Container>
+                  <Head title="Serie details" />
                   <S.Content>
                     <S.Image
                       src={`${

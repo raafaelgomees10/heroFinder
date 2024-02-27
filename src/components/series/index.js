@@ -11,6 +11,7 @@ import SearchNotFound from "../helper/searchNotFound";
 import { GET_SERIES, SEARCH_SERIES } from "../../api/api";
 import HeaderBgMobile from "../../assets/herosBgMobile.jpg";
 import MagazineContent from "../container/magazineContent";
+import Head from "../helper/head";
 
 const Series = () => {
   const [search, setSearch] = useState("");
@@ -51,6 +52,7 @@ const Series = () => {
 
   return (
     <>
+      <Head title="Series" />
       <Header />
       <S.Section>
         <S.Wrapper>

@@ -4,6 +4,7 @@ import Header from "../header";
 import { Thanos } from "react-thanos";
 import IronMan from "../../assets/ironMan.png";
 import { useNavigate } from "react-router-dom";
+import Head from "../helper/head";
 
 const NotFound = () => {
   const navigate = useNavigate();
@@ -16,6 +17,7 @@ const NotFound = () => {
 
   return (
     <>
+      <Head title="Page not found" />
       <S.Container>
         <S.BgRain />
         <Header isRelative={true} />

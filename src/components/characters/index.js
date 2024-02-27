@@ -11,6 +11,7 @@ import CardContent from "../container/cardContent";
 import SearchNotFound from "../helper/searchNotFound";
 import { GET_HEROS, SEARCH_HEROS } from "../../api/api";
 import HeaderBgMobile from "../../assets/herosBgMobile.jpg";
+import Head from "../helper/head";
 
 const Characters = () => {
   const [heroSearch, setHeroSearch] = useState("");
@@ -49,6 +50,7 @@ const Characters = () => {
 
   return (
     <>
+      <Head title="Characters" />
       <Header />
       <S.Section>
         <S.Wrapper>

@@ -11,6 +11,7 @@ import CardContent from "../container/cardContent";
 import SearchNotFound from "../helper/searchNotFound";
 import HeaderBgMobile from "../../assets/herosBgMobile.jpg";
 import { GET_CREATORS, SEARCH_CREATORS } from "../../api/api";
+import Head from "../helper/head";
 
 const Creators = () => {
   const [search, setSearch] = useState("");
@@ -51,6 +52,7 @@ const Creators = () => {
 
   return (
     <>
+      <Head title="Produers" />
       <Header />
       <S.Section>
         <S.Wrapper>

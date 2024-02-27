@@ -10,6 +10,7 @@ import ModalVariants from "../modalVariants";
 import { Infos, Covers, SerieName } from "./styles";
 import CardContent from "../container/cardContent";
 import { ReactComponent as ArrowIcon } from "../../assets/arrowRight.svg";
+import Head from "../helper/head";
 
 const ComicInfo = () => {
   const [modal, setModal] = useState(false);
@@ -81,6 +82,7 @@ const ComicInfo = () => {
             <>
               {data && (
                 <S.Container>
+                  <Head title={data[0].title.split(" ")[0]} />
                   <S.Content>
                     <S.Image
                       src={`${

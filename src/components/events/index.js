@@ -11,6 +11,7 @@ import SearchNotFound from "../helper/searchNotFound";
 import { GET_EVENTS, SEARCH_EVENTS } from "../../api/api";
 import MagazineContent from "../container/magazineContent";
 import HeaderBgMobile from "../../assets/herosBgMobile.jpg";
+import Head from "../helper/head";
 
 const Events = () => {
   const [offset, setOffset] = useState(0);
@@ -72,6 +73,7 @@ const Events = () => {
 
   return (
     <>
+      <Head title="Events" />
       <Header />
       <S.Section>
         <S.Wrapper>
