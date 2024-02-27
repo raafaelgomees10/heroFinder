@@ -53,8 +53,12 @@ export const Content = styled.div`
   }
 `;
 export const Title = styled.h2`
-  font-size: 1.8rem;
+  font-size: 2.4rem;
   margin: 0 0 16px;
+  font-family: "Bangers", cursive;
+  letter-spacing: 1px;
+  font-weight: 300;
+  -webkit-text-stroke: 0.8px black;
 `;
 export const Box = styled.ul`
   width: 100%;
@@ -64,7 +68,7 @@ export const Box = styled.ul`
   gap: 2rem;
   padding: 0;
   margin: 0;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
 `;
 export const Item = styled.li`
   max-width: 280px;
@@ -73,6 +77,9 @@ export const Item = styled.li`
 export const VariantsLink = styled(Link)`
   text-decoration: none;
   color: #fff;
+  font-family: "Luckiest Guy", cursive;
+  letter-spacing: 1px;
+  font-weight: 300;
   &:hover {
     text-decoration: underline;
     color: #ee171f;

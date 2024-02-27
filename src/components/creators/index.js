@@ -60,8 +60,11 @@ const Creators = () => {
           <S.Text>
             Producers
             <span>
-              Meet the marvel producers and find out which stories they had a
-              role in
+              Each page refresh displays a new randomized listing
+              <br />
+              Meet the legends behind iconic story creations
+              <br />
+              discover which ones each was part of
             </span>
           </S.Text>
         </S.Wrapper>

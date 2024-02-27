@@ -8,13 +8,18 @@ export const EventPeriod = styled.div`
 `;
 
 export const Dates = styled.div`
-  font-size: 1.4rem;
-  font-weight: 600;
-  letter-spacing: 0.7px;
+  font-size: 1.6rem;
+
+  font-family: "Luckiest Guy", cursive;
+  letter-spacing: 1.3px;
+  -webkit-text-stroke: 0.5px black;
 
   > span {
-    font-weight: 300;
     display: block;
+    font-family: cursive;
+    letter-spacing: 1px;
+    font-weight: 300;
+    -webkit-text-stroke: 0;
   }
 
   @media (max-width: 767px) {
@@ -40,12 +45,18 @@ export const Buttons = styled(Link)`
   cursor: pointer;
   position: relative;
 
+  font-family: "Luckiest Guy", cursive;
+  letter-spacing: 1.3px;
+  font-weight: 300;
+  -webkit-text-stroke: 0.8px black;
+
   > svg {
     transform: ${(props) => props.$prev && "rotate(180deg)"};
     margin: ${(props) => (props.$prev ? "0 3px 0 0" : "0 0 0 3px")};
   }
   &:hover {
     text-decoration: underline;
+    -webkit-text-stroke: 0;
     color: #ee171f;
   }
 

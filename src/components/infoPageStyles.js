@@ -224,12 +224,13 @@ export const Creators = styled.ul`
 `;
 
 export const CreatorRole = styled.li`
-  font-size: 1.6rem;
-  font-weight: 600;
-  letter-spacing: 0.7px;
+  font-size: 1.8rem;
   text-transform: capitalize;
   margin: 0;
   padding: 0;
+  font-family: "Luckiest Guy", cursive;
+  letter-spacing: 1px;
+  -webkit-text-stroke: 0.4px black;
 
   &:not(:nth-child(-1n + 2)) {
     margin-top: 16px;
@@ -237,13 +238,18 @@ export const CreatorRole = styled.li`
 `;
 
 export const CreatorName = styled(Link)`
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 300;
-  color: #f2ecff;
+  color: #fff;
+  -webkit-text-stroke: 0;
 
   > span {
+    font-family: cursive;
+    letter-spacing: 0.8px;
+
     &:hover {
       text-decoration: underline;
+      -webkit-text-stroke: 0;
       color: #ee171f;
     }
   }

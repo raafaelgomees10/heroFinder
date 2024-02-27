@@ -1,11 +1,13 @@
 import React from "react";
 import * as S from "./styles";
-import SpiderMan from "../../assets/spiderMan.png";
 import Header from "../header";
+import Head from "../helper/head";
+import SpiderMan from "../../assets/spiderMan.png";
 
 const Home = () => {
   return (
     <S.Wrapper>
+      <Head title="Home" />
       <Header isRelative={true} />
       <S.Section>
         <S.Container>

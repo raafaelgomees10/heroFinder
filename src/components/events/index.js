@@ -81,8 +81,8 @@ const Events = () => {
           <S.Text>
             Events
             <span>
-              Find out more details and stay up to date with the stories of the
-              heroes and villains
+              Discover historical events. Browse, search, and explore details of
+              each
             </span>
           </S.Text>
         </S.Wrapper>

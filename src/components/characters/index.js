@@ -58,8 +58,9 @@ const Characters = () => {
           <S.Text>
             Characters
             <span>
-              Find out more details and stay up to date with the stories of the
-              heroes and villains
+              Each page refresh displays a new randomized listing
+              <br />
+              Search and explore details about heroes and villains
             </span>
           </S.Text>
         </S.Wrapper>

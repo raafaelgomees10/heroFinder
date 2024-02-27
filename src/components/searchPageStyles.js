@@ -85,20 +85,26 @@ export const Text = styled.div`
   font-family: "Bangers", cursive;
   letter-spacing: 2px;
   font-weight: 700;
+  -webkit-text-stroke: 0.5px black;
 
   > span {
     text-transform: none;
     font-size: 1.8rem;
     font-weight: 300;
-    letter-spacing: 0.1px;
+
+    font-family: "Luckiest Guy", cursive;
+    letter-spacing: 1.3px;
+    -webkit-text-stroke: 0.5px black;
+    text-align: center;
   }
 
   @media (max-width: 767px) {
     text-align: center;
-    font-size: 2.4rem;
+    font-size: 2.8rem;
+
     > span {
       margin-top: 8px;
-      font-size: 1.6rem;
+      font-size: 1.4rem;
     }
   }
 `;
