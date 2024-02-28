@@ -1,10 +1,10 @@
 import React from "react";
 import * as S from "./styles";
 import Header from "../header";
-import { Thanos } from "react-thanos";
-import IronMan from "../../assets/ironMan.png";
-import { useNavigate } from "react-router-dom";
 import Head from "../helper/head";
+import { Thanos } from "react-thanos";
+import IronMan from "../../assets/ironMan.webp";
+import { useNavigate } from "react-router-dom";
 
 const NotFound = () => {
   const navigate = useNavigate();

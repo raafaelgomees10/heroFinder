@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Header from "../header";
+import Head from "../helper/head";
 import Error from "../helper/error";
 import * as S from "../searchPageStyles";
 import AvengersAnimation from "../loading";
 import useMedia from "../../hooks/useMedia";
 import useFetch from "../../hooks/useFetch";
-import HeaderBg from "../../assets/herosBg.jpg";
+import HeaderBg from "../../assets/herosBg.webp";
 import SearchInput from "../helper/searchInput";
 import SearchNotFound from "../helper/searchNotFound";
 import { GET_COMICS, SEARCH_COMICS } from "../../api/api";
 import MagazineContent from "../container/magazineContent";
-import HeaderBgMobile from "../../assets/herosBgMobile.jpg";
-import Head from "../helper/head";
+import HeaderBgMobile from "../../assets/herosBgMobile.webp";
 
 const Comics = () => {
   const [search, setSearch] = useState("");

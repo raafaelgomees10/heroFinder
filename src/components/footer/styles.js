@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
+import BgBlue from "../../assets/bgBlue.webp";
 import styled, { css } from "styled-components";
-import BgBlue from "../../assets/bgBlue.jpg";
 
 export const Footer = styled.footer`
   font-size: 2rem;

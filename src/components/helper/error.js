@@ -1,10 +1,10 @@
 import React from "react";
+import Head from "./head";
 import { Thanos } from "react-thanos";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import DeadPoolGif from "../../assets/deadpool.gif";
-import BgPurple from "../../assets/bgPurple.jpg";
-import Head from "./head";
+import BgPurple from "../../assets/bgPurple.webp";
 
 const Error = ({ error }) => {
   const navigate = useNavigate();

@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Header from "../header";
+import Head from "../helper/head";
 import Error from "../helper/error";
 import * as S from "../searchPageStyles";
 import AvengersAnimation from "../loading";
 import useMedia from "../../hooks/useMedia";
 import useFetch from "../../hooks/useFetch";
-import HeaderBg from "../../assets/herosBg.jpg";
+import HeaderBg from "../../assets/herosBg.webp";
 import SearchInput from "../helper/searchInput";
 import CardContent from "../container/cardContent";
 import SearchNotFound from "../helper/searchNotFound";
 import { GET_HEROS, SEARCH_HEROS } from "../../api/api";
-import HeaderBgMobile from "../../assets/herosBgMobile.jpg";
-import Head from "../helper/head";
+import HeaderBgMobile from "../../assets/herosBgMobile.webp";
 
 const Characters = () => {
   const [heroSearch, setHeroSearch] = useState("");
@@ -54,7 +54,10 @@ const Characters = () => {
       <Header />
       <S.Section>
         <S.Wrapper>
-          <S.Image src={mobile ? HeaderBgMobile : HeaderBg} />
+          <S.Image
+            src={mobile ? HeaderBgMobile : HeaderBg}
+            alt="Comics with marvel characters"
+          />
           <S.Text>
             Characters
             <span>

@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import BgBlack from "../../assets/bgHome.png";
-import BgBallon from "../../assets/homeBallon.png";
+import BgBlack from "../../assets/bgHome.webp";
+import BgBallon from "../../assets/homeBallon.webp";
 
 export const Wrapper = styled.div`
   background-image: linear-gradient(
@@ -34,7 +34,7 @@ export const Content = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-  min-height: calc(100vh - 16rem);
+  min-height: calc(100vh - 6rem);
 
   @media (max-width: 820px) {
     flex-direction: column;

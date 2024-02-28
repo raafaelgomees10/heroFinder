@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import BgBlack from "../assets/bgBlack.jpg";
+import BgBlack from "../assets/bgBlack.webp";
 import bgBalls from "../assets/balls.svg";
 
 export const Section = styled.section``;

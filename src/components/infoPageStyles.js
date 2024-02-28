@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
-import BgImage from "../assets/Sky.png";
-import BgBlack from "../assets/bgBlack.jpg";
-import BgImageMobile from "../assets/SkyMobile.png";
+import { Link } from "react-router-dom";
+import BgImage from "../assets/Sky.webp";
+import BgBlack from "../assets/bgBlack.webp";
+import BgImageMobile from "../assets/SkyMobile.webp";
 
 export const Section = styled.section``;
 

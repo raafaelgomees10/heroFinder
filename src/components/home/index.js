@@ -2,7 +2,7 @@ import React from "react";
 import * as S from "./styles";
 import Header from "../header";
 import Head from "../helper/head";
-import SpiderMan from "../../assets/spiderMan.png";
+import SpiderMan from "../../assets/spiderMan.webp";
 
 const Home = () => {
   return (

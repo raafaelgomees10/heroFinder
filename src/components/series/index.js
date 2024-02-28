@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Header from "../header";
+import Head from "../helper/head";
 import Error from "../helper/error";
 import * as S from "../searchPageStyles";
 import AvengersAnimation from "../loading";
 import useFetch from "../../hooks/useFetch";
 import useMedia from "../../hooks/useMedia";
-import HeaderBg from "../../assets/herosBg.jpg";
 import SearchInput from "../helper/searchInput";
+import HeaderBg from "../../assets/herosBg.webp";
 import SearchNotFound from "../helper/searchNotFound";
 import { GET_SERIES, SEARCH_SERIES } from "../../api/api";
-import HeaderBgMobile from "../../assets/herosBgMobile.jpg";
 import MagazineContent from "../container/magazineContent";
-import Head from "../helper/head";
+import HeaderBgMobile from "../../assets/herosBgMobile.webp";
 
 const Series = () => {
   const [search, setSearch] = useState("");
@@ -56,7 +56,10 @@ const Series = () => {
       <Header />
       <S.Section>
         <S.Wrapper>
-          <S.Image src={mobile ? HeaderBgMobile : HeaderBg} />
+          <S.Image
+            src={mobile ? HeaderBgMobile : HeaderBg}
+            alt="Comics with marvel characters"
+          />
           <S.Text>
             Series
             <span>

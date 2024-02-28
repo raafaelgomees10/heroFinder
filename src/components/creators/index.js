@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
-import * as S from "../searchPageStyles";
 import Header from "../header";
+import Head from "../helper/head";
 import Error from "../helper/error";
+import * as S from "../searchPageStyles";
 import AvengersAnimation from "../loading";
 import useFetch from "../../hooks/useFetch";
 import useMedia from "../../hooks/useMedia";
-import HeaderBg from "../../assets/herosBg.jpg";
 import SearchInput from "../helper/searchInput";
+import HeaderBg from "../../assets/herosBg.webp";
 import CardContent from "../container/cardContent";
 import SearchNotFound from "../helper/searchNotFound";
-import HeaderBgMobile from "../../assets/herosBgMobile.jpg";
+import HeaderBgMobile from "../../assets/herosBgMobile.webp";
 import { GET_CREATORS, SEARCH_CREATORS } from "../../api/api";
-import Head from "../helper/head";
 
 const Creators = () => {
   const [search, setSearch] = useState("");
@@ -56,7 +56,10 @@ const Creators = () => {
       <Header />
       <S.Section>
         <S.Wrapper>
-          <S.Image src={mobile ? HeaderBgMobile : HeaderBg} />
+          <S.Image
+            src={mobile ? HeaderBgMobile : HeaderBg}
+            alt="Comics with marvel characters"
+          />
           <S.Text>
             Producers
             <span>
