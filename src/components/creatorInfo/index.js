@@ -51,7 +51,7 @@ const CreatorInfo = () => {
                           ? ` ${data[0].thumbnail.path}.${data[0].thumbnail.extension}`
                           : ""
                       }`}
-                      alt={data[0].title}
+                      alt={`Creator : ${data[0].name}`}
                       $isSquareImage={noImage === "image_not_available"}
                     />
 

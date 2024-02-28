@@ -101,6 +101,7 @@ export const Image = styled.img`
   display: block;
   width: 310px;
   height: 520px;
+  border-bottom-right-radius: 32%;
 
   @media (max-width: 820px) {
     width: 280px;

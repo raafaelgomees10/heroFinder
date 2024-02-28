@@ -92,7 +92,7 @@ const EventInfo = () => {
                           ? ` ${data[0].thumbnail.path}.${data[0].thumbnail.extension}`
                           : ""
                       }`}
-                      alt={data[0].title}
+                      alt={`Title : ${data[0].title}`}
                     />
                     <S.Box>
                       <S.Details>

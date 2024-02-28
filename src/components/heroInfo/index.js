@@ -52,7 +52,7 @@ const HeroInfo = () => {
                           ? ` ${data[0].thumbnail.path}.${data[0].thumbnail.extension}`
                           : ""
                       }`}
-                      alt={data[0].name}
+                      alt={`Character : ${data[0].name}`}
                     />
                     <S.Details>
                       <S.Title $isCharacters>{data[0].name}</S.Title>

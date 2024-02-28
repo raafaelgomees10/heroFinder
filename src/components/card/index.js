@@ -19,7 +19,7 @@ const Card = ({ hero, isHomePage = false, type, isHomeLoading }) => {
                 ? ` ${hero.thumbnail.path}.${hero.thumbnail.extension}`
                 : ""
             }`}
-            alt={hero.name}
+            alt={`Character: ${hero.name}`}
             $isHomePage={isHomePage}
           />
         )}

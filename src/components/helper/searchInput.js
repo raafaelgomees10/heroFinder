@@ -17,7 +17,7 @@ const SearchInput = ({
 }) => {
   return (
     <Wrapper>
-      <Button onClick={onClick}>
+      <Button onClick={onClick} aria-label="Search button">
         <Icon />
       </Button>
       <Input

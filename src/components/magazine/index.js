@@ -15,7 +15,7 @@ const Magazine = ({ content, item, isHomePage = false, isHomeLoading }) => {
                 : ""
             }`}
             $isHomePage={isHomePage}
-            alt={title}
+            alt={`title: ${title}`}
           />
           <S.Name $isHomePage={isHomePage}>{title}</S.Name>
         </Link>

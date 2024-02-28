@@ -102,13 +102,17 @@ const Box = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 2rem;
+  font-family: "Bangers", cursive;
+  letter-spacing: 1px;
+  -webkit-text-stroke: 0.5px black;
+  font-size: 3.2rem;
   color: #f31;
 `;
 
 const Text = styled.p`
   font-size: 2rem;
   font-weight: 400;
+  font-family: cursive;
   margin-bottom: 16px;
 
   @media (max-width: 767px) {
@@ -117,7 +121,8 @@ const Text = styled.p`
 `;
 
 const SubTitle = styled.span`
-  font-size: 1.2rem;
+  font-family: cursive;
+  font-size: 1.4rem;
 `;
 
 export const Image = styled.img`

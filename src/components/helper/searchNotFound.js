@@ -34,4 +34,6 @@ const Content = styled.div``;
 const Image = styled.img`
   width: 268px;
   height: 268px;
+  border-radius: 30%;
+  border: 3px solid black;
 `;

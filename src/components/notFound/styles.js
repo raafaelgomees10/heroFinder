@@ -64,7 +64,10 @@ export const Box = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 3.2rem;
+  font-size: 3.6rem;
+  font-family: "Bangers", cursive;
+  letter-spacing: 1px;
+  -webkit-text-stroke: 0.8px black;
 
   @media (max-width: 767px) {
     font-size: 2rem;
@@ -73,7 +76,7 @@ export const Title = styled.h1`
 
 export const SubTitle = styled.h2`
   font-size: 2rem;
-
+  font-family: cursive;
   @media (max-width: 767px) {
     font-size: 1.6rem;
   }
@@ -83,6 +86,8 @@ export const Text = styled.div`
   font-size: 1.6rem;
   font-weight: 300;
   margin-bottom: 16px;
+  font-family: cursive;
+  /* letter-spacing: 1px; */
 
   @media (max-width: 767px) {
     font-size: 1.2rem;
