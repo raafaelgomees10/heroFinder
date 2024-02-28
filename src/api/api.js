@@ -2,9 +2,9 @@ import config from "../core/config";
 
 const API_URL = "https://gateway.marvel.com/v1/public";
 const totalHeros = 1564; //total de herois consultado na api
-const totalComics = 59124;
-const totalSeries = 14673;
-const totalCreators = 5935;
+const totalComics = 59500;
+const totalSeries = 14715;
+const totalCreators = 5944;
 const randomHerois = Math.floor(Math.random() * totalHeros + 1);
 const randomComics = Math.floor(Math.random() * totalComics + 1);
 const randomSeries = Math.floor(Math.random() * totalSeries + 1);
