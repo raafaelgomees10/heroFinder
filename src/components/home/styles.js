@@ -2,7 +2,7 @@ import styled from "styled-components";
 import BgBlack from "../../assets/bgHome.webp";
 import BgBallon from "../../assets/homeBallon.webp";
 
-export const Wrapper = styled.div`
+export const Section = styled.section`
   background-image: linear-gradient(
       to bottom,
       rgba(27, 156, 209, 0.62),
@@ -15,36 +15,38 @@ export const Wrapper = styled.div`
   background-size: cover;
 `;
 
-export const Section = styled.section``;
-
 export const Container = styled.div`
-  max-width: 1100px;
   margin: 0 auto;
 
-  @media (max-width: 820px) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  max-width: 1100px;
+  min-height: calc(100vh - 16.6rem);
+  position: relative;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
     max-width: 300px;
+    justify-content: center;
+    gap: 30px;
   }
 
-  @media (min-width: 821px) and (max-width: 1199px) {
+  @media (min-width: 768px) and (max-width: 1199px) {
     max-width: 700px;
   }
 `;
 
-export const Content = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-  min-height: calc(100vh - 6rem);
+export const Box = styled.div`
+  max-width: 600px;
 
-  @media (max-width: 820px) {
-    flex-direction: column;
+  @media (max-width: 767px) {
     justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-`;
-export const Box = styled.div``;
-
-export const New = styled.div`
-  position: relative;
 `;
 
 export const Text = styled.div`

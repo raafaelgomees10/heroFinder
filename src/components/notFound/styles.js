@@ -26,6 +26,8 @@ export const Content = styled.div`
   @media (max-width: 767px) {
     flex-direction: column-reverse;
     max-width: 300px;
+    justify-content: center;
+    gap: 20px;
   }
 
   @media (min-width: 768px) and (max-width: 1199px) {
@@ -47,6 +49,9 @@ export const Image = styled.img`
 
   @media (max-width: 767px) {
     width: 250px;
+  }
+  @media (max-width: 255px) {
+    display: none;
   }
 `;
 
