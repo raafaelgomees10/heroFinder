@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import Header from "../header";
+import Head from "../helper/head";
 import Error from "../helper/error";
 import * as S from "../infoPageStyles";
 import { GET_COMIC } from "../../api/api";
@@ -10,7 +11,6 @@ import ModalVariants from "../modalVariants";
 import { Infos, Covers, SerieName } from "./styles";
 import CardContent from "../container/cardContent";
 import { ReactComponent as ArrowIcon } from "../../assets/arrowRight.svg";
-import Head from "../helper/head";
 
 const ComicInfo = () => {
   const [modal, setModal] = useState(false);
@@ -70,6 +70,8 @@ const ComicInfo = () => {
     return <Error error={error} />;
   }
 
+  const urlParams = window.location.search;
+
   return (
     <>
       <Header isRelative={true} isInfoPage={true} />
@@ -111,7 +113,7 @@ const ComicInfo = () => {
                         <Infos>
                           Serie:
                           <span>
-                            <SerieName to={`/series/${serieId}`}>
+                            <SerieName to={`/series/${serieId}${urlParams}`}>
                               <p>
                                 {data[0].series.name} <ArrowIcon />
                               </p>
@@ -138,7 +140,7 @@ const ComicInfo = () => {
                                   {creator.people.map((item, i) => (
                                     <S.CreatorName
                                       key={item.creatorId}
-                                      to={`/creators/${item.creatorId}`}
+                                      to={`/creators/${item.creatorId}${urlParams}`}
                                       target="_blank"
                                     >
                                       <span>{item.name}</span>

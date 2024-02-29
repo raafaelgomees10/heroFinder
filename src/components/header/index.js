@@ -11,6 +11,8 @@ const Header = ({ isRelative, isInfoPage }) => {
     navigate("/");
   };
 
+  const urlParams = window.location.search;
+
   return (
     <S.Header $isRelative={isRelative} $isInfoPage={isInfoPage}>
       <S.Container>
@@ -34,19 +36,19 @@ const Header = ({ isRelative, isInfoPage }) => {
         >
           <S.Ul>
             <S.Li>
-              <S.Links to="/characters">Characters</S.Links>
+              <S.Links to={`/characters${urlParams}`}>Characters</S.Links>
             </S.Li>
             <S.Li>
-              <S.Links to="/comics">Comics</S.Links>
+              <S.Links to={`/comics${urlParams}`}>Comics</S.Links>
             </S.Li>
             <S.Li>
-              <S.Links to="/events">Events</S.Links>
+              <S.Links to={`/events${urlParams}`}>Events</S.Links>
             </S.Li>
             <S.Li>
-              <S.Links to="/series">Series</S.Links>
+              <S.Links to={`/series${urlParams}`}>Series</S.Links>
             </S.Li>
             <S.Li>
-              <S.Links to="/creators">Producers</S.Links>
+              <S.Links to={`/creators${urlParams}`}>Producers</S.Links>
             </S.Li>
           </S.Ul>
         </S.Nav>

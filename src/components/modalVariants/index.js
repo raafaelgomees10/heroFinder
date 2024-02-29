@@ -17,6 +17,7 @@ const ModalVariants = ({ setModal, variants }) => {
     };
   }, [setModal, variants]);
   const total = variants && variants.length;
+  const urlParams = window.location.search;
 
   return (
     <S.Container>
@@ -33,7 +34,10 @@ const ModalVariants = ({ setModal, variants }) => {
 
             return (
               <S.Item key={comicId}>
-                <S.VariantsLink to={`/comics/${comicId}`} target="_blank">
+                <S.VariantsLink
+                  to={`/comics/${comicId}${urlParams}`}
+                  target="_blank"
+                >
                   {variant.name}
                 </S.VariantsLink>
               </S.Item>

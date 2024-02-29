@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 
 const Magazine = ({ content, item, isHomePage = false, isHomeLoading }) => {
   const title = item.title ? item.title : item.name;
+  const urlParams = window.location.search;
+
   return (
     <S.Box $isHomeLoading={isHomeLoading} $isHomePage={isHomePage}>
       {!isHomeLoading && (
-        <Link to={`/${content}/${item.id}`} target="_blank">
+        <Link to={`/${content}/${item.id}${urlParams}`} target="_blank">
           <S.Image
             src={`${
               item.thumbnail

@@ -72,6 +72,8 @@ const EventInfo = () => {
     return <Error error={error} />;
   }
 
+  const urlParams = window.location.search;
+
   return (
     <>
       <Header isRelative={true} isInfoPage={true} />
@@ -131,7 +133,7 @@ const EventInfo = () => {
                             <Buttons
                               $prev={true}
                               reloadDocument
-                              to={`/events/${prevEventId}`}
+                              to={`/events/${prevEventId}${urlParams}`}
                             >
                               <ArrowIcon />
                               Previous Event{" "}
@@ -141,7 +143,7 @@ const EventInfo = () => {
 
                           {nextEventId && (
                             <Buttons
-                              to={`/events/${nextEventId}`}
+                              to={`/events/${nextEventId}${urlParams}`}
                               reloadDocument
                             >
                               Next Event {!mobile && `- ${data[0].next.name}`}{" "}
@@ -163,7 +165,7 @@ const EventInfo = () => {
                                   {creator.people.map((item, i) => (
                                     <S.CreatorName
                                       key={item.creatorId}
-                                      to={`/creators/${item.creatorId}`}
+                                      to={`/creators/${item.creatorId}${urlParams}`}
                                       target="_blank"
                                     >
                                       <span>{item.name}</span>

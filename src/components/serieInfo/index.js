@@ -60,6 +60,7 @@ const SerieInfo = () => {
   if (error) {
     return <Error error={error} />;
   }
+  const urlParams = window.location.search;
 
   return (
     <>
@@ -106,7 +107,7 @@ const SerieInfo = () => {
                                   {creator.people.map((item, i) => (
                                     <S.CreatorName
                                       key={item.creatorId}
-                                      to={`/creators/${item.creatorId}`}
+                                      to={`/creators/${item.creatorId}${urlParams}`}
                                       target="_blank"
                                     >
                                       <span>{item.name}</span>
