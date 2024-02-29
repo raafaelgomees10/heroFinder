@@ -9,6 +9,8 @@ The data is provided through an API in which marvel makes available -
 
 Project developed as the main focus of improving my knowledge
 
+Take a look at the project. I would be happy if you could share your feedback and experience. [Click here](https://herofiinder.netlify.app?utm_source=gitHub&utm_campaign=social=utm_campaign=project_heroFinder) .
+
 ## :technologist: Technologies
 
 - [React](https://reactjs.org/)
@@ -60,7 +62,7 @@ REACT_APP_HASH = yourHash;
 
 ## Contact
 
-Take a look at my [portfolio](https://rafaelgomes.netlify.app/).
+Take a look at my [portfolio](https://rafaelgomes.netlify.app/utm_source=gitHub&utm_campaign=social=utm_campaign=project_heroFinder).
 
 <a href="https://www.facebook.com/rafael.gomes.961pl/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/facebook/facebook-original.svg" width="30" heigth="30" alt="Rafael-facebook"></a>
 <a href="https://www.linkedin.com/in/rafael-gomes-77ab23160/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg" width="30" heigth="30" alt="Rafael-linkedn"></a>
