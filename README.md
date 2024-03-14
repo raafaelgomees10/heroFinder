@@ -67,4 +67,4 @@ Take a look at my [portfolio](https://rafaelgomes.netlify.app?utm_source=github&
 <a href="https://www.facebook.com/rafael.gomes.961pl/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/facebook/facebook-original.svg" width="30" heigth="30" alt="Rafael-facebook"></a>
 <a href="https://www.linkedin.com/in/rafael-gomes-77ab23160/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg" width="30" heigth="30" alt="Rafael-linkedn"></a>
 
-:copyright: Developed with 💜 by **[Rafael Gomes](https://www.linkedin.com/in/rafael-gomes-77ab23160/)**
+:copyright: Developed with 💜 by **[Rafael Gomes](https://www.linkedin.com/in/dev-rafael-gomes/)**
