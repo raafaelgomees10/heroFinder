@@ -45,7 +45,7 @@ const Footer = () => {
           <div>
             <S.Text>
               Developed with ❤️ by{" "}
-              <a href="https://rafaelgomes.netlify.app/?utm_source=heroFinder&utm_medium=footer&utm_campaign=project_herofinder">
+              <a href="https://rafaelgomes.netlify.app/?utm_source=heroFinder&utm_medium=footer&utm_campaign=heroFinder">
                 Rafael Gomes
               </a>
             </S.Text>

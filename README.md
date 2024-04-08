@@ -9,7 +9,7 @@ The data is provided through an API in which marvel makes available -
 
 Project developed as the main focus of improving my knowledge
 
-Take a look at the project. I would be happy if you could share your feedback and experience. [Click here](https://herofiinder.netlify.app?utm_source=github&utm_medium=description_github&utm_campaign=project_herofinder) .
+Take a look at the project. I would be happy if you could share your feedback and experience. [Click here](https://herofiinder.netlify.app?utm_source=github&utm_medium=readme_project&utm_campaign=heroFinder) .
 
 ## :technologist: Technologies
 
@@ -62,9 +62,9 @@ REACT_APP_HASH = yourHash;
 
 ## Contact
 
-Take a look at my [portfolio](https://rafaelgomes.netlify.app?utm_source=github&utm_medium=description_github&utm_campaign=project_herofinder).
+Take a look at my [portfolio](https://rafaelgomes.netlify.app?utm_source=github&utm_medium=readme_project&utm_campaign=heroFinder).
 
 <a href="https://www.facebook.com/rafael.gomes.961pl/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/facebook/facebook-original.svg" width="30" heigth="30" alt="Rafael-facebook"></a>
 <a href="https://www.linkedin.com/in/dev-rafael-gomes/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linkedin/linkedin-original.svg" width="30" heigth="30" alt="Rafael-linkedn"></a>
 
-:copyright: Developed with 💜 by **[Rafael Gomes](https://rafaelgomes.netlify.app?utm_source=github&utm_medium=description_github&utm_campaign=project_herofinder)**
+:copyright: Developed with 💜 by **[Rafael Gomes](https://rafaelgomes.netlify.app?utm_source=github&utm_medium=readme_project&utm_campaign=heroFinder)**
